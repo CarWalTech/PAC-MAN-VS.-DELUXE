@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fe90229df9454b4b1302731f15ccfe, type: 3}
+  m_Name: Panic Pier
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelName: Panic Pier
+  levelTiles: {fileID: 6547923556454938526, guid: 0250cbc48d490342c85082b516cc4862, type: 3}
+  levelModel: {fileID: 2688178022403800068, guid: e4c064a24797241feb02dcc9687cd3f0, type: 3}

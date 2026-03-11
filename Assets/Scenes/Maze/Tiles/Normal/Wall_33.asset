@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b958a8eb832dc086a514320c4a2842d, type: 3}
+  m_Name: Wall_33
+  m_EditorClassIdentifier: Assembly-CSharp::ThemableTile
+  TileIndex: 33
+  theme: {fileID: 11400000, guid: ab9e2e7fed9eb6c1dbeaa7b719d67e59, type: 2}

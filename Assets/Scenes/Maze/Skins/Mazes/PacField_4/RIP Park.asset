@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fe90229df9454b4b1302731f15ccfe, type: 3}
+  m_Name: RIP Park
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelName: R.I.P. Park
+  levelTiles: {fileID: 6547923556454938526, guid: e85d5e7f1ee966480b3fd8b3fb4c7d50, type: 3}
+  levelModel: {fileID: 4818079871318979684, guid: 91e0405dd09eb175d87c85d5c42d2563, type: 3}

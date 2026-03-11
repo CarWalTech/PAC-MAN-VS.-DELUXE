@@ -1,0 +1,140 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GhostViewport : MonoBehaviour, ISkinableBehavior
+{
+    public SkinManager skinManager = null;
+    public Color cardColor = Color.red;
+    public PlayerNumber player = PlayerNumber.P1;
+
+    public Image background = null;
+    public Image cover = null;
+    public Image mask = null;
+    public Image label = null;
+
+    public RenderTexture source = null;
+    public RawImage viewport;
+
+    private Sprite[] __player_header_sprites = new Sprite[]{};
+    private Sprite __com_header_sprite = null;
+
+    public enum SkinMode
+    {
+        Maze,
+        MazeMain,
+        Ghost
+    }
+
+    public SkinMode skinMode = SkinMode.Ghost;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public void Start()
+    {
+        UpdateSkin();
+    }
+    public void RefreshSkin()
+    {
+        UpdateSkin();
+    }
+
+    public void SetViewport(RenderTexture src)
+    {
+        source = src;
+    }
+
+
+    void OnValidate()
+    {
+        UpdateSkin();
+        UpdateBackground(true);
+        UpdateLabels();
+    }
+    void UpdateBackground(bool force = false)
+    {
+        var currentColor = background != null ? background.color : Color.black;
+        if (cardColor != currentColor || force)
+        {
+            if (background != null) background.color = cardColor;
+            if (cover != null) cover.color = skinMode == SkinMode.Ghost ? cardColor : Color.black;
+            if (label != null) label.color = cardColor;
+        }
+    }
+    void UpdateSkin()
+    {
+        if (!skinManager) return;
+        if (!skinManager.guiTheme) return;
+        skinManager.AddHook(this);
+
+        try
+        {
+            switch (skinMode)
+            {
+                case SkinMode.Maze:
+                    __player_header_sprites = skinManager.guiTheme.gvm_PlayerNumbers;
+                    __com_header_sprite = skinManager.guiTheme.gvm_COMHeader;
+                    if (background != null) background.sprite = skinManager.guiTheme.gvm_ViewportContainer;
+                    if (cover != null) cover.sprite = skinManager.guiTheme.gvm_ViewportFrame;
+                    if (mask != null) mask.sprite = skinManager.guiTheme.gvm_ViewportMask;
+                    break;
+                case SkinMode.MazeMain:
+                    __player_header_sprites = skinManager.guiTheme.gvm_PlayerNumbers;
+                    __com_header_sprite = skinManager.guiTheme.gvm_COMHeader;
+                    if (background != null) background.sprite = null;
+                    if (cover != null) cover.sprite = null;
+                    if (mask != null) mask.sprite = null;
+                    break;
+                case SkinMode.Ghost:
+                    __player_header_sprites = skinManager.guiTheme.gv_PlayerNumbers;
+                    __com_header_sprite = skinManager.guiTheme.gv_COMHeader;
+                    if (background != null) background.sprite = skinManager.guiTheme.gv_ViewportFrame;
+                    if (cover != null) cover.sprite = skinManager.guiTheme.gv_ViewportFrame;
+                    if (mask != null) mask.sprite = skinManager.guiTheme.gv_ViewportMask;
+                    break;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Unable to set skin for GhostViewport: " + ex);
+        }   
+    }
+    void UpdateViewport()
+    {
+        if (viewport.texture != source)
+        {
+            viewport.texture = source;
+            viewport.enabled = viewport.texture != null;
+        }
+    }
+    void UpdateLabels()
+    {
+        try { 
+            if (player == PlayerNumber.Computer)
+            {
+                label.sprite = __com_header_sprite;
+            }
+            else
+            {
+                if (__player_header_sprites.Count() > (int)player)
+                    label.sprite = __player_header_sprites[(int)player];
+            }
+            
+        } 
+        catch (Exception ex)
+        {
+            Debug.LogError("Unable to update labels for GhostViewport: " + ex);
+        }   
+    }
+    void Update()
+    {
+        UpdateBackground();
+        UpdateLabels();
+        UpdateViewport();
+    }
+
+
+}

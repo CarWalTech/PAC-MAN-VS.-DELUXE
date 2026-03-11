@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8a94ba1d8a1afa447abcd6d22021a366
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 220117
+  packageName: SceneNav - Smooth & Fast Scene Navigation
+  packageVersion: 2.5.0
+  assetPath: Assets/Rowlan/Tools/SceneNav/Editor/SceneMark/QuickNavEditorWindow.cs
+  uploadId: 834244

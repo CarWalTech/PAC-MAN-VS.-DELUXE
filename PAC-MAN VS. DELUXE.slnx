@@ -1,0 +1,6 @@
+﻿<Solution>
+  <Project Path="Rowlan.SceneNav.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="rowlan.quicknav.editor.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+</Solution>

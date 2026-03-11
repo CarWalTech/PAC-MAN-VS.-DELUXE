@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f193e0364b9a8c54683c2395947d277d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 220117
+  packageName: SceneNav - Smooth & Fast Scene Navigation
+  packageVersion: 2.5.0
+  assetPath: Assets/Rowlan/Tools/SceneNav/Editor/SceneNav/Events/SceneNavEventManager.cs
+  uploadId: 834244

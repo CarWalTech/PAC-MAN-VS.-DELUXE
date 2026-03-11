@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fe90229df9454b4b1302731f15ccfe, type: 3}
+  m_Name: Manic Manor
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelName: Manic Manor
+  levelTiles: {fileID: 6547923556454938526, guid: 0f37cbf1591e61a17b65f2c9f5a0e7e3, type: 3}
+  levelModel: {fileID: 7507885038410284151, guid: 1359d812f79e67259b741cff35eb6996, type: 3}
