@@ -1,0 +1,4 @@
+repository "PAC-MAN VS. DELUXE/PAC-MAN VS. DELUXE@2474278243015@cloud"
+  path "/"
+    br "/main"
+    co "/main"
