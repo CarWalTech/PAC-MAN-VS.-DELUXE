@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4835182324912552102}
   - component: {fileID: 8189186605513635759}
   - component: {fileID: 1389206365286902981}
-  - component: {fileID: 2508496157327268401}
+  - component: {fileID: -4843110935099688589}
   m_Layer: 7
   m_Name: PacMan
   m_TagString: Untagged
@@ -131,31 +131,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPacManAI
   speed: 4
-  speedMultiplier: 1
   initialDirection: {x: 1, y: 0}
   tilemap: {fileID: 0}
---- !u!114 &2508496157327268401
+--- !u!114 &-4843110935099688589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692825103242723698}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbc16d02d3f910763bff338a0277dbf1, type: 3}
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ComputerPacManAI
-  speed: 4
-  speedMultiplier: 1
-  initialDirection: {x: 1, y: 0}
-  tilemap: {fileID: 0}
-  pellets: {fileID: 0}
-  ghosts: []
-  retreatDistance: 4
-  edibleChaseDistance: 12
-  globalRandomness: 0.15
-  currentMood: 0
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 8cf729532750addd69d000d0a4f2afd2, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1389206365286902981}
+        m_TargetAssemblyTypeName: PlayerPacManAI, Assembly-CSharp
+        m_MethodName: Input_OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 22eb060a-bc92-4ab3-8e70-5de31c54be32
+    m_ActionName: 'Default/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1389206365286902981}
+        m_TargetAssemblyTypeName: PlayerPacManAI, Assembly-CSharp
+        m_MethodName: Input_OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 666c1034-28d9-40c7-a6a7-3c5e01ffedd2
+    m_ActionName: 'Default/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1389206365286902981}
+        m_TargetAssemblyTypeName: PlayerPacManAI, Assembly-CSharp
+        m_MethodName: Input_OnSwitchViews
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2b202d6c-6f69-400f-b2cf-2b61d9487856
+    m_ActionName: 'Default/Switch Viewport[/Keyboard/tab]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Default
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1685384366317195334
 GameObject:
   m_ObjectHideFlags: 0

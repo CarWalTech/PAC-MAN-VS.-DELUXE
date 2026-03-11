@@ -175,7 +175,10 @@ public class ScorecardCommons : MonoBehaviour
             }
             else
             {
-                var digits = score.ToString("D5").Select(x=>int.Parse(x.ToString())).Reverse().ToList();
+                List<int> digits;
+                try { digits = score.ToString("D5").Select(x=>int.Parse(x.ToString())).Reverse().ToList(); }
+                catch { digits = new List<int> { 0, 0, 0, 0, 0 }; }
+                
                 GetSprite(digits, 4, ref digit5);
                 GetSprite(digits, 3, ref digit4);
                 GetSprite(digits, 2, ref digit3);

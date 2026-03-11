@@ -28,23 +28,29 @@ public class Maze3DAnimator : MonoBehaviour
         _controller = GetComponent<Animator>();
         _source = GetComponent<Maze3D>();
 
+        
+
         _knownParams.Add(AnimatorControllerParameterType.Bool, new List<string>());
         _knownParams.Add(AnimatorControllerParameterType.Float, new List<string>());
         _knownParams.Add(AnimatorControllerParameterType.Int, new List<string>());
         _knownParams.Add(AnimatorControllerParameterType.Trigger, new List<string>());
 
-        for (int i = 0; i < _controller.parameterCount; i++)
+        if (_controller.isInitialized)
         {
-            var param = _controller.parameters[i];
-            _knownParams[param.type].Add(param.name);
+            for (int i = 0; i < _controller.parameterCount; i++)
+            {
+                var param = _controller.parameters[i];
+                _knownParams[param.type].Add(param.name);
 
-            if (param.type == AnimatorControllerParameterType.Bool)
-                _boolValues.Add(param.name, param.defaultBool);
-            else if (param.type == AnimatorControllerParameterType.Int)
-                _intValues.Add(param.name, param.defaultInt);
-            else if (param.type == AnimatorControllerParameterType.Float)
-                _floatValues.Add(param.name, param.defaultFloat);
+                if (param.type == AnimatorControllerParameterType.Bool)
+                    _boolValues.Add(param.name, param.defaultBool);
+                else if (param.type == AnimatorControllerParameterType.Int)
+                    _intValues.Add(param.name, param.defaultInt);
+                else if (param.type == AnimatorControllerParameterType.Float)
+                    _floatValues.Add(param.name, param.defaultFloat);
+            }
         }
+
     }
 
     void Start()

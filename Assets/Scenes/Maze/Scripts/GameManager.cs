@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
@@ -121,8 +122,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!IsReady) return;
-        OnInput();
+
     }
 
     private void Awake()
@@ -264,12 +264,6 @@ public class GameManager : MonoBehaviour
 
     #region Events
 
-    private void OnInput()
-    {
-        if (Input.GetKeyDown(KeyCode.C)) gameCameras.SwitchViewModes();
-        if (Input.GetKeyDown(KeyCode.Escape) && GameConfiguration.GameExitMode != GameConfiguration.ExitMode.Disabled) GameConfiguration.Event_ReturnToMenu();
-    }
-
 
     private void OnDestroy()
     {
@@ -283,6 +277,16 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Commands
+
+    public void Event_SwitchCameras()
+    {
+        gameCameras.SwitchViewModes();
+    }
+
+    public void Event_PauseGame()
+    {
+        if (GameConfiguration.GameExitMode != GameConfiguration.ExitMode.Disabled) GameConfiguration.Event_ReturnToMenu();
+    }
 
     public void Event_SetupGame()
     {

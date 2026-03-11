@@ -1,22 +1,41 @@
 using UnityEngine;
 using System.Linq;
-public class PlayerPacManAI : PacManAI
+using UnityEngine.InputSystem;
+public class PlayerPacManAI : PacManAI, IPlayerInput
 {
-    protected override void InputUpdate()
+    public void Input_OnMove(InputAction.CallbackContext context)
     {
+        var direction = context.ReadValue<Vector2>();
         // Set the new direction based on the current input
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+        if (direction == Vector2.up) {
             SetInputDirection(Vector2.up);
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow)) {
+        else if (direction == Vector2.down) {
             SetInputDirection(Vector2.down);
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+        else if (direction == Vector2.left) {
             SetInputDirection(Vector2.left);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+        else if (direction == Vector2.right) {
             SetInputDirection(Vector2.right);
         }
+    }
+
+    public void Input_OnPause(InputAction.CallbackContext context)
+    {
+        if (context.canceled) return;
+        GameManager.Instance.Event_PauseGame();
+    }
+
+    public void Input_OnSwitchViews(InputAction.CallbackContext context)
+    {
+        if (context.canceled) return;
+        GameManager.Instance.Event_SwitchCameras();
+    }
+
+
+    protected override void InputUpdate()
+    {
 
     }
 }
