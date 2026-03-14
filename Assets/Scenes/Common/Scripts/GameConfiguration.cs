@@ -65,9 +65,9 @@ public static class GameConfiguration
     public static EnterMode GameEnterMode { get; set; } = EnterMode.Disabled;
     public static ExitMode GameExitMode { get; set; } = ExitMode.Disabled;
 
-    public static PlayerSlot ClientPlayerSlot { get; private set; } = PlayerSlot.P1;
-
+    public static PlayerSlot PlayerSlot_Client { get; private set; } = PlayerSlot.P1;
     public static PlayerSlot PlayerSlot_PacMan { get; private set; } = PlayerSlot.P1;
+    public static PlayerSlot PlayerSlot_Next_PacMan { get; private set; } = PlayerSlot.Null;
     public static PlayerSlot PlayerSlot_GhostP1 { get; private set; } = PlayerSlot.P2;
     public static PlayerSlot PlayerSlot_GhostP2 { get; private set; } = PlayerSlot.P3;
     public static PlayerSlot PlayerSlot_GhostP3 { get; private set; } = PlayerSlot.P4;
@@ -87,26 +87,25 @@ public static class GameConfiguration
     public static float GhostSpeed { get; private set; } = 1.0f;
     public static float FrightTimer { get; private set; } = 6.0f;
     
-    private static int Score_P1 { get; set; } = 0;
-    private static int Score_P2 { get; set; } = 0;
-    private static int Score_P3 { get; set; } = 0;
-    private static int Score_P4 { get; set; } = 0;
-    private static int Score_P5 { get; set; } = 0;
+    public static int Score_P1 { get; private set; } = 0;
+    public static int Score_P2 { get; private set; } = 0;
+    public static int Score_P3 { get; private set; } = 0;
+    public static int Score_P4 { get; private set; } = 0;
+    public static int Score_P5 { get; private set; } = 0;
 
-    private static bool __needsRestore = false;
-    private static PlayerSlot __pacmanCatcher = PlayerSlot.Null;
+    public static bool CanRestore = false;
 
     public static MatchViewMode GetCameraFocus()
     {
-        if (ClientPlayerSlot == InputSource_PacMan.ToSlot())
+        if (PlayerSlot_Client == InputSource_PacMan.ToSlot())
             return MatchViewMode.MazeView;
-        else if (ClientPlayerSlot == InputSource_GhostP1.ToSlot())
+        else if (PlayerSlot_Client == InputSource_GhostP1.ToSlot())
             return PlayerCount >= 5 ? MatchViewMode.WorldViewP5 : MatchViewMode.WorldView;
-        else if (ClientPlayerSlot == InputSource_GhostP2.ToSlot())
+        else if (PlayerSlot_Client == InputSource_GhostP2.ToSlot())
             return PlayerCount >= 5 ? MatchViewMode.WorldViewP5 : MatchViewMode.WorldView;
-        else if (ClientPlayerSlot == InputSource_GhostP3.ToSlot())
+        else if (PlayerSlot_Client == InputSource_GhostP3.ToSlot())
             return PlayerCount >= 5 ? MatchViewMode.WorldViewP5 : MatchViewMode.WorldView;
-        else if (ClientPlayerSlot == InputSource_GhostP4.ToSlot())
+        else if (PlayerSlot_Client == InputSource_GhostP4.ToSlot())
             return PlayerCount >= 5 ? MatchViewMode.WorldViewP5 : MatchViewMode.WorldView;
         else
             return MatchViewMode.MazeView;
@@ -204,82 +203,6 @@ public static class GameConfiguration
                 return PlayerCharacter.COM;
         }
     }
-
-    public static bool Restore_IsPossible()
-    {
-        return __needsRestore;
-    }
-    public static void Restore_Start(MatchConfigManager mgr)
-    {
-        if (!mgr.GameSetting_GamePlayerCount) return;
-        else mgr.GameSetting_GamePlayerCount.SetValue(PlayerCount);
-
-        if (!mgr.GameSetting_Player1) return;
-        else
-        {
-            mgr.GameSetting_Player1.SetSelection(CharacterP1);
-            mgr.GameSetting_Player1.SetScore(Score_P1);
-        }
-
-        if (!mgr.GameSetting_Player2) return;
-        else
-        {
-            mgr.GameSetting_Player2.SetSelection(CharacterP2);
-            mgr.GameSetting_Player2.SetScore(Score_P2);
-        }
-
-        if (!mgr.GameSetting_Player3) return;
-        else
-        {
-            mgr.GameSetting_Player3.SetSelection(CharacterP3);
-            mgr.GameSetting_Player3.SetScore(Score_P3);
-
-        }
-
-        if (!mgr.GameSetting_Player4) return;
-        else
-        {
-            mgr.GameSetting_Player4.SetSelection(CharacterP4);
-            mgr.GameSetting_Player4.SetScore(Score_P4);
-        }
-
-        if (!mgr.GameSetting_Player5) return;
-        else
-        {
-            mgr.GameSetting_Player5.SetSelection(CharacterP5);
-            mgr.GameSetting_Player5.SetScore(Score_P5);
-        }
-
-        if (__pacmanCatcher == PlayerSlot.P1) mgr.GameSetting_Player1.SetPacMode(true);
-        else if (__pacmanCatcher == PlayerSlot.P2) mgr.GameSetting_Player2.SetPacMode(true);
-        else if (__pacmanCatcher == PlayerSlot.P3) mgr.GameSetting_Player3.SetPacMode(true);
-        else if (__pacmanCatcher == PlayerSlot.P4) mgr.GameSetting_Player4.SetPacMode(true);
-        else if (__pacmanCatcher == PlayerSlot.P5) mgr.GameSetting_Player5.SetPacMode(true);
-        __pacmanCatcher = PlayerSlot.Null;
-
-
-        if (!mgr.GameSetting_GameGhostSight) return;
-        else mgr.GameSetting_GameGhostSight.SetValue(GhostSight);
-
-        if (!mgr.GameSetting_GameGhostSpeed) return;
-        else mgr.GameSetting_GameGhostSpeed.SetValue(GhostSpeed);
-
-        if (!mgr.GameSetting_GhostFrightTime) return;
-        else mgr.GameSetting_GhostFrightTime.SetValue(FrightTimer);
-        
-        if (!mgr.GameSetting_GamePacManSpeed) return;
-        else mgr.GameSetting_GamePacManSpeed.SetValue(PacManSpeed);
-        
-        if (!mgr.GameSetting_GameTargetScore) return;
-        else mgr.GameSetting_GameTargetScore.SetValue(TargetScore);
-
-        if (!mgr.GameSetting_GamePacManBonus) return;
-        else mgr.GameSetting_GamePacManBonus.SetValue(PacManBonus);
-
-
-
-        __needsRestore = false;
-    }
     
     public static void Event_StartGame(MatchConfigManager gameConfig)
     {
@@ -299,6 +222,7 @@ public static class GameConfiguration
             }
 
             PlayerSlot_PacMan = (PlayerSlot)pac_player_index;
+            PlayerSlot_Next_PacMan = PlayerSlot_PacMan;
             InputSource_PacMan = pac_player_controller;
         }
 
@@ -399,12 +323,12 @@ public static class GameConfiguration
     }
     public static void Event_SwapPacMan(PlayerSlot transferTo)
     {
-        __pacmanCatcher = transferTo;
+        PlayerSlot_Next_PacMan = transferTo;
     }
     public static void Event_LoadState(ref MatchManager manager)
     {
         manager.targetScore = TargetScore;
-        manager.clientPlayerID = ClientPlayerSlot;
+        manager.clientPlayerID = PlayerSlot_Client;
         manager.powerPelletDuration = FrightTimer;
         manager.pacManSpeed = PacManSpeed;
         manager.ghostSight = GhostSight;
@@ -431,7 +355,7 @@ public static class GameConfiguration
     public static void Event_ReturnToMenu()
     {
         GameSceneManager.LoadScene("TitleScreen");
-        __needsRestore = true;
+        CanRestore = true;
     }
 
     public static int Score_Get(PlayerSlot slot)
@@ -518,24 +442,3 @@ public static class GameConfiguration
 
 }
 
-static class ControlSourceMethods
-{
-    public static PlayerSlot? ToSlot(this PlayerInputSource s1)
-    {
-        switch (s1)
-        {
-            case PlayerInputSource.Gamepad1:
-                return PlayerSlot.P1;
-            case PlayerInputSource.Gamepad2:
-                return PlayerSlot.P2;
-            case PlayerInputSource.Gamepad3:
-                return PlayerSlot.P3;
-            case PlayerInputSource.Gamepad4:
-                return PlayerSlot.P4;
-            case PlayerInputSource.Gamepad5:
-                return PlayerSlot.P5;
-            default:
-                return null;
-        }
-    }
-}

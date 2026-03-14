@@ -28,6 +28,8 @@ public class PlayerPicker : MonoBehaviour
     private PlayerCharacter _currentValue = PlayerCharacter.COM;
 
 
+    public bool IsReady { get; private set; } = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,7 +40,7 @@ public class PlayerPicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!IsReady) IsReady = true;
     }
 
 
