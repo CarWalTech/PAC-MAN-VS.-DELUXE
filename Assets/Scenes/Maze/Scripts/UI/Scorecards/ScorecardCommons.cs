@@ -39,6 +39,10 @@ public class ScorecardCommons : MonoBehaviour
     }
     public virtual void UpdateSkin(Sprite[] chars)
     {
+        
+    }
+    public void UpdateSkinBase(Sprite[] chars)
+    {
         __number_0 = chars[0];
         __number_1 = chars[1];
         __number_2 = chars[2];

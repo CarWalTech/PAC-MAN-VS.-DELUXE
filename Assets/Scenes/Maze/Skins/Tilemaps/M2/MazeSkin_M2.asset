@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: MazeSkin_M2
   m_EditorClassIdentifier: Assembly-CSharp::TileTheme
   themeName: M2 / Nintendo DS
+  themeUUID: MazeSkin_3
   supportsRecolors: 1
   themeTiles: {fileID: 11400000, guid: cd412240d7f9c459eb202763e3904bc7, type: 2}

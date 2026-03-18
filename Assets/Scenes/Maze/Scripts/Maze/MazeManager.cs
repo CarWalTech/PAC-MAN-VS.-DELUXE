@@ -111,7 +111,7 @@ public class MazeManager : MonoBehaviour
 
     #region Unity Messages
 
-    private void Awake()
+    public void Setup()
     {
         _mazeObject = Instantiate(level.levelTiles, mazeContainer.transform.position, mazeContainer.transform.rotation, mazeContainer.transform);
         _worldObject = Instantiate(level.levelModel, worldContainer.transform.position, worldContainer.transform.rotation, worldContainer.transform);
@@ -119,6 +119,17 @@ public class MazeManager : MonoBehaviour
         _worldData.Adjust();
         _isLoaded = true;
     }
+
+    private void Reset()
+    {
+
+    }
+
+    private void Awake()
+    {
+
+    }
+    
     private void Start()
     {
 

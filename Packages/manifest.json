@@ -2,6 +2,7 @@
   "dependencies": {
     "com.nobi.roundedcorners": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git",
     "com.rowlan.quicknav": "file:/home/carjem/Downloads/QuickNav-main/Assets/Rowlan/QuickNav",
+    "com.unity.2d.pixel-perfect": "5.1.1",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.2d.tilemap.extras": "6.0.1",

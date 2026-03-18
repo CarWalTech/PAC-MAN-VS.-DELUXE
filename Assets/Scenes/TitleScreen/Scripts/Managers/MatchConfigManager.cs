@@ -7,6 +7,9 @@ public class MatchConfigManager : MonoBehaviour
 {
 
 
+    public GuiThemeSelectGroup GameSetting_GameGuiTheme;
+    public ThemeSelectGroup GameSetting_GameMazeTheme;
+    public MazeSelectGroup GameSetting_GameMaze;
     public ValuePickerInt   GameSetting_GameTargetScore;
     public PlayerCountPicker  GameSetting_GamePlayerCount;
     public ValuePickerInt     GameSetting_GamePacManBonus;
@@ -85,6 +88,15 @@ public class MatchConfigManager : MonoBehaviour
 
         yield return new WaitUntil(() => GameSetting_GamePacManBonus != null);
         GameSetting_GamePacManBonus.SetValue(GameConfiguration.PacManBonus);
+
+        yield return new WaitUntil(() => GameSetting_GameMaze != null);
+        GameSetting_GameMaze.SetItem(GameConfiguration.MazeData.levelUUID);
+
+        yield return new WaitUntil(() => GameSetting_GameMazeTheme != null);
+        GameSetting_GameMazeTheme.SetItem(GameConfiguration.MazeTheme.themeUUID);
+
+        yield return new WaitUntil(() => GameSetting_GameGuiTheme != null);
+        GameSetting_GameGuiTheme.SetItem(GameConfiguration.GuiTheme.themeUUID);
     }
 
     void Start()

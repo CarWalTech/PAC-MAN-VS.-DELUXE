@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     [Header("Managers")]
     [SerializeField] private CameraManager gameCameras;
     [SerializeField] private MazeManager gameMaze;
+    [SerializeField] private SkinManager gameSkin;
     [SerializeField] private MatchManager matchManager;
     #endregion
 
@@ -90,6 +91,10 @@ public class GameManager : MonoBehaviour
     {
         if (GameConfiguration.GameEnterMode == GameConfiguration.EnterMode.Normal)
         {
+            gameMaze.level = GameConfiguration.MazeData;
+            gameMaze.theme = GameConfiguration.MazeTheme;
+            gameMaze.Setup();
+
             GameConfiguration.Event_LoadState(ref matchManager);
             mazePlayer = GameConfiguration.GetPlayerObject(this);
             gameCameras.viewMode = GameConfiguration.GetCameraFocus();
@@ -97,17 +102,19 @@ public class GameManager : MonoBehaviour
             mazeChaserP2 = matchManager.playerCount >= 3 ? GameConfiguration.GetChaserObject(this, 1) : null;
             mazeChaserP3 = matchManager.playerCount >= 4 ? GameConfiguration.GetChaserObject(this, 2) : null;
             mazeChaserP4 = matchManager.playerCount >= 5 ? GameConfiguration.GetChaserObject(this, 3) : null;
+
+            gameSkin.guiTheme = GameConfiguration.GuiTheme;
+            gameSkin.ForceRefresh();
         }
         else if (GameConfiguration.GameEnterMode == GameConfiguration.EnterMode.Disabled)
         {
+            gameMaze.Setup();
             GameConfiguration.Event_LoadDevState(this);
         }
     }
 
-    IEnumerator Start()
+    void Start()
     {
-        yield return new WaitUntil(() => gameMaze != null && gameMaze.isLoaded);
-
         LoadState();
         SetupEntities();
         SetupSpawns();

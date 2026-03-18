@@ -8,7 +8,9 @@ public class ValuePickerInt : MonoBehaviour
     public Button subtractButton;
 
     public TMP_Text valueText;
+    public TMP_Text titleText;
 
+    public string Title;
     public int currentValue
     {
         get => _currentValue;
@@ -49,9 +51,14 @@ public class ValuePickerInt : MonoBehaviour
         valueText.text = currentValue.ToString();
     }
 
+    void OnValidate()
+    {
+        if (titleText) titleText.text = Title;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (titleText && titleText.text != Title) titleText.text = Title;
     }
 }

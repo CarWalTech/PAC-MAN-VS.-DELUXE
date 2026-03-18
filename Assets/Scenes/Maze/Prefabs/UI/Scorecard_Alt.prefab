@@ -73,7 +73,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &892570416327733374
 GameObject:
@@ -1080,6 +1080,7 @@ MonoBehaviour:
   cardColor: {r: 1, g: 0, b: 0, a: 1}
   player: 0
   character: 1
+  inputSlot: 0
   playerTitleContainer: {fileID: 2988666645927086061}
   playerTitleAltContainer: {fileID: 6052565799520438512}
   playerPacImage: {fileID: 5102922600124595844}

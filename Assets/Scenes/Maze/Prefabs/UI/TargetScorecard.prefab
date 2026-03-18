@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1956002988, guid: b22f740adddcd270e8dcf3f2adb7b908, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1623950441, guid: b22f740adddcd270e8dcf3f2adb7b908, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -299,15 +299,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d87247408ce9f6e9e27aa4355e99b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  skinManager: {fileID: 0}
   score: 15000
-  scorePadding: 0
-  background: {fileID: 3889917851833152178}
   digit1: {fileID: 6213940938619284618}
   digit2: {fileID: 7004496642137118537}
   digit3: {fileID: 8644391690749542701}
   digit4: {fileID: 2916584289624863219}
   digit5: {fileID: 5262015945068215160}
+  scorePadding: 0
+  scoreCentered: 0
+  skinManager: {fileID: 0}
+  skinMode: 0
+  background: {fileID: 3889917851833152178}
 --- !u!1 &3831904357659178897
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1623950441, guid: b22f740adddcd270e8dcf3f2adb7b908, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -465,7 +467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1623950441, guid: b22f740adddcd270e8dcf3f2adb7b908, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -556,7 +558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1022436202, guid: b22f740adddcd270e8dcf3f2adb7b908, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

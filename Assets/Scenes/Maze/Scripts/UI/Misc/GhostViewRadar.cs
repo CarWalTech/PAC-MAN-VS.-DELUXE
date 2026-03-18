@@ -36,7 +36,8 @@ public class GhostViewRadar : ScorecardCommons, ISkinableBehavior
         {
             container.sprite = skinManager.guiTheme.gr_Container;
             pelletIcon.sprite = skinManager.guiTheme.gr_PelletIcon;
-            base.UpdateSkin(skinManager.guiTheme.gr_ScoreNumbers);
+            UpdateSkinBase(skinManager.guiTheme.gr_ScoreNumbers);
+            UpdateScore();
         }
         catch (Exception ex)
         {

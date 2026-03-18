@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: MazeSkin_MsPac1
   m_EditorClassIdentifier: Assembly-CSharp::TileTheme
   themeName: Ms. Pac Man
+  themeUUID: MazeSkin_6
   supportsRecolors: 0
   themeTiles: {fileID: 11400000, guid: 63c1f6ab369b7a0718afbcf2ab400759, type: 2}

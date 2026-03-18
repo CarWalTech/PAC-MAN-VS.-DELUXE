@@ -19,6 +19,8 @@ public class GhostViewport : MonoBehaviour, ISkinableBehavior
     public RenderTexture source = null;
     public RawImage viewport;
 
+    public Vector3 rotation;
+
     private Sprite[] __player_header_sprites = new Sprite[]{};
     private Sprite __com_header_sprite = null;
 
@@ -52,6 +54,7 @@ public class GhostViewport : MonoBehaviour, ISkinableBehavior
         UpdateSkin();
         UpdateBackground(true);
         UpdateLabels();
+        UpdateRotation();
     }
     void UpdateBackground(bool force = false)
     {
@@ -62,6 +65,22 @@ public class GhostViewport : MonoBehaviour, ISkinableBehavior
             if (cover != null) cover.color = skinMode == SkinMode.Ghost ? cardColor : Color.black;
             if (label != null) label.color = cardColor;
         }
+    }
+    void UpdateRotation()
+    {
+        if (skinMode == SkinMode.Ghost)
+        {
+            if (background != null) background.GetComponent<RectTransform>().localRotation = Quaternion.Euler(rotation);
+            if (cover != null) cover.GetComponent<RectTransform>().localRotation = Quaternion.Euler(rotation);
+            if (label != null) label.GetComponent<RectTransform>().rotation = Quaternion.Euler(Vector3.zero);
+        }
+        else
+        {
+            if (background != null) background.GetComponent<RectTransform>().localRotation = Quaternion.Euler(Vector3.zero);
+            if (cover != null) cover.GetComponent<RectTransform>().localRotation = Quaternion.Euler(Vector3.zero);
+            if (label != null) label.GetComponent<RectTransform>().rotation = Quaternion.Euler(Vector3.zero);
+        }
+
     }
     void UpdateSkin()
     {
@@ -134,6 +153,7 @@ public class GhostViewport : MonoBehaviour, ISkinableBehavior
         UpdateBackground();
         UpdateLabels();
         UpdateViewport();
+        UpdateRotation();
     }
 
 

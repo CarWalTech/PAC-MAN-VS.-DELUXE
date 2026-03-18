@@ -65,7 +65,9 @@ public class GhostScorecard : ScorecardCommons, ISkinableBehavior
             playerGhostImage.sprite = skinManager.guiTheme.gs_GhostBase;
             playerGhostEyesImage.sprite = skinManager.guiTheme.gs_GhostEyes;
             playerPacImage.sprite = skinManager.guiTheme.gs_PacMan;
-            base.UpdateSkin(skinManager.guiTheme.gs_ScoreNumbers);
+            UpdateSkinBase(skinManager.guiTheme.gs_ScoreNumbers);
+            UpdateScore();
+            UpdateLabels();
         }
         catch (Exception ex)
         {

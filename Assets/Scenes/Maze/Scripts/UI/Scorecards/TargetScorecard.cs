@@ -40,14 +40,15 @@ public class TargetScorecard : ScorecardCommons, ISkinableBehavior
             switch (skinMode)
             {
                 case SkinMode.Maze:
-                    base.UpdateSkin(skinManager.guiTheme.mts_Numbers);
+                    UpdateSkinBase(skinManager.guiTheme.mts_Numbers);
                     background.sprite = skinManager.guiTheme.mts_Background;
                     break;
                 case SkinMode.Ghost:
-                    base.UpdateSkin(skinManager.guiTheme.gts_Numbers);
+                    UpdateSkinBase(skinManager.guiTheme.gts_Numbers);
                     background.sprite = skinManager.guiTheme.gts_Background;
                     break;
             }
+            UpdateScore();
         }
         catch (Exception ex)
         {

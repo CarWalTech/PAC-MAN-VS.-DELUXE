@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Manic Manor
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelName: Manic Manor
+  levelUUID: PacField_8
   levelTiles: {fileID: 6547923556454938526, guid: 0f37cbf1591e61a17b65f2c9f5a0e7e3, type: 3}
   levelModel: {fileID: 7507885038410284151, guid: 1359d812f79e67259b741cff35eb6996, type: 3}

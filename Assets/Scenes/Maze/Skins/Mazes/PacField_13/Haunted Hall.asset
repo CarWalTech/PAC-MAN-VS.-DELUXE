@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Haunted Hall
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelName: Haunted Hall
+  levelUUID: PacField_13
   levelTiles: {fileID: 6547923556454938526, guid: 6afb3a366c98153b09fce7e44e2a2b62, type: 3}
   levelModel: {fileID: 2580503978518967772, guid: 7379a9c99756c8d3a982916d362d1d20, type: 3}

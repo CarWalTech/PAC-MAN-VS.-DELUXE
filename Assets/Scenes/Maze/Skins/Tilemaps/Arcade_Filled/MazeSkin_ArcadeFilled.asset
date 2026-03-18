@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: MazeSkin_ArcadeFilled
   m_EditorClassIdentifier: Assembly-CSharp::TileTheme
   themeName: Arcade (Alt)
-  supportsRecolors: 1
+  themeUUID: MazeSkin_5
+  supportsRecolors: 0
   themeTiles: {fileID: 11400000, guid: a190f30375034f9b18c8698317fb89f4, type: 2}

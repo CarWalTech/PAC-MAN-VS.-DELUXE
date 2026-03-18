@@ -65,7 +65,9 @@ public class MazeScorecard : ScorecardCommons, ISkinableBehavior
             playerGhostImage.sprite = skinManager.guiTheme.ms_GhostBase;
             playerGhostEyesImage.sprite = skinManager.guiTheme.ms_GhostEyes;
             playerPacImage.sprite = skinManager.guiTheme.ms_PacMan;
-            base.UpdateSkin(skinManager.guiTheme.ms_ScoreNumbers);
+            UpdateSkinBase(skinManager.guiTheme.ms_ScoreNumbers);
+            UpdateScore();
+            UpdateLabels();
         }
         catch (Exception ex)
         {

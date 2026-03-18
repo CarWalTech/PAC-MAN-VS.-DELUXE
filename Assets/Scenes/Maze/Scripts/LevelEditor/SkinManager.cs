@@ -1,11 +1,37 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using System.Collections;
+using System.Collections.Generic;
 
 public class SkinManager : MonoBehaviour
 {
+
+
+
+    [CustomEditor(typeof(SkinManager))]
+    public class RefreshButton : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            DrawDefaultInspector();
+
+            SkinManager myScript = (SkinManager)target;
+            if (GUILayout.Button("Force Refresh"))
+            {
+                myScript.RefreshSkin();
+            }
+        }
+
+    }
+
     public InterfaceTheme guiTheme = null;
 
     private List<ISkinableBehavior> _hook_list = new List<ISkinableBehavior>();
+    
+    public void ForceRefresh()
+    {
+        
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -55,6 +55,9 @@ public static class GameConfiguration
     }
 
 
+    public static InterfaceTheme GuiTheme { get; private set; } = null;
+    public static LevelData MazeData { get; private set; } = null;
+    public static TileTheme MazeTheme { get; private set; } = null;
 
     public static PlayerCharacter CharacterP1 { get; private set; } = PlayerCharacter.P1;
     public static PlayerCharacter CharacterP2 { get; private set; } = PlayerCharacter.COM;
@@ -275,6 +278,11 @@ public static class GameConfiguration
         }
 
         PlayerCount = gameConfig.GameSetting_GamePlayerCount.currentValue;
+
+
+        GuiTheme = gameConfig.GameSetting_GameGuiTheme.GetTheme();
+        MazeData = gameConfig.GameSetting_GameMaze.GetMaze();
+        MazeTheme = gameConfig.GameSetting_GameMazeTheme.GetTheme();
         
         CharacterP1 = gameConfig.GameSetting_Player1.GetSelection();
         CharacterP2 = gameConfig.GameSetting_Player2.GetSelection();

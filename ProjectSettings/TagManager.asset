@@ -42,8 +42,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: DefaultAlt
+    uniqueID: 2722052107
+    locked: 0
   - name: TileColoring
     uniqueID: 566845657
+    locked: 0
+  - name: Players
+    uniqueID: 2559836449
     locked: 0
   - name: Shadows
     uniqueID: 2197823129

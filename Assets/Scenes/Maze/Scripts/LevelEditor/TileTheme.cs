@@ -11,6 +11,7 @@ using UnityEngine;
 public class TileTheme : ScriptableObject
 {
     public string themeName;
+    public string themeUUID;
     public bool supportsRecolors = false;
     public SPInstance themeTiles = null;
     public Sprite GetIndexedTile(string name, int index)

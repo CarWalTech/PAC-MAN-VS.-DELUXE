@@ -11,11 +11,13 @@ using UnityEngine;
 public class InterfaceTheme : ScriptableObject
 {
     public string themeName;
+    public string themeUUID;
 
     [Header("Maze Sidebars")]
     public Sprite sb_Frame;
     public Sprite sb_ViewportFrame; 
     public Sprite sb_ViewportMask; 
+    public Sprite sb_ViewportPanel;
 
     [Header("Maze Scorecard")]
     public Sprite ms_Container;
@@ -60,7 +62,7 @@ public class InterfaceTheme : ScriptableObject
     public Sprite gs_GhostBase;
     public Sprite gs_GhostEyes;
 
-    [Header("Ghost Scorecard")]
+    [Header("Ghost Radar")]
     public Sprite gr_Container;
     public Sprite gr_PelletIcon;
     public Sprite[] gr_ScoreNumbers;

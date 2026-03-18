@@ -11,7 +11,8 @@ public class MazeViewPanel : MonoBehaviour, ISkinableBehavior
     {
         Normal,
         ViewportFrame,
-        ViewportMask
+        ViewportMask,
+        ViewportPanel
     }
     public SkinManager skinManager = null;
     public Image panel;
@@ -40,6 +41,9 @@ public class MazeViewPanel : MonoBehaviour, ISkinableBehavior
                     break;
                 case SkinMode.ViewportMask:
                     panel.sprite = skinManager.guiTheme.sb_ViewportMask;
+                    break;
+                case SkinMode.ViewportPanel:
+                    panel.sprite = skinManager.guiTheme.sb_ViewportPanel;
                     break;
                 default:
                     panel.sprite = skinManager.guiTheme.sb_Frame;

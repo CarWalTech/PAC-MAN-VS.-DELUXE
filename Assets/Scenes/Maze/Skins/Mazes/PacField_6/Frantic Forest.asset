@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Frantic Forest
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelName: Frantic Forest
+  levelUUID: PacField_6
   levelTiles: {fileID: 6547923556454938526, guid: b6c58b94101e240a19de03bbc6bb1b49, type: 3}
   levelModel: {fileID: 7712939116878881953, guid: 09b6363378250c21898d932308549ae5, type: 3}
