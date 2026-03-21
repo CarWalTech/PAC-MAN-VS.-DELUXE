@@ -197,6 +197,7 @@ public class Ghost : MonoBehaviour, IPlayable
     #region Ghost Interactions
     public void Scare(float duration)
     {
+        if (isTagGhost && !isTagged) return;
         _movement.frightenedDuration = duration;
         _movement.SetGhostMode(GhostAI.GhostMode.Frightened);
     }
@@ -304,7 +305,7 @@ public class Ghost : MonoBehaviour, IPlayable
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            GameManager.Instance.Event_EatChaser(this);
+            GameManager.Instance.Event_EatChaser(this, collision.gameObject.GetComponent<PacMan>());
             if (isTagGhost) Tag();
         }
     }

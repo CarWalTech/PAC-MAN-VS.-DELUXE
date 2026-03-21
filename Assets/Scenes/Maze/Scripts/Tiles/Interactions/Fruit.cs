@@ -4,11 +4,29 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Fruit : MonoBehaviour
 {
-    public int points = 10;
+    public enum FruitBehaviour
+    {
+        Classic = 1,
+        Wandering = 2,
+    }
+
+
+    [Header("General")]
+    public FruitBehaviour fruitBehavior;
+    public int initalSpawnsRequirement = 70;
+    public int subsequentSpawnsRequirement = 100;
+    public int points = 400;
+
+    [Header("Internals")]
     public GameObject worldPrefab;
     public GameObject worldObject { get; private set; }
     private static GameObject worldFruitCache = null;
     private static GameObject mazeFruitCache = null;
+    public SpriteRenderer spriteRenderer;
+
+    private bool _initalSpawnMade = false;
+    private int _lastSpawnPelletsEaten = 0;
+    private bool _fruitActive = false;
 
     public static void SetupFruit(FruitSpawn spawn, Vector3 mazeOrigin)
     {
@@ -33,27 +51,64 @@ public class Fruit : MonoBehaviour
 
         worldObject = GameManager.Instance.GetMazeManager().InstantiateInWorld(worldPrefab, transform.localPosition, worldFruitCache);
         GameManager.Instance.CollectFruit(this);
+        SetupFruitLogic();
+    }
+
+    private void SetupFruitLogic()
+    {
+
+        spriteRenderer.enabled = false;
+        worldObject.SetActive(false);
+        _lastSpawnPelletsEaten = 0;
+        _initalSpawnMade = false;
+        _fruitActive = false;
     }
 
     public void ResetState()
     {
-        gameObject.SetActive(true);
-        worldObject.SetActive(true);
+        SetupFruitLogic();
     }
 
     public void OnEat()
     {   
-        gameObject.SetActive(false);
+        spriteRenderer.enabled = false;
         worldObject.SetActive(false);
+        _fruitActive = false;
+    }
+
+    public void SummonFruit()
+    {
+        print("fruit appered");
+        spriteRenderer.enabled = true;
+        worldObject.SetActive(true);
+        _fruitActive = true;
+    }
+    public void Update()
+    {
+        if (_initalSpawnMade == false && GameManager.Instance.GetPelletsEaten() >= initalSpawnsRequirement)
+        {
+            SummonFruit();
+            _lastSpawnPelletsEaten = initalSpawnsRequirement;
+            _initalSpawnMade = true;
+        }
+        else if (_initalSpawnMade == true && GameManager.Instance.GetPelletsEaten() >= _lastSpawnPelletsEaten + subsequentSpawnsRequirement)
+        {
+            SummonFruit();
+            _lastSpawnPelletsEaten += subsequentSpawnsRequirement;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!_fruitActive) return;
+
         if (other.gameObject.layer == LayerMask.NameToLayer("Player")) {
             GameManager.Instance.Event_EatFruit_PacMan(this, other.gameObject.GetComponent<PacMan>());
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Chaser")) {
-            GameManager.Instance.Event_EatFruit_Ghost(this, other.gameObject.GetComponent<Ghost>());
+            var targetGhost = other.gameObject.GetComponent<Ghost>();
+            if (!targetGhost.isEaten && !targetGhost.isTagGhost) GameManager.Instance.Event_EatFruit_Ghost(this, targetGhost);
+            
         }
     }
 

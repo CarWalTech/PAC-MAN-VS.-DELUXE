@@ -131,7 +131,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1.3333334, y: 1.3333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -151,5 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0300184d3fc786c928b0a0fab9ac4bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fruit
-  points: 10
+  fruitBehavior: 1
+  initalSpawnsRequirement: 70
+  subsequentSpawnsRequirement: 100
+  points: 400
   worldPrefab: {fileID: 6089109606598235967, guid: 76b285611b0ce00d2ac560ea8ecf989a, type: 3}
+  spriteRenderer: {fileID: 8402461120952219743}

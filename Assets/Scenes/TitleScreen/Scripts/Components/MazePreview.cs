@@ -71,7 +71,7 @@ public class MazePreview : MonoBehaviour
             if (mazeData.colorLayer) mazeData.colorLayer.SetActive(matchingThemes[0].supportsRecolors);
             foreach (Tilemap m in container.GetComponentsInChildren<Tilemap>())
             {
-                foreach (ThemableTile t in m.GetTiles<ThemableTile>())
+                foreach (MazeTile t in m.GetTiles<MazeTile>())
                     t.theme = matchingThemes[0];
                 m.RefreshAllTiles();
             }

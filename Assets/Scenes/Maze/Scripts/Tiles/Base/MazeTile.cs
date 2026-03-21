@@ -4,13 +4,16 @@ using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
+using UnityEngine.Timeline;
 
 [CreateAssetMenu]
 [System.Serializable]
-public class ThemableTile : TileBase {
+public class MazeTile : TileBase {
     public int TileIndex = -1;
     public TileTheme theme = null;
+    
     public override bool StartUp(Vector3Int position, ITilemap tilemap, GameObject instantiatedGameObject)
     {
         return base.StartUp(position, tilemap, instantiatedGameObject);

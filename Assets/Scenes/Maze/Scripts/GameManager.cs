@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject mazeGhostInky;
     [SerializeField] public GameObject mazeGhostBlinky;
     [SerializeField] public GameObject mazeGhostPinky;
+    [SerializeField] public GameObject mazeScorePopupPrefab;
 
     #endregion
 
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
     private List<string> _current_players = new List<string>();
 
     private int __pellets_left = 0;
+    private int __currentGhostsEaten = 0;
 
     #endregion
 
@@ -129,7 +131,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
+        
     }
 
     private void Awake()
@@ -340,18 +342,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Event_SpawnScore(Vector3 origin, int points, float lifespan, ScorePopup.PopupBehavior behavior)
+    {
+        IEnumerator StartSpawn()
+        {
+            yield return new WaitForSeconds(0.1f);
+            var result = Instantiate(mazeScorePopupPrefab, origin, Quaternion.Euler(Vector3.zero), GetMazeViewCache().transform);
+            result.GetComponent<ScorePopup>().score = points;
+            result.GetComponent<ScorePopup>().lifespan = lifespan;
+            result.GetComponent<ScorePopup>().behavior = behavior;
+            result.GetComponent<ScorePopup>().Spawn();
+        }
+        StartCoroutine(StartSpawn());
+    }
+
     public void Event_EatPellet(IPlayable src, Pellet pellet)
     {
-        GameConfiguration.Score_Add(src.GetPlayerID(), 10);
+        if (src.GetMazeObject().GetComponent<PacMan>()) src.GetMazeObject().GetComponent<PacMan>().EatPellet();
+        GameConfiguration.Score_Add(src.GetPlayerID(), pellet.points);
+        Event_SpawnScore(pellet.transform.position, pellet.points, 1f, ScorePopup.PopupBehavior.Stationary);
         __pellets_left -= 1;
         pellet.OnEat();
     }
     public void Event_EatPowerPellet(IPlayable src, PowerPellet pellet)
     {
-        foreach (Ghost chaser in _chasers)
-        {
-            chaser.Scare(matchManager.powerPelletDuration);
-        }
+        __currentGhostsEaten = 0;
+        foreach (Ghost chaser in _chasers) chaser.Scare(matchManager.powerPelletDuration);
         gameMaze.Scare(matchManager.powerPelletDuration);
         Event_EatPellet(src, pellet);
     }
@@ -362,18 +378,43 @@ public class GameManager : MonoBehaviour
         GameConfiguration.Event_SwapPacMan(src.GetPlayerID());
         GameConfiguration.Score_Sub(pacman.GetPlayerID(), matchManager.pacManBonus);
         GameConfiguration.Score_Add(src.GetPlayerID(), matchManager.pacManBonus);
-        foreach (Ghost chaser in _chasers)
-        {
-            chaser.Freeze();
-        }
+        foreach (Ghost chaser in _chasers) chaser.Freeze();
         Invoke(nameof(Event_ResetGame), 3f);
     }
-    public void Event_EatChaser(Ghost ghost)
+    public void Event_EatChaser(Ghost ghost, PacMan pacman)
     {
+        int points;
+        __currentGhostsEaten += 1;
+        switch (__currentGhostsEaten)
+        {
+            case 1:
+                points = 200;
+                break;
+            case 2:
+                points = 400;
+                break;
+            case 3:
+                points = 800;
+                break;
+            case 4:
+                points = 1600;
+                break;
+            case 5:
+                points = 3200;
+                break;
+            default:
+                points = 3200;
+                break;
+        }
+        
+        GameConfiguration.Score_Add(pacman.GetPlayerID(), points);
+        Event_SpawnScore(ghost.transform.position, points, 2f, ScorePopup.PopupBehavior.MoveUp);
         ghost.Eaten();
     }
     public void Event_EatFruit_PacMan(Fruit fruit, PacMan pacman)
     {
+        GameConfiguration.Score_Add(pacman.GetPlayerID(), fruit.points);
+        Event_SpawnScore(fruit.transform.position, fruit.points, 2f, ScorePopup.PopupBehavior.MoveUp);
         pacman.EatFruit();
         fruit.OnEat();
     }
@@ -409,6 +450,11 @@ public class GameManager : MonoBehaviour
     public int GetPelletsLeft()
     {
         return __pellets_left;
+    }
+
+    public int GetPelletsEaten()
+    {
+        return _pellets.Count - __pellets_left;
     }
 
     public MatchManager GetMatchManager()

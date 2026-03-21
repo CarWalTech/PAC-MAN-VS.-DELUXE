@@ -9,7 +9,8 @@ public class PacManAI : MonoBehaviour
     [SerializeField] public Vector2 initialDirection = Vector2.left / 2;
     [SerializeField] public Tilemap tilemap;
     
-    public float actualSpeed { get => speed * GameConstants.BASE_SPEED_FACTOR; }
+    public float actualSpeed { get => (speed - speedMod) * GameConstants.BASE_SPEED_FACTOR; }
+    public float speedMod { get; set; } = 0f;
     public Rigidbody2D rb { get; private set; }
     public Vector2 direction { get => _lastDirection; }
     public Vector2 NextDestination { get; set; }

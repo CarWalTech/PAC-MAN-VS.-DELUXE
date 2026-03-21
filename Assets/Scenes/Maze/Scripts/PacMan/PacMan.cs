@@ -154,6 +154,18 @@ public class PacMan : MonoBehaviour, IPlayable
         
     }
 
+    public void EatPellet()
+    {
+        IEnumerator Post()
+        {
+            yield return new WaitForSeconds(0.5f);
+            _movement.speedMod = 0f;
+        }
+        StopCoroutine(Post());
+        _movement.speedMod = 0.5f;
+        StartCoroutine(Post());
+    }
+
     #endregion
 
     #region Getters
@@ -184,6 +196,7 @@ public class PacMan : MonoBehaviour, IPlayable
         spriteRenderer.enabled = false;
         _cc.enabled = false;
         Freeze();
+        Anim_Rotate(new Vector2(0,0));
         deathSequence.enabled = true;
         deathSequence.Restart();
     }

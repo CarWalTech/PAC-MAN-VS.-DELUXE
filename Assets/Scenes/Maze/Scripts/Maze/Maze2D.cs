@@ -50,9 +50,9 @@ public class Maze2D : MonoBehaviour
                 for (int y = 0; y < bounds.size.y; y++) 
                 {
                     TileBase tile = allTiles[x + y * bounds.size.x];
-                    if (tile != null && tile is ThemableTile)
+                    if (tile != null && tile is MazeTile)
                     {
-                        var themableTile = (ThemableTile)tile;
+                        var themableTile = (MazeTile)tile;
                         themableTile.theme = GameManager.Instance.GetMazeManager().theme; 
                     }   
                 }

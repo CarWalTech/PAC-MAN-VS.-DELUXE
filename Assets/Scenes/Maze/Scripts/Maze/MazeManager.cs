@@ -44,8 +44,23 @@ public class MazeManager : MonoBehaviour
     [SerializeField] private int m_mazeAssetsPPU = 100;
     [SerializeField] private int m_mazeRefResolutionX = 320;
     [SerializeField] private int m_mazeRefResolutionY = 180;
-    [SerializeField] public int mazeTileResolution = 24;
     [SerializeField] public Vector2Int mazeTileViewportSize = new Vector2Int(21, 21);
+
+
+    public int mazeTileResolution
+    {
+        get
+        {
+            try
+            {
+                return theme.tileResolution;
+            }
+            catch
+            {
+                return 24;
+            }
+        }
+    }
 
     public int mazeAssetsPPU
     {

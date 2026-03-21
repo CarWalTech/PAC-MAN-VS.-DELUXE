@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Wall_01
   m_EditorClassIdentifier: Assembly-CSharp::ThemableTile
   TileIndex: 1
-  theme: {fileID: 11400000, guid: ab9e2e7fed9eb6c1dbeaa7b719d67e59, type: 2}
+  theme: {fileID: 11400000, guid: cb265f8ed2cf37544aacc0329b1c66d5, type: 2}
