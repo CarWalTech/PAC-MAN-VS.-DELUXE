@@ -15,4 +15,87 @@ MonoBehaviour:
   themeName: Arcade
   themeUUID: MazeSkin_4
   supportsRecolors: 0
-  themeTiles: {fileID: 11400000, guid: 5141796fc240e0277ab52277ed550cb6, type: 2}
+  tileResolution: 24
+  themeTiles: {fileID: 0}
+  useLegacyMethod: 0
+  tileList:
+    _serializedList:
+    - Key: Home
+      Value:
+      - {fileID: -649852659, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1039081512, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1664435635, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: BorderV
+      Value:
+      - {fileID: 109226844, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1312436902, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1171392103, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: BorderH
+      Value:
+      - {fileID: 644534513, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1127189974, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -185998041, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: BorderTH
+      Value:
+      - {fileID: -1194457139, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1280656595, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1386196655, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: BorderTV
+      Value:
+      - {fileID: 548717946, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -815633469, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1718411816, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: EnclosedSolid
+      Value:
+      - {fileID: -1624064973, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1083573958, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -682732446, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -2012515749, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1672717921, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -2076924528, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 304063124, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1954842012, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 625247010, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: EnclosedThin
+      Value:
+      - {fileID: 900161168, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1165869534, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1573468692, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -2103005210, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -195921195, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1054753423, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1884433134, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 614178184, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -2047225005, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: EnclosedTT
+      Value:
+      - {fileID: -169621464, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -858702402, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1248208723, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 795815091, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -963400394, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -527653925, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1378298448, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -516571600, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1053555226, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: EnclosedThick
+      Value:
+      - {fileID: -432147376, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 21543595, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1561574572, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 1885599631, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 960166966, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1774437380, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1319074827, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -1503377973, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: -42253879, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: Floors
+      Value:
+      - {fileID: 990618019, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+      - {fileID: 347981682, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: Pillars
+      Value:
+      - {fileID: -1196627518, guid: 9e09f5d3d4a94c697afd7fa79ff83846, type: 3}
+    - Key: Dev
+      Value:
+      - {fileID: 1527514327, guid: 21c412ecb8d9108eba8e9ff6b75c112e, type: 3}

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class GuiThemeSelectGroup : GenericSelectGroup
 {
-    public List<InterfaceTheme> themes = new List<InterfaceTheme>();
+    public List<ViewportTheme> themes = new List<ViewportTheme>();
 
-    public InterfaceTheme GetTheme()
+    public ViewportTheme GetTheme()
     {
         var matches = themes.Where(x => x.themeUUID == activeItem).ToList();
         if (matches.Count == 0) return null;

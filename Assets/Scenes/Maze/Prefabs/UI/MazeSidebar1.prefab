@@ -291,15 +291,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 588df5e8e86479735b4327734614bc5b, type: 3}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.b
-      value: 0.33333334
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.g
-      value: 0.73333335
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.r
-      value: 0.972549
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Enabled
@@ -379,15 +379,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c457e51c00e01846592b3cbe275cfc01, type: 3}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.b
-      value: 0.33333334
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.g
-      value: 0.73333335
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.r
-      value: 0.972549
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3628421531338107675, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Sprite
@@ -535,15 +535,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.b
-      value: 0.33333334
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.g
-      value: 0.73333335
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.r
-      value: 0.972549
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: scorePadding
@@ -555,7 +555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: suppressCOMScore
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5933662696745401683, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_IsActive
@@ -664,15 +664,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 588df5e8e86479735b4327734614bc5b, type: 3}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.g
-      value: 0.70980394
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.r
-      value: 0.9882353
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Enabled
@@ -752,15 +752,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c457e51c00e01846592b3cbe275cfc01, type: 3}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.g
-      value: 0.70980394
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.r
-      value: 0.9882353
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3628421531338107675, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Sprite
@@ -908,15 +908,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.b
-      value: 1
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.g
-      value: 0.70980394
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.r
-      value: 0.9882353
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: scorePadding
@@ -928,7 +928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: suppressCOMScore
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6218533510420491754, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Name
@@ -1317,7 +1317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: score
-      value: 520
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: player
@@ -1752,15 +1752,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 588df5e8e86479735b4327734614bc5b, type: 3}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Enabled
@@ -1848,15 +1848,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c457e51c00e01846592b3cbe275cfc01, type: 3}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3628421531338107675, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Sprite
@@ -2008,15 +2008,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.b
-      value: 0
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.g
-      value: 0
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.r
-      value: 1
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: scorePadding
@@ -2028,7 +2028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: suppressCOMScore
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5933662696745401683, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_IsActive
@@ -2137,15 +2137,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 588df5e8e86479735b4327734614bc5b, type: 3}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.b
-      value: 0.9098039
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.g
-      value: 0.9098039
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.r
-      value: 0.047058824
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8903454667027665, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Enabled
@@ -2225,15 +2225,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c457e51c00e01846592b3cbe275cfc01, type: 3}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.b
-      value: 0.9098039
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.g
-      value: 0.9098039
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.r
-      value: 0.047058824
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3628421531338107675, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Sprite
@@ -2381,15 +2381,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.b
-      value: 0.9098039
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.g
-      value: 0.9098039
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: cardColor.r
-      value: 0.047058824
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: scorePadding
@@ -2401,7 +2401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663110341561145041, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: suppressCOMScore
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5933662696745401683, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_IsActive

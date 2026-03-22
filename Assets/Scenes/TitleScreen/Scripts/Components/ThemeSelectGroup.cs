@@ -7,7 +7,7 @@ public class ThemeSelectGroup : GenericSelectGroup
 {
     public MazePreview preview;
 
-    public TileTheme GetTheme()
+    public MazeTheme GetTheme()
     {
         if (!preview) return null;
         else return preview.getTheme(activeItem);

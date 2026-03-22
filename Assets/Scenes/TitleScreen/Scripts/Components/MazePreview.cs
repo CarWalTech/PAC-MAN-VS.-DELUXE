@@ -6,22 +6,22 @@ using UnityEngine.Tilemaps;
 
 public class MazePreview : MonoBehaviour
 {
-    public List<LevelData> mazes = new List<LevelData>();
-    public List<TileTheme> themes = new List<TileTheme>();
+    public List<LevelConfiguration> mazes = new List<LevelConfiguration>();
+    public List<MazeTheme> themes = new List<MazeTheme>();
     public CanvasGroup canvasGroup = null;
     private GameObject container = null;
     private string _currentPreviewId = null;
     private string _currentThemeId = null;
 
 
-    public LevelData getMaze(string mazeId)
+    public LevelConfiguration getMaze(string mazeId)
     {
         var matches = mazes.Where(x => x.levelUUID == mazeId).ToList();
         if (matches.Count == 0) return null;
         return matches[0];
     }
 
-    public TileTheme getTheme(string themeId)
+    public MazeTheme getTheme(string themeId)
     {
         var matches = themes.Where(x => x.themeUUID == themeId).ToList();
         if (matches.Count == 0) return null;

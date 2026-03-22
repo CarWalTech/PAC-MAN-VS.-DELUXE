@@ -24,7 +24,7 @@ public class SkinManager : MonoBehaviour
 
     }
 
-    public InterfaceTheme guiTheme = null;
+    public ViewportTheme guiTheme = null;
 
     private List<ISkinableBehavior> _hook_list = new List<ISkinableBehavior>();
     

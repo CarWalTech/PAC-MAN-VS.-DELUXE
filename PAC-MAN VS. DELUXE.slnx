@@ -1,6 +1,12 @@
 ﻿<Solution>
+  <Project Path="AttributesSamples.csproj" />
   <Project Path="Rowlan.SceneNav.Editor.csproj" />
+  <Project Path="AYellowpaper.SerializedCollections.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="EditorAttributes.Editor.csproj" />
+  <Project Path="EditorAttributes.csproj" />
+  <Project Path="AYellowpaper.SerializedCollections.Editor.csproj" />
   <Project Path="rowlan.quicknav.editor.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
 </Solution>

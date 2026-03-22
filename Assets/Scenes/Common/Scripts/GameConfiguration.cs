@@ -55,9 +55,9 @@ public static class GameConfiguration
     }
 
 
-    public static InterfaceTheme GuiTheme { get; private set; } = null;
-    public static LevelData MazeData { get; private set; } = null;
-    public static TileTheme MazeTheme { get; private set; } = null;
+    public static ViewportTheme GuiTheme { get; private set; } = null;
+    public static LevelConfiguration MazeData { get; private set; } = null;
+    public static MazeTheme MazeTheme { get; private set; } = null;
 
     public static PlayerCharacter CharacterP1 { get; private set; } = PlayerCharacter.P1;
     public static PlayerCharacter CharacterP2 { get; private set; } = PlayerCharacter.COM;

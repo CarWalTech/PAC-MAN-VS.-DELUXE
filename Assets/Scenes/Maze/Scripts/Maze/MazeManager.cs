@@ -22,9 +22,9 @@ public class MazeManager : MonoBehaviour
 
     #region Properties: Root
     
-    public LevelData level;
+    public LevelConfiguration level;
 
-    public TileTheme theme;
+    public MazeTheme theme;
     
 
     #endregion
