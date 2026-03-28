@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: da876e3eb12aab049879fa28569576b5
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/CompilerServices/AsyncUniTaskMethodBuilder.cs
+  uploadId: 887856

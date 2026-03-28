@@ -118,10 +118,10 @@ public class GameManager : MonoBehaviour
             GameObject pelletObject = pelletTransform.gameObject;
 
             if (pelletObject.GetComponent<Pellet>())
-                pelletObject.GetComponent<Pellet>().skin = skin.pelletTheme;
+                pelletObject.GetComponent<Pellet>().SetSkin(skin.pelletTheme);
 
             else if (pelletObject.GetComponent<PowerPellet>())
-                pelletObject.GetComponent<PowerPellet>().skin = skin.pelletTheme;
+                pelletObject.GetComponent<PowerPellet>().SetSkin(skin.pelletTheme);
         }
 
         foreach (Transform nodeTransform in maze.GetSpawnPoints())

@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 15b76163eca74ac18258dc1983bfffa0
+timeCreated: 1740335578
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Editor/PipelineTasks/DistinctRefs.cs
+  uploadId: 887856

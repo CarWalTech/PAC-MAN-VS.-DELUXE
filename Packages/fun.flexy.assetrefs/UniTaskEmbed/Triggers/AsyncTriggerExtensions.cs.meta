@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: b72e385140791794db8c574700d1393f
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/Triggers/AsyncTriggerExtensions.cs
+  uploadId: 887856

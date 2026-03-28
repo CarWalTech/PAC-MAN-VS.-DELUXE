@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MazeViewPanel : SkinableBehavior
+public class MazeViewPanel : ViewportThemeHolder
 {
     public enum SkinMode
     {

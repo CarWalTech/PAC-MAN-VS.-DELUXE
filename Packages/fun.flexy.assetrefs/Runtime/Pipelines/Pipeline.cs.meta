@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 40ab316f2041483ab2054ce15b8176de
+timeCreated: 1731305375
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Runtime/Pipelines/Pipeline.cs
+  uploadId: 887856

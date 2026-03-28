@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: dae29fe9ef1d081479812b728c94a3de
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/UniTask.WaitUntil.cs
+  uploadId: 887856

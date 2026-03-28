@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 52d65bc3d0b943ffbaf0f1d8d053e13f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Editor/SceneRefDrawer.cs
+  uploadId: 887856

@@ -66,11 +66,11 @@ public class MazePreview : MonoBehaviour
             var mazeData = mazeResult.GetComponent<Maze2D>();
             var matchingThemes = themes.Where(x => x.themeUUID == _currentThemeId).ToList();
             if (matchingThemes.Count == 0) return;
-            if (mazeData.colorLayer) mazeData.colorLayer.SetActive(matchingThemes[0].HasRecolorSupport());
+            if (mazeData.colorLayer) mazeData.colorLayer.SetActive(matchingThemes[0].GetMazeRules().supportsRecolors);
             foreach (Tilemap m in container.GetComponentsInChildren<Tilemap>())
             {
                 foreach (MazeTile t in m.GetTiles<MazeTile>())
-                    t.theme = matchingThemes[0];
+                    t.SetSkin(matchingThemes[0]);
                 m.RefreshAllTiles();
             }
         }

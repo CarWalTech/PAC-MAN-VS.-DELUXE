@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0bdbe6584b7317a44a9c84503aebc448
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/LICENSE
+  uploadId: 887856

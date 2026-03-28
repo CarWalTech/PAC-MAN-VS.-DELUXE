@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 488dae0a28981054eacdcc0649ff9277
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/Internal/PooledDelegate.cs
+  uploadId: 887856

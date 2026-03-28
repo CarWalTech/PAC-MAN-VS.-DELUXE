@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: e1ca2b7146594e7ab20884f40d192035
+timeCreated: 1761718063
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Editor/PipelineTasks/ReadAppRevisionAndBranchFromGit.cs
+  uploadId: 887856

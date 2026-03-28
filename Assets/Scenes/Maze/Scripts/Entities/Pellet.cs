@@ -2,9 +2,8 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class Pellet : MonoBehaviour
+public class Pellet : PelletThemeHolder
 {
-    public PelletTheme skin;
     public int points = 10;
     public GameObject worldPrefab;
     public GameObject worldObject { get; private set; }
@@ -14,14 +13,13 @@ public class Pellet : MonoBehaviour
 
     void OnValidate()
     {
-        RefreshTheme();        
+        RefreshSkin();        
     }
 
     IEnumerator Start()
     {
         yield return new WaitUntil(() => GameManager.IsReady);
-        skin = GameManager.Instance.GetSkinManager().pelletTheme;
-        RefreshTheme();
+        RefreshSkin();
         if (!worldPelletCache)
         {
             GameObject worldCache = GameManager.Instance.GetWorldViewCache();
@@ -35,8 +33,9 @@ public class Pellet : MonoBehaviour
         GameManager.Instance.CollectPellet(this);
     }
 
-    public virtual void RefreshTheme()
+    public override void RefreshSkin()
     {
+        var skin = GetSkin();
         if (!skin) return;
 
         var result = skin.GetSpriteSet(PelletTheme.PelletType.Normal);

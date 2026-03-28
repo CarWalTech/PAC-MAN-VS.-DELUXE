@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 529b74b51f9df9847a64e490b76761e8
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Runtime/Flexy.AssetRefs.asmdef
+  uploadId: 887856

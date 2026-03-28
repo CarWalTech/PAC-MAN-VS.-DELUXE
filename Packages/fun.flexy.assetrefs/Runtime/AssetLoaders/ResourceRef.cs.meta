@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 51762911525c463fbab03b8d97e3afeb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Runtime/AssetLoaders/ResourceRef.cs
+  uploadId: 887856

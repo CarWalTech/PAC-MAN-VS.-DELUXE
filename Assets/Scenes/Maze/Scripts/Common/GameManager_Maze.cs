@@ -62,7 +62,7 @@ public class GameManager_Maze
         var worldContainer = GameManager.Instance.GetEntityManager().GetWorldTiles();
         _mazeObject = GameObject.Instantiate(level.levelTiles, mazeContainer.transform.position, mazeContainer.transform.rotation, mazeContainer.transform);
         _worldObject = GameObject.Instantiate(level.levelModel, worldContainer.transform.position, worldContainer.transform.rotation, worldContainer.transform);
-        _mazeData.SetRuntimeSkin(mazeTheme, pelletTheme);
+        _mazeData.SetSkin(mazeTheme, pelletTheme);
         _mazeData.UpdateStyles();
         _worldData.Adjust();
         _isLoaded = true;

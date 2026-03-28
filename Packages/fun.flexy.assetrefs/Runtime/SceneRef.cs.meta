@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: e5d2477561894f7bb8676b58c9569636
+timeCreated: 1736930318
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Runtime/SceneRef.cs
+  uploadId: 887856

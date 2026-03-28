@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: b66557b093cd46c5b884086ad6247d8f
+timeCreated: 1761718182
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Runtime/Extra/AppInfo.cs
+  uploadId: 887856

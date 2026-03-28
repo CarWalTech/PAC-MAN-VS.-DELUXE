@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 52dc2302d46c27141a36f87a1eaf1cf9
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/Internal/RuntimeHelpersAbstraction.cs
+  uploadId: 887856

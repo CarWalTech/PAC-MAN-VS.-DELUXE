@@ -5,9 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Maze2D : MonoBehaviour
+public class Maze2D : MazeThemeHolder
 {
-    [SerializeField, ButtonField(nameof(RefreshTheme), "Refresh Theme")] private EditorAttributes.Void refreshHolder;
+    [SerializeField, ButtonField(nameof(RefreshSkin), "Refresh Theme")] private EditorAttributes.Void refreshHolder;
 
     [SerializeField] public float mazeWidth;
     [SerializeField] public float mazeHeight;
@@ -36,10 +36,6 @@ public class Maze2D : MonoBehaviour
     [SerializeField] public Vector2 ghostP2InitalDirection = Vector2.zero;
     [SerializeField] public Vector2 ghostP3InitalDirection = Vector2.zero;
     [SerializeField] public Vector2 ghostP4InitalDirection = Vector2.zero;
-
-    [SerializeField] private DevelopmentThemes editorTheme;
-    [HideProperty] private MazeTheme _runtimeSkin;
-    [HideProperty] private PelletTheme _runtimePelletSkin;
     
     private void Awake()
     {
@@ -56,55 +52,38 @@ public class Maze2D : MonoBehaviour
 
     }
 
-    private IMazeTheme GetMazeTheme()
-    {
-        if (_runtimeSkin != null) return _runtimeSkin;
-        else return editorTheme;
-    }
-
-    private IPelletTheme GetPelletTheme()
-    {
-        if (_runtimePelletSkin != null) return _runtimePelletSkin;
-        else return editorTheme;
-    }
-
     private void ChangeTilemapTheme(Tilemap tilemap, MazeTheme theme, PelletTheme pelletTheme)
     {
-            BoundsInt bounds = tilemap.cellBounds;
-            TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
-            for (int x = 0; x < bounds.size.x; x++) 
-                for (int y = 0; y < bounds.size.y; y++) 
+        BoundsInt bounds = tilemap.cellBounds;
+        TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
+        for (int x = 0; x < bounds.size.x; x++) 
+            for (int y = 0; y < bounds.size.y; y++) 
+            {
+                TileBase tile = allTiles[x + y * bounds.size.x];
+                if (tile != null && tile is IMazeTile)
                 {
-                    TileBase tile = allTiles[x + y * bounds.size.x];
-                    if (tile != null && tile is IMazeTile)
-                    {
-                        var themableTile = (IMazeTile)tile;
-                        themableTile.SetTheme(theme); 
-                    }   
-                    else if (tile != null && tile is IPelletTile)
-                    {
-                        var themableTile = (IPelletTile)tile;
-                        themableTile.SetTheme(pelletTheme); 
-                    }
+                    var themableTile = (IMazeTile)tile;
+                    themableTile.SetSkin(theme); 
+                }   
+                else if (tile != null && tile is IPelletTile)
+                {
+                    var themableTile = (IPelletTile)tile;
+                    themableTile.SetSkin(pelletTheme); 
                 }
-            tilemap.RefreshAllTiles();
+            }
+        tilemap.RefreshAllTiles();
     }
 
-    public void RefreshTheme()
+    public override void RefreshSkin()
     {
         UpdateStyles();
     }
 
-    public void SetRuntimeSkin(MazeTheme skin, PelletTheme pelletSkin)
-    {
-        _runtimeSkin = skin;
-        _runtimePelletSkin = pelletSkin;
-    }
-
     public void UpdateStyles()
     {
-        var theme = GetMazeTheme();
-        var pelletTheme = GetPelletTheme();
+        var theme = GetMazeSkin();
+        var pelletTheme = GetPelletSkin();
+        var rules = GetMazeRules();
 
         foreach (var tilemap in GetComponentsInChildren<Tilemap>(true))
             ChangeTilemapTheme(tilemap, theme.GetMazeTheme(), pelletTheme.GetPelletTheme());
@@ -112,14 +91,14 @@ public class Maze2D : MonoBehaviour
         foreach (var colorFilters in GetComponentsInChildren<MazeTilemapColoring>(true))
             colorFilters.Refresh();
 
-        if (colorLayer) 
-            colorLayer.SetActive(theme.HasRecolorSupport());
+        if (colorLayer != null) 
+            colorLayer.SetActive(rules.supportsRecolors);
 
-        if (background) 
-            background.SetActive(theme.HasBackgroundSupport());
+        if (background != null) 
+            background.SetActive(rules.supportsBackground);
 
-        if (colorBackground) 
-            colorBackground.SetActive(theme.HasBackgroundSupport() && theme.HasBackgroundRecolorSupport());
+        if (colorBackground != null) 
+            colorBackground.SetActive(rules.supportsBackground && rules.supportsBackgroundRecolors);
     }
 
     private void OnDrawGizmos()

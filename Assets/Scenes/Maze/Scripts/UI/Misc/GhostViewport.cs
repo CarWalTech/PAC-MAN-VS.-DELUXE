@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GhostViewport : SkinableBehavior
+public class GhostViewport : ViewportThemeHolder
 {
     public Color cardColor = Color.red;
     public PlayerNumber player = PlayerNumber.P1;

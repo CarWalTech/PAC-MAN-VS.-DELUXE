@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 872b430737de10941a55cba787104def
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/Internal/MinimumQueue.cs
+  uploadId: 887856

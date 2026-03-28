@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c1cf6fedbd7883444b900f38c3b67efc
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/LICENSE.md
+  uploadId: 887856

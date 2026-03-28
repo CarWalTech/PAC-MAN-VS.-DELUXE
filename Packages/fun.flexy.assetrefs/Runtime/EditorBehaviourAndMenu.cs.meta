@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: d9af29932b1a4f91bb77819839dbaedb
+timeCreated: 1767194468
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Runtime/EditorBehaviourAndMenu.cs
+  uploadId: 887856

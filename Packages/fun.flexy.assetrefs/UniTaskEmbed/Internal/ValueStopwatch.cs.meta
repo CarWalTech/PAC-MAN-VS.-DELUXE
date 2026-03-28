@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 3e9c88c97ecdfc6458aff33dc0cfc139
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/Internal/ValueStopwatch.cs
+  uploadId: 887856

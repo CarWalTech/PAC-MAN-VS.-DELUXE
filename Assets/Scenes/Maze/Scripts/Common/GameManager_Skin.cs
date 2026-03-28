@@ -32,7 +32,7 @@ public class GameManager_Skin
 
     public void RefreshSkin()
     {
-        DevelopmentThemes.RefreshGM(this);
+        ThemableManager.RefreshTheme(this);
     }
 
     #region Getters

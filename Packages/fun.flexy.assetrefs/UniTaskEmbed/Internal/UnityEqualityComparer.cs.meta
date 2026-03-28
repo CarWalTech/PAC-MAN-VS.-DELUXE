@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 6d3772b8dc596814f91ca73408100c59
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/Internal/UnityEqualityComparer.cs
+  uploadId: 887856

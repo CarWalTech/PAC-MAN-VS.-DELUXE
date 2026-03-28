@@ -1,0 +1,30 @@
+{
+    "name": "Flexy.AssetRefs",
+    "rootNamespace": "Flexy.AssetRefs",
+    "references": [
+        "UniTask",
+        "UniTaskEmbed",
+        "Unity.RenderPipelines.Universal.Runtime",
+		"Unity.RenderPipelines.HighDefinition.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "12",
+            "define": "UNITY_URP"
+        },
+		{
+            "name": "com.unity.render-pipelines.high-definition",
+            "expression": "12",
+            "define": "UNITY_HDRP"
+        }
+    ],
+    "noEngineReferences": false
+}

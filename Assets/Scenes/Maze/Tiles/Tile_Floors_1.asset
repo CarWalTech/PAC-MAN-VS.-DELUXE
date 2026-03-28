@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Tile_Floors_1
   m_EditorClassIdentifier: Assembly-CSharp::ThemableTile
   m_DefaultSprite: {fileID: 0}
-  m_DefaultGameObject: {fileID: 7070942184590380621, guid: 1f8954452b18afa5ababb983c1b298f8, type: 3}
+  m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules: []
+  _activeSkin: {fileID: 11400000, guid: cb265f8ed2cf37544aacc0329b1c66d5, type: 2}
   key: Floors
   value: 1
-  theme: {fileID: 11400000, guid: 0ca383c674e77b9b8a962a737937fbb5, type: 2}
   coloredTile: 0
   coloredMaterial: {fileID: 0}

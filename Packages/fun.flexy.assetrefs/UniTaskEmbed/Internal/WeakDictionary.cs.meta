@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: b7a8dacc1142d9c4c9f6f488788b97f6
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/Internal/WeakDictionary.cs
+  uploadId: 887856

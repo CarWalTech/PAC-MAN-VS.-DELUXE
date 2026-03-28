@@ -3639,7 +3639,7 @@ MonoBehaviour:
     playerCount: 5
     clientPlayerID: 0
   skin:
-    guiTheme: {fileID: 11400000, guid: da51742685a0853b1853bc665049ba75, type: 2}
+    guiTheme: {fileID: 11400000, guid: e465461f80538cfffb34ba6fa6f15360, type: 2}
     mazeTheme: {fileID: 11400000, guid: cb265f8ed2cf37544aacc0329b1c66d5, type: 2}
     pacmanTheme: {fileID: 11400000, guid: b8f931722ca78333abcbd756ba5497db, type: 2}
     ghostTheme: {fileID: 11400000, guid: fd790e6391e22d74083cf81fb37e91b1, type: 2}
@@ -8311,7 +8311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d85c51e2856f1535895cd2c3dab84b89, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7c3de592d0f0dda0a73ad1b58ef08d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10127,7 +10127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 732d6f76ecb53b9c69650c8eae9b58de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d83b0bc5d63b1be2a323907ce1d5059, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10136,7 +10136,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 8
+  m_PixelsPerUnitMultiplier: 24
 --- !u!222 &1990750823
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10157,7 +10157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae6699b60f50450e9d6227cfe5cc24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _activeSkin: {fileID: 11400000, guid: e465461f80538cfffb34ba6fa6f15360, type: 2}
+  _activeSkin: {fileID: 11400000, guid: da51742685a0853b1853bc665049ba75, type: 2}
   panel: {fileID: 1990750822}
   mode: 3
 --- !u!1 &1997343699
@@ -10454,7 +10454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d357fbd33bcb745b3fb9d00f9ebcc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostViewport
-  _activeSkin: {fileID: 11400000, guid: e465461f80538cfffb34ba6fa6f15360, type: 2}
+  _activeSkin: {fileID: 11400000, guid: da51742685a0853b1853bc665049ba75, type: 2}
   cardColor: {r: 1, g: 0, b: 0, a: 1}
   player: 0
   background: {fileID: 1133159860}
@@ -12349,7 +12349,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d53e55cfd956f5274ab487d36eb18655, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22810af4a37d7d1cb8331ebf7c2cdbd1, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12358,7 +12358,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 8
+  m_PixelsPerUnitMultiplier: 24
 --- !u!1001 &216856471743169861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17454,7 +17454,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 045be79fd454ed7e3b3705b495c1792e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bfb0115569bf4839a854909d04f555d, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17463,7 +17463,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 8
+  m_PixelsPerUnitMultiplier: 24
 --- !u!1001 &8198893100754121650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17687,7 +17687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae6699b60f50450e9d6227cfe5cc24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _activeSkin: {fileID: 11400000, guid: e465461f80538cfffb34ba6fa6f15360, type: 2}
+  _activeSkin: {fileID: 11400000, guid: da51742685a0853b1853bc665049ba75, type: 2}
   panel: {fileID: 106375808107392969}
   mode: 2
 --- !u!114 &9026127559266756929
@@ -17748,7 +17748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae6699b60f50450e9d6227cfe5cc24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _activeSkin: {fileID: 11400000, guid: e465461f80538cfffb34ba6fa6f15360, type: 2}
+  _activeSkin: {fileID: 11400000, guid: da51742685a0853b1853bc665049ba75, type: 2}
   panel: {fileID: 8169258472444360197}
   mode: 1
 --- !u!1660057539 &9223372036854775807

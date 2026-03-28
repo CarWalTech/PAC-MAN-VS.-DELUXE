@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 3e0e1e907fecb21499f8752687041252
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/UniTask.WhenAny.cs
+  uploadId: 887856

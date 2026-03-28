@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: b9f1e0eacb28d5f4abc087d69c854624
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/Triggers/AsyncDestroyTrigger.cs
+  uploadId: 887856

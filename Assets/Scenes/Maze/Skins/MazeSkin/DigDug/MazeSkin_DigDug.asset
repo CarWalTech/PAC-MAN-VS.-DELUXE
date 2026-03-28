@@ -129,6 +129,7 @@ MonoBehaviour:
       - {fileID: 585639118, guid: 9a3ce878874a2f68b84b96d206932131, type: 3}
       - {fileID: -777706735, guid: 9a3ce878874a2f68b84b96d206932131, type: 3}
       - {fileID: -1367035430, guid: 9a3ce878874a2f68b84b96d206932131, type: 3}
-  supportsRecolors: 1
-  supportsBackground: 1
-  supportsBackgroundRecolors: 0
+  rules:
+    supportsRecolors: 1
+    supportsBackground: 1
+    supportsBackgroundRecolors: 0

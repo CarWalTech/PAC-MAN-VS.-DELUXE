@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 027091d1290591b4cb6536fae207f637
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/UnityAwaitableExtensions.cs
+  uploadId: 887856

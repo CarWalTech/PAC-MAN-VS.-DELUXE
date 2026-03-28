@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 76932b5c1d3aac142b191868dd5a5b83
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/CancellationTokenExtensions.cs
+  uploadId: 887856

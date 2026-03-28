@@ -6,7 +6,7 @@ public class PowerPellet : Pellet
 
     void OnValidate()
     {
-        RefreshTheme();        
+        RefreshSkin();        
     }
 
     protected override void Eat(IPlayable src)
@@ -14,8 +14,9 @@ public class PowerPellet : Pellet
         GameManager.Instance.Event_EatPowerPellet(src, this);
     }
 
-    public override void RefreshTheme()
+    public override void RefreshSkin()
     {
+        var skin = GetSkin();
         if (!skin) return;
 
         var result = skin.GetSpriteSet(PelletTheme.PelletType.Powered);

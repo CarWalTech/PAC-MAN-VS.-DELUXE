@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 593c1d3658bd4ab298c4feebe68dfa63
+timeCreated: 1767194264
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Runtime/AssetLoaders/SceneLoader_Resources.cs
+  uploadId: 887856

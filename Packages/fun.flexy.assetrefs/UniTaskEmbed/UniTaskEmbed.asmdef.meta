@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0c7c5eb5b8006c2449ad5b70f4947317
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/UniTaskEmbed/UniTaskEmbed.asmdef
+  uploadId: 887856

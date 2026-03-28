@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: c67f570d5ede414abfd642249953e75d
+timeCreated: 1740335788
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311785
+  packageName: Flexy.AssetRefs
+  packageVersion: 6.1.1
+  assetPath: Packages/fun.flexy.assetrefs/Editor/ITasksTabView.cs
+  uploadId: 887856

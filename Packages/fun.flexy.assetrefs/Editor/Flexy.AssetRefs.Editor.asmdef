@@ -1,0 +1,26 @@
+{
+    "name": "Flexy.AssetRefs.Editor",
+    "rootNamespace": "Flexy.AssetRefs",
+    "references": [
+        "UniTask",
+        "Flexy.AssetRefs",
+        "Flexy.Utils.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "fun.flexy.utils",
+            "expression": "5",
+            "define": "FLEXY_UTILS"
+        }
+    ],
+    "noEngineReferences": false
+}

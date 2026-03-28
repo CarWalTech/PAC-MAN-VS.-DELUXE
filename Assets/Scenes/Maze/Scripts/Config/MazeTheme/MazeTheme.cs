@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
+using EditorAttributes;
 using SimpleSpritePacker;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -12,7 +13,7 @@ using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(menuName = "Pac-Man VS/Maze/Themes/MazeTheme", order = 1)]
-[System.Serializable]
+[Serializable]
 public class MazeTheme : ScriptableObject, IMazeTheme
 {
     public struct CacheObject
@@ -30,9 +31,16 @@ public class MazeTheme : ScriptableObject, IMazeTheme
     [FormerlySerializedAs("tileResolution")] public int pixelsPerUnit = 24;
     [SerializedDictionary("Tile Group", "Sprites")] public SerializedDictionary<string, List<Sprite>> tileList;
 
-    [SerializeField] private bool supportsRecolors = false;
-    [SerializeField] private bool supportsBackground = false;
-    [SerializeField] private bool supportsBackgroundRecolors = false;
+
+    [Serializable]
+    public class MazeRules
+    {
+        [SerializeField] public bool supportsRecolors = false;
+        [SerializeField] public bool supportsBackground = false;
+        [SerializeField] public bool supportsBackgroundRecolors = false;
+    }
+
+    [SerializeField] private MazeRules rules;
 
 
     private void OnValidate()
@@ -70,18 +78,10 @@ public class MazeTheme : ScriptableObject, IMazeTheme
         return this;
     }
 
-    public bool HasRecolorSupport()
+    public MazeRules GetMazeRules()
     {
-        return supportsRecolors;
+        return rules;
     }
 
-    public bool HasBackgroundSupport()
-    {
-        return supportsBackground;
-    }
 
-    public bool HasBackgroundRecolorSupport()
-    {
-        return supportsBackgroundRecolors;
-    }
 }

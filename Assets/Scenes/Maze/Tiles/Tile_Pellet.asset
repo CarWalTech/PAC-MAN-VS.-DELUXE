@@ -16,5 +16,5 @@ MonoBehaviour:
   m_DefaultGameObject: {fileID: 6089054482580266424, guid: e4ac4d8863d195144a350ef3d4006632, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules: []
+  _activeSkin: {fileID: 11400000, guid: 9de6c40810b7da6e9a62ca6a8d6d73d5, type: 2}
   key: 0
-  theme: {fileID: 11400000, guid: 9de6c40810b7da6e9a62ca6a8d6d73d5, type: 2}
