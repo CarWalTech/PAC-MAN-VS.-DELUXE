@@ -10,7 +10,7 @@ public class MazeCamera : MonoBehaviour, IGameCamera
     public Vector2 mazeOrigin => _mazeMgr.mazeOrigin;
     public float mazeWidth => _mazeMgr.mazeWidth;
     public float mazeHeight => _mazeMgr.mazeHeight;
-    private MazeManager _mazeMgr => GameManager.Instance.GetMazeManager();
+    private GameManager_Maze _mazeMgr => GameManager.Instance.GetMazeManager();
 
     private const float _smoothSpeed = 0.125f;
     private Vector3 _startPos;
@@ -18,12 +18,10 @@ public class MazeCamera : MonoBehaviour, IGameCamera
     private bool _shadowsActive;
     private bool _alwaysFollow = false;
     private int _defaultPPU;
-    private CameraManager _camMgr;
 
     private void Awake()
     {
         _cam = GetComponent<Camera>();
-        _camMgr = GetComponentInParent<CameraManager>();
         _defaultPPU = _cam.GetComponent<PixelPerfectCamera>().assetsPPU;
         SetShadowMode(false);
     }
@@ -31,6 +29,12 @@ public class MazeCamera : MonoBehaviour, IGameCamera
     private void Start()
     {
         _startPos = transform.position;
+    }
+
+    public void setPPU(int ppu)
+    {
+        _defaultPPU = ppu;
+        SetAlwaysFollow(_alwaysFollow);
     }
 
     public void SetShadowMode(bool value)
@@ -57,7 +61,8 @@ public class MazeCamera : MonoBehaviour, IGameCamera
     void LateUpdate()
     {
         if (target == null) return;
-        if (_camMgr == null) return;
+        if (GameManager.Instance == null) return;
+        if (GameManager.Instance.GetCameraManager() == null) return;
 
         // Camera half extents
         float halfWidth  = _cam.orthographicSize * _cam.aspect;

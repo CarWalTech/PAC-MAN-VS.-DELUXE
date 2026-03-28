@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.masyo-lab.favorites-asset": {
+      "version": "https://github.com/MasyoLab/UnityTools-FavoritesAsset.git?path=Assets/MasyoLab/FavoritesAsset",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "3aee0d3cd74f1b5c7d902cbc2a94a849c1692854"
+    },
     "com.nobi.roundedcorners": {
       "version": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git",
       "depth": 0,

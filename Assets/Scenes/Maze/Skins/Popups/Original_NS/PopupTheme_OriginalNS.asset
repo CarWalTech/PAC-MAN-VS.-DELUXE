@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e949f53036831b00aed4e81ad945522, type: 3}
+  m_Name: PopupTheme_OriginalNS
+  m_EditorClassIdentifier: Assembly-CSharp::PopupTheme
+  themeName: Original (Remastered)
+  themeUUID: PopupTheme_1A
+  pixelsPerUnit: 64
+  numberWidth: 32
+  numberHeight: 40
+  numbers:
+  - {fileID: -1623950441, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: -1956002988, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: 1311895038, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: -416714596, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: 1304701577, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: 1022436202, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: 1466494948, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: -734917066, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: 1312480682, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: -1185003359, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: 2139872178, guid: 05f6c91093103fcba970a63896ce1584, type: 3}
+  - {fileID: 0}

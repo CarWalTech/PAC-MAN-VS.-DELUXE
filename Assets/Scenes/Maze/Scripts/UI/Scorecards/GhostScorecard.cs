@@ -5,10 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GhostScorecard : ScorecardCommons, ISkinableBehavior
+public class GhostScorecard : ScorecardCommons
 {
-    public SkinManager skinManager = null;
-
     public bool suppressCOMScore = false;
 
     public Color cardColor = Color.red;
@@ -40,7 +38,7 @@ public class GhostScorecard : ScorecardCommons, ISkinableBehavior
         UpdateSkin();
     }
 
-    public void RefreshSkin()
+    public override void RefreshSkin()
     {
         UpdateSkin();
     }
@@ -52,20 +50,19 @@ public class GhostScorecard : ScorecardCommons, ISkinableBehavior
 
     void UpdateSkin()
     {
-        if (!skinManager) return;
-        if (!skinManager.guiTheme) return;
-        skinManager.AddHook(this);
+        var skin = GetSkin();
+        if (skin == null) return;
 
         try
         {
-            __player_index_sprites = skinManager.guiTheme.gs_HeaderNumbers;
-            playerPrefixImage.sprite = skinManager.guiTheme.gs_PlayerHeader;
-            playerTitleAltContainer.GetComponentInChildren<Image>(true).sprite = skinManager.guiTheme.gs_COMHeader;
-            backgroundImage.sprite = skinManager.guiTheme.gs_Container;
-            playerGhostImage.sprite = skinManager.guiTheme.gs_GhostBase;
-            playerGhostEyesImage.sprite = skinManager.guiTheme.gs_GhostEyes;
-            playerPacImage.sprite = skinManager.guiTheme.gs_PacMan;
-            UpdateSkinBase(skinManager.guiTheme.gs_ScoreNumbers);
+            __player_index_sprites = skin.gs_HeaderNumbers;
+            playerPrefixImage.sprite = skin.gs_PlayerHeader;
+            playerTitleAltContainer.GetComponentInChildren<Image>(true).sprite = skin.gs_COMHeader;
+            backgroundImage.sprite = skin.gs_Container;
+            playerGhostImage.sprite = skin.gs_GhostBase;
+            playerGhostEyesImage.sprite = skin.gs_GhostEyes;
+            playerPacImage.sprite = skin.gs_PacMan;
+            UpdateSkinBase(skin.gs_ScoreNumbers);
             UpdateScore();
             UpdateLabels();
         }

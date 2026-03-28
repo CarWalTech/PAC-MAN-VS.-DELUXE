@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be0a4742b127cdd59cb858127189bdb, type: 3}
+  m_Name: PacTheme_Arcade
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerThemePacman
+  themeName: Arcade
+  themeUUID: PacTheme_2
+  model: {fileID: 2293134395971769390, guid: 6e2185d6765764f6aa9e6ff2b8968f41, type: 3}
+  pixelsPerUnit: 8
+  sprites:
+    _serializedList:
+    - Key: Moving
+      Value:
+        animationTime: 0.125
+        loop: 1
+        sprites:
+        - {fileID: -1355729419, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: -2023523076, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: -1355729419, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: -863834041, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+    - Key: Death
+      Value:
+        animationTime: 0.125
+        loop: 0
+        sprites:
+        - {fileID: -1366477680, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: 299436641, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: -1394494356, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: -201859901, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: 265141549, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: 262847552, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: 1826343031, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: 1409594427, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: -584072058, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: -1761574678, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: 771316068, guid: d0c548881a3d13b548ad2d9b97f029d1, type: 3}
+        - {fileID: 0}

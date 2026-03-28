@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8402461120952219743}
   - component: {fileID: 7764147147105588042}
   - component: {fileID: 6089054482580266407}
+  - component: {fileID: 1666553070145664123}
   m_Layer: 8
   m_Name: Pellet
   m_TagString: Untagged
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 8c3087f14f6c62b4e80b25df0276968e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 110d8198572379a848609a223e30a6c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,6 +152,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5254213b7be9f374ea9f42e103d3d24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skin: {fileID: 11400000, guid: 9997133360878d4f4bbac00d2ed01490, type: 2}
   points: 10
   worldPrefab: {fileID: 6089109606598235967, guid: 76b285611b0ce00d2ac560ea8ecf989a, type: 3}
-  ruleTile: {fileID: 11400000, guid: e959ce30fbda79647b1455a870945731, type: 2}
+  spriteRenderer: {fileID: 8402461120952219743}
+  animatedSprite: {fileID: 1666553070145664123}
+--- !u!114 &1666553070145664123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089054482580266424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9b4536fbe1db8b098dde9e79b616d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimatedSprite
+  sprites:
+  - {fileID: 21300000, guid: 110d8198572379a848609a223e30a6c5, type: 3}
+  animationTime: 0.125
+  loop: 1
+  controlSpriteRenderer: 1

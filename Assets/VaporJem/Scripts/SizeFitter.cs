@@ -8,7 +8,7 @@ public class SizeFitter : MonoBehaviour {
 
     void OnValidate()
     {
-        CheckForChanges();
+
     }
     void Update()
     {

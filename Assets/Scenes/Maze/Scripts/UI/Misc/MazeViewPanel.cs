@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MazeViewPanel : MonoBehaviour, ISkinableBehavior
+public class MazeViewPanel : SkinableBehavior
 {
     public enum SkinMode
     {
@@ -14,7 +14,7 @@ public class MazeViewPanel : MonoBehaviour, ISkinableBehavior
         ViewportMask,
         ViewportPanel
     }
-    public SkinManager skinManager = null;
+
     public Image panel;
     public SkinMode mode = SkinMode.Normal;
 
@@ -28,25 +28,28 @@ public class MazeViewPanel : MonoBehaviour, ISkinableBehavior
 
     void UpdateSkin()
     {
-        if (!skinManager) return;
-        if (!skinManager.guiTheme) return;
-        skinManager.AddHook(this);
+        var skin = GetSkin();
+        if (skin == null) return;
 
         try
         {
             switch (mode)
             {
                 case SkinMode.ViewportFrame:
-                    panel.sprite = skinManager.guiTheme.sb_ViewportFrame;
+                    panel.sprite = skin.sb_ViewportFrame;
+                    panel.pixelsPerUnitMultiplier = panel.sprite.pixelsPerUnit;
                     break;
                 case SkinMode.ViewportMask:
-                    panel.sprite = skinManager.guiTheme.sb_ViewportMask;
+                    panel.sprite = skin.sb_ViewportMask;
+                    panel.pixelsPerUnitMultiplier = panel.sprite.pixelsPerUnit;
                     break;
                 case SkinMode.ViewportPanel:
-                    panel.sprite = skinManager.guiTheme.sb_ViewportPanel;
+                    panel.sprite = skin.sb_ViewportPanel;
+                    panel.pixelsPerUnitMultiplier = panel.sprite.pixelsPerUnit;
                     break;
                 default:
-                    panel.sprite = skinManager.guiTheme.sb_Frame;
+                    panel.sprite = skin.sb_Frame;
+                    panel.pixelsPerUnitMultiplier = panel.sprite.pixelsPerUnit;
                     break;
             }
         }
@@ -67,7 +70,7 @@ public class MazeViewPanel : MonoBehaviour, ISkinableBehavior
         
     }
 
-    public void RefreshSkin()
+    public override void RefreshSkin()
     {
         UpdateSkin();
     }

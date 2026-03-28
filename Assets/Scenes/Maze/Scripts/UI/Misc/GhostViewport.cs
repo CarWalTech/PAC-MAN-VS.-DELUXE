@@ -5,9 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GhostViewport : MonoBehaviour, ISkinableBehavior
+public class GhostViewport : SkinableBehavior
 {
-    public SkinManager skinManager = null;
     public Color cardColor = Color.red;
     public PlayerNumber player = PlayerNumber.P1;
 
@@ -38,7 +37,7 @@ public class GhostViewport : MonoBehaviour, ISkinableBehavior
     {
         UpdateSkin();
     }
-    public void RefreshSkin()
+    public override void RefreshSkin()
     {
         UpdateSkin();
     }
@@ -84,36 +83,38 @@ public class GhostViewport : MonoBehaviour, ISkinableBehavior
     }
     void UpdateSkin()
     {
-        if (!skinManager) return;
-        if (!skinManager.guiTheme) return;
-        skinManager.AddHook(this);
+        var skin = GetSkin();
+        if (skin == null) return;
 
         try
         {
             switch (skinMode)
             {
                 case SkinMode.Maze:
-                    __player_header_sprites = skinManager.guiTheme.gvm_PlayerNumbers;
-                    __com_header_sprite = skinManager.guiTheme.gvm_COMHeader;
-                    if (background != null) background.sprite = skinManager.guiTheme.gvm_ViewportContainer;
-                    if (cover != null) cover.sprite = skinManager.guiTheme.gvm_ViewportFrame;
-                    if (mask != null) mask.sprite = skinManager.guiTheme.gvm_ViewportMask;
+                    __player_header_sprites = skin.gvm_PlayerNumbers;
+                    __com_header_sprite = skin.gvm_COMHeader;
+                    if (background != null) background.sprite = skin.gvm_ViewportContainer;
+                    if (cover != null) cover.sprite = skin.gvm_ViewportFrame;
+                    if (mask != null) mask.sprite = skin.gvm_ViewportMask;
                     break;
                 case SkinMode.MazeMain:
-                    __player_header_sprites = skinManager.guiTheme.gvm_PlayerNumbers;
-                    __com_header_sprite = skinManager.guiTheme.gvm_COMHeader;
+                    __player_header_sprites = skin.gvm_PlayerNumbers;
+                    __com_header_sprite = skin.gvm_COMHeader;
                     if (background != null) background.sprite = null;
                     if (cover != null) cover.sprite = null;
                     if (mask != null) mask.sprite = null;
                     break;
                 case SkinMode.Ghost:
-                    __player_header_sprites = skinManager.guiTheme.gv_PlayerNumbers;
-                    __com_header_sprite = skinManager.guiTheme.gv_COMHeader;
-                    if (background != null) background.sprite = skinManager.guiTheme.gv_ViewportFrame;
-                    if (cover != null) cover.sprite = skinManager.guiTheme.gv_ViewportFrame;
-                    if (mask != null) mask.sprite = skinManager.guiTheme.gv_ViewportMask;
+                    __player_header_sprites = skin.gv_PlayerNumbers;
+                    __com_header_sprite = skin.gv_COMHeader;
+                    if (background != null) background.sprite = skin.gv_ViewportFrame;
+                    if (cover != null) cover.sprite = skin.gv_ViewportFrame;
+                    if (mask != null) mask.sprite = skin.gv_ViewportMask;
                     break;
             }
+            
+            UpdateBackground();
+            UpdateLabels();
 
         }
         catch (Exception ex)

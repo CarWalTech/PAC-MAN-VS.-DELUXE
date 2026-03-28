@@ -60,15 +60,13 @@ public class MazePreview : MonoBehaviour
         container.transform.localPosition = new Vector3(0,0,0);
         container.transform.localScale = new Vector3(16,16,16);
         var mazeResult = Instantiate(matches[0].levelTiles, container.transform);
-
-
-
+        
         if (_currentThemeId != null)
         {
             var mazeData = mazeResult.GetComponent<Maze2D>();
             var matchingThemes = themes.Where(x => x.themeUUID == _currentThemeId).ToList();
             if (matchingThemes.Count == 0) return;
-            if (mazeData.colorLayer) mazeData.colorLayer.SetActive(matchingThemes[0].supportsRecolors);
+            if (mazeData.colorLayer) mazeData.colorLayer.SetActive(matchingThemes[0].HasRecolorSupport());
             foreach (Tilemap m in container.GetComponentsInChildren<Tilemap>())
             {
                 foreach (MazeTile t in m.GetTiles<MazeTile>())

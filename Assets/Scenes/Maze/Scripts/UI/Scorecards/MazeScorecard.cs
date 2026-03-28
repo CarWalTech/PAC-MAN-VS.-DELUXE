@@ -5,11 +5,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MazeScorecard : ScorecardCommons, ISkinableBehavior
+public class MazeScorecard : ScorecardCommons
 {
 
 
-    public SkinManager skinManager = null;
+
     public bool suppressCOMScore = false;
 
 
@@ -39,7 +39,7 @@ public class MazeScorecard : ScorecardCommons, ISkinableBehavior
         UpdateSkin();
     }
 
-    public void RefreshSkin()
+    public override void RefreshSkin()
     {
         UpdateSkin();
     }
@@ -51,21 +51,20 @@ public class MazeScorecard : ScorecardCommons, ISkinableBehavior
 
     void UpdateSkin()
     {
-        if (!skinManager) return;
-        if (!skinManager.guiTheme) return;
-        skinManager.AddHook(this);
+        var skin = GetSkin();
+        if (skin == null) return;
 
         try
         {
-            __header_sprites = new Sprite[] { skinManager.guiTheme.ms_PlayerHeader, skinManager.guiTheme.ms_COMHeader };
-            __header_index_sprites = skinManager.guiTheme.ms_HeaderNumbers;
-            backgroundImage.sprite = skinManager.guiTheme.ms_ContainerHue;
-            backgroundFrame.sprite = skinManager.guiTheme.ms_Container;
-            backgroundShadow.sprite = skinManager.guiTheme.ms_ContainerShadow;
-            playerGhostImage.sprite = skinManager.guiTheme.ms_GhostBase;
-            playerGhostEyesImage.sprite = skinManager.guiTheme.ms_GhostEyes;
-            playerPacImage.sprite = skinManager.guiTheme.ms_PacMan;
-            UpdateSkinBase(skinManager.guiTheme.ms_ScoreNumbers);
+            __header_sprites = new Sprite[] { skin.ms_PlayerHeader, skin.ms_COMHeader };
+            __header_index_sprites = skin.ms_HeaderNumbers;
+            backgroundImage.sprite = skin.ms_ContainerHue;
+            backgroundFrame.sprite = skin.ms_Container;
+            backgroundShadow.sprite = skin.ms_ContainerShadow;
+            playerGhostImage.sprite = skin.ms_GhostBase;
+            playerGhostEyesImage.sprite = skin.ms_GhostEyes;
+            playerPacImage.sprite = skin.ms_PacMan;
+            UpdateSkinBase(skin.ms_ScoreNumbers);
             UpdateScore();
             UpdateLabels();
         }

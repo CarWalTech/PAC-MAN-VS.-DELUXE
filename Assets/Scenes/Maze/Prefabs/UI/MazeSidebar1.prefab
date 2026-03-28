@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 805fe35f078c8a5698adde592f78df11, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b9679369d2bb87f29fb0f71672617ff, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae6699b60f50450e9d6227cfe5cc24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  skinManager: {fileID: 0}
+  _activeSkin: {fileID: 0}
   panel: {fileID: 4751438120881364124}
   mode: 0
 --- !u!1 &4834229622433351275
@@ -1567,6 +1567,10 @@ PrefabInstance:
     - target: {fileID: 7447256220376995391, guid: 26d40d626328c30a7a420fabb26839fa, type: 3}
       propertyPath: score
       value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447256220376995391, guid: 26d40d626328c30a7a420fabb26839fa, type: 3}
+      propertyPath: skinMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7447256220376995391, guid: 26d40d626328c30a7a420fabb26839fa, type: 3}
       propertyPath: scorePadding

@@ -113,8 +113,16 @@ public static class GameConfiguration
         else
             return MatchViewMode.MazeView;
     }
-    public static GameObject GetChaserObject(GameManager manager, int index)
+    
+
+    public static GameManager_Entities.PlayerObjectSelector GetPacmanSelector()
     {
+        if (InputSource_PacMan == PlayerInputSource.CPU) return GameManager_Entities.PlayerObjectSelector.PacManCOM;
+        else return GameManager_Entities.PlayerObjectSelector.PacManPlayer;
+    }
+    public static GameManager_Entities.PlayerObjectSelector GetGhostSelector(GameManager manager, int index)
+    {
+        if (index == -1) return GameManager_Entities.PlayerObjectSelector.None;
         List<PlayerSlot> players = new List<PlayerSlot>() { PlayerSlot.P1, PlayerSlot.P2, PlayerSlot.P3, PlayerSlot.P4, PlayerSlot.P5 };
         players.Remove(PlayerSlot_PacMan);
         PlayerSlot actualChaserId = players[index];
@@ -138,7 +146,7 @@ public static class GameConfiguration
                 actualSelection = CharacterP5;
                 break;
             default:
-                return null;
+                return GameManager_Entities.PlayerObjectSelector.None;
                 
         }
 
@@ -148,46 +156,42 @@ public static class GameConfiguration
                 switch (index)
                 {
                     case 0:
-                        return manager.mazeGhostCOM1;
+                        return GameManager_Entities.PlayerObjectSelector.COM1;
                     case 1:
-                        return manager.mazeGhostCOM2;
+                        return GameManager_Entities.PlayerObjectSelector.COM2;
                     case 2:
-                        return manager.mazeGhostCOM3;
+                        return GameManager_Entities.PlayerObjectSelector.COM3;
                     case 3:
-                        return manager.mazeGhostCOM4;
+                        return GameManager_Entities.PlayerObjectSelector.COM4;
                     default:
-                        return null;
+                        return GameManager_Entities.PlayerObjectSelector.None;
                 }
             case PlayerCharacter.P1:
-                return manager.mazeGhostP1;
+                return GameManager_Entities.PlayerObjectSelector.P1;
             case PlayerCharacter.P2:
-                return manager.mazeGhostP2;
+                return GameManager_Entities.PlayerObjectSelector.P2;
             case PlayerCharacter.P3:
-                return manager.mazeGhostP3;
+                return GameManager_Entities.PlayerObjectSelector.P3;
             case PlayerCharacter.P4:
-                return manager.mazeGhostP4;
+                return GameManager_Entities.PlayerObjectSelector.P4;
             case PlayerCharacter.P5:
-                return manager.mazeGhostP5;
+                return GameManager_Entities.PlayerObjectSelector.P5;
             case PlayerCharacter.Blinky:
-                return manager.mazeGhostBlinky;
+                return GameManager_Entities.PlayerObjectSelector.Blinky;
             case PlayerCharacter.Inky:
-                return manager.mazeGhostInky;
+                return GameManager_Entities.PlayerObjectSelector.Inky;
             case PlayerCharacter.Clyde:
-                return manager.mazeGhostClyde;
+                return GameManager_Entities.PlayerObjectSelector.Clyde;
             case PlayerCharacter.Pinky:
-                return manager.mazeGhostPinky;
+                return GameManager_Entities.PlayerObjectSelector.Pinky;
             default:
-                return null;
+                return GameManager_Entities.PlayerObjectSelector.None;
         }
 
 
 
     }
-    public static GameObject GetPlayerObject(GameManager manager)
-    {
-        if (InputSource_PacMan == PlayerInputSource.CPU) return manager.mazePacManCOM;
-        else return manager.mazePacMan;
-    }
+
     public static PlayerCharacter GetCharacter(PlayerSlot slot)
     {
         switch (slot)
@@ -333,7 +337,7 @@ public static class GameConfiguration
     {
         PlayerSlot_Next_PacMan = transferTo;
     }
-    public static void Event_LoadState(ref MatchManager manager)
+    public static void Event_LoadState(ref GameManager_Match manager)
     {
         manager.targetScore = TargetScore;
         manager.clientPlayerID = PlayerSlot_Client;
@@ -344,21 +348,27 @@ public static class GameConfiguration
         manager.pacManBonus = PacManBonus;
         manager.playerCount = PlayerCount;
     }
-    public static void Event_LoadDevState(GameManager manager)
+    public static void Event_LoadDevState()
     {
-        if (manager.mazePlayer == manager.mazePacMan)
-        {
+        var manager = GameManager.Instance.GetEntityManager();
+        var pac_type = manager.GetPacManType();
+
+        if (pac_type == GameManager_Entities.PlayerObjectSelector.PacManPlayer)
             CharacterP1 = PlayerCharacter.P1;
-        }
-        else if (manager.mazePlayer == manager.mazePacManCOM)
-        {
+        else if (pac_type == GameManager_Entities.PlayerObjectSelector.PacManCOM)
             CharacterP1 = PlayerCharacter.COM;
-        }
         
-        CharacterP2 = manager.mazeChaserP1.GetComponent<Ghost>().characterSlot;
-        CharacterP3 = manager.mazeChaserP2.GetComponent<Ghost>().characterSlot;
-        CharacterP4 = manager.mazeChaserP3.GetComponent<Ghost>().characterSlot;
-        CharacterP5 = manager.mazeChaserP4.GetComponent<Ghost>().characterSlot;
+        if (manager.GetGhost(GameManager_Entities.GhostSelector.G1)) 
+            CharacterP2 = manager.GetGhost(GameManager_Entities.GhostSelector.G1).GetComponent<Ghost>().characterSlot;
+            
+        if (manager.GetGhost(GameManager_Entities.GhostSelector.G2)) 
+            CharacterP3 = manager.GetGhost(GameManager_Entities.GhostSelector.G2).GetComponent<Ghost>().characterSlot;
+
+        if (manager.GetGhost(GameManager_Entities.GhostSelector.G3)) 
+            CharacterP4 = manager.GetGhost(GameManager_Entities.GhostSelector.G3).GetComponent<Ghost>().characterSlot;
+
+        if (manager.GetGhost(GameManager_Entities.GhostSelector.G4)) 
+            CharacterP5 = manager.GetGhost(GameManager_Entities.GhostSelector.G4).GetComponent<Ghost>().characterSlot;
     }
     public static void Event_ReturnToMenu()
     {

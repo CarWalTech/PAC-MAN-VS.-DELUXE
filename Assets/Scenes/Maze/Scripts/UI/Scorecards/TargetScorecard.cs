@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TargetScorecard : ScorecardCommons, ISkinableBehavior
+public class TargetScorecard : ScorecardCommons
 {
     public enum SkinMode
     {
@@ -13,7 +13,6 @@ public class TargetScorecard : ScorecardCommons, ISkinableBehavior
         Ghost
     }
 
-    public SkinManager skinManager = null;
     public SkinMode skinMode = SkinMode.Maze;
 
     public Image background;
@@ -31,21 +30,20 @@ public class TargetScorecard : ScorecardCommons, ISkinableBehavior
     
     void UpdateSkin()
     {
-        if (!skinManager) return;
-        if (!skinManager.guiTheme) return;
-        skinManager.AddHook(this);
+        var skin = GetSkin();
+        if (skin == null) return;
 
         try
         {
             switch (skinMode)
             {
                 case SkinMode.Maze:
-                    UpdateSkinBase(skinManager.guiTheme.mts_Numbers);
-                    background.sprite = skinManager.guiTheme.mts_Background;
+                    UpdateSkinBase(skin.mts_Numbers);
+                    background.sprite = skin.mts_Background;
                     break;
                 case SkinMode.Ghost:
-                    UpdateSkinBase(skinManager.guiTheme.gts_Numbers);
-                    background.sprite = skinManager.guiTheme.gts_Background;
+                    UpdateSkinBase(skin.gts_Numbers);
+                    background.sprite = skin.gts_Background;
                     break;
             }
             UpdateScore();
@@ -66,7 +64,7 @@ public class TargetScorecard : ScorecardCommons, ISkinableBehavior
         RefreshScore();
         UpdateScore();
     }
-    public void RefreshSkin()
+    public override void RefreshSkin()
     {
         UpdateSkin();
     }

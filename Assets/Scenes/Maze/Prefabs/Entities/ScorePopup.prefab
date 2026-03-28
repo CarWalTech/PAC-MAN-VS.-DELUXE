@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2138632039551495193}
   - component: {fileID: 1078723319145169801}
+  - component: {fileID: 5659285854472565914}
   m_Layer: 0
   m_Name: Digit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2138632039551495193
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31,10 +32,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6656198405156642811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.333, y: 0.6}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.25, y: -0.4375}
+  m_SizeDelta: {x: 0.5, y: 0.875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1078723319145169801
 SpriteRenderer:
@@ -85,16 +86,36 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2049032342, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
+  m_Sprite: {fileID: -773628320, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4, y: 7}
+  m_Size: {x: 0.5, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5659285854472565914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804666923967036956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 0.5
+  m_PreferredHeight: 0.875
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &3446427077029467204
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,13 +126,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6952003114392155181}
   - component: {fileID: 6948190740824745055}
+  - component: {fileID: 6067608665446058529}
   m_Layer: 0
   m_Name: Digit (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6952003114392155181
 RectTransform:
   m_ObjectHideFlags: 0
@@ -126,10 +148,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6656198405156642811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.333, y: 0.6}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1.25, y: -0.4375}
+  m_SizeDelta: {x: 0.5, y: 0.875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &6948190740824745055
 SpriteRenderer:
@@ -180,16 +202,36 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1080684720, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
+  m_Sprite: {fileID: -773628320, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &6067608665446058529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3446427077029467204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 0.5
+  m_PreferredHeight: 0.875
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 2
 --- !u!1 &5001531929670810722
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,13 +242,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4887030900249807101}
   - component: {fileID: 6205813768110049409}
+  - component: {fileID: 7456735704591638146}
   m_Layer: 0
   m_Name: Digit (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4887030900249807101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -221,10 +264,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6656198405156642811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.333, y: 0.6}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1.75, y: -0.4375}
+  m_SizeDelta: {x: 0.5, y: 0.875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &6205813768110049409
 SpriteRenderer:
@@ -275,16 +318,36 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1080684720, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
+  m_Sprite: {fileID: -773628320, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &7456735704591638146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5001531929670810722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 0.5
+  m_PreferredHeight: 0.875
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 2
 --- !u!1 &6089054482580266424
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,8 +384,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.665, y: 0.6}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0.5, y: 0.875}
+  m_Pivot: {x: 0.5, y: 0.4375}
 --- !u!114 &9182990535872248160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,9 +398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd46b323a9b5fd959ac249337620a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  score: 50000
-  charWidth: 0.333
-  charHeight: 0.6
+  score: 3
+  charWidth: 0.5
+  charHeight: 0.875
   digit1: {fileID: 104479272581469621}
   digit2: {fileID: 6205813768110049409}
   digit3: {fileID: 6948190740824745055}
@@ -345,20 +408,8 @@ MonoBehaviour:
   digit5: {fileID: 1078723319145169801}
   scorePadding: 0
   scoreCentered: 1
-  gs_ScoreNumbers:
-  - {fileID: 1080684720, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: -1188339146, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: -584289354, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: 831118983, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: -1737319599, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: -2049032342, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: -1352843446, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: -1982164546, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: 1280689517, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: 1623554390, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: 2057990666, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: -773628320, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
-  - {fileID: 1209586909, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
+  scoreInvisiblePadding: 0
+  skin: {fileID: 11400000, guid: 8d06d43b8e3f8e99f9a6ab544bfb3a65, type: 2}
   valueDisplay: {fileID: 8994132557325551344}
   lifespan: 2
   behavior: 1
@@ -385,6 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7233511661733033271}
   - component: {fileID: 104479272581469621}
+  - component: {fileID: 6891898763745216318}
   m_Layer: 0
   m_Name: Digit (4)
   m_TagString: Untagged
@@ -409,7 +461,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.333, y: 0.6}
+  m_SizeDelta: {x: 0.5, y: 0.875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &104479272581469621
 SpriteRenderer:
@@ -460,16 +512,36 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1080684720, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
+  m_Sprite: {fileID: 831118983, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &6891898763745216318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055769999727173702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 0.5
+  m_PreferredHeight: 0.875
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 2
 --- !u!1 &7095980642042088740
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,13 +552,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2189550784666002480}
   - component: {fileID: 2648992365250345654}
+  - component: {fileID: 7625058222503818203}
   m_Layer: 0
   m_Name: Digit (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2189550784666002480
 RectTransform:
   m_ObjectHideFlags: 0
@@ -501,10 +574,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6656198405156642811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.333, y: 0.6}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.75, y: -0.4375}
+  m_SizeDelta: {x: 0.5, y: 0.875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &2648992365250345654
 SpriteRenderer:
@@ -555,16 +628,36 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1080684720, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
+  m_Sprite: {fileID: -773628320, guid: c7e03cfc43fc98478b0472475443d78e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &7625058222503818203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095980642042088740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 0.5
+  m_PreferredHeight: 0.875
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 2
 --- !u!1 &8994132557325551344
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,12 +716,12 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 1
-  m_ChildScaleHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
   m_ReverseArrangement: 0

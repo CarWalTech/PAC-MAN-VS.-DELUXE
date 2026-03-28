@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.masyo-lab.favorites-asset": "https://github.com/MasyoLab/UnityTools-FavoritesAsset.git?path=Assets/MasyoLab/FavoritesAsset",
     "com.nobi.roundedcorners": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git",
     "com.rowlan.quicknav": "file:/home/carjem/Downloads/QuickNav-main/Assets/Rowlan/QuickNav",
     "com.unity.2d.pixel-perfect": "5.1.1",

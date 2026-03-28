@@ -34,6 +34,7 @@ public class ScorecardCommonsMesh : MonoBehaviour
 
     public bool scorePadding = false;
     public bool scoreCentered = false;
+    public bool scoreInvisiblePadding = true;
 
 
     public virtual bool IsScoreNullified()
@@ -62,8 +63,9 @@ public class ScorecardCommonsMesh : MonoBehaviour
     private void UpdateScorePriv(int score)
     {
         var paddingPassed = false;
+        int numberCount = 0;
         
-        void SetCharActive(GameObject obj, bool state)
+        int SetCharActive(GameObject obj, bool state)
         {
             if (obj.GetComponent<RectTransform>())
             {
@@ -72,14 +74,16 @@ public class ScorecardCommonsMesh : MonoBehaviour
             }
             if (scoreCentered) obj.SetActive(state);
             else obj.SetActive(true);
+
+            return state == true ? 1 : 0;
         }
 
-        void GetSprite(List<int> values, int index, ref SpriteRenderer image)
+        int GetSprite(List<int> values, int index, ref SpriteRenderer image)
         {
             if (values.Count <= index)
             {
                 image.sprite = __number_0;
-                return;
+                return 1;
             }
             switch (values[index])
             {
@@ -87,83 +91,63 @@ public class ScorecardCommonsMesh : MonoBehaviour
                     if (paddingPassed)
                     {
                         image.sprite = __number_0;
-                        SetCharActive(image.gameObject, true);
-                        return;
+                        return SetCharActive(image.gameObject, true);
                     }
                     else if (scorePadding)
                     {
                         image.sprite = __number_0;
-                        SetCharActive(image.gameObject, true);
-                        return;
+                        return SetCharActive(image.gameObject, true);
                     }
                     else
                     {
                         image.sprite = __number_space;
-                        SetCharActive(image.gameObject, false);
-                        return;
+                        return SetCharActive(image.gameObject, false);
                     }
                 case 1:
                     paddingPassed = true;
-                    SetCharActive(image.gameObject, true);
                     image.sprite = __number_1;
-                    return;
+                    return SetCharActive(image.gameObject, true);
                 case 2:
                     paddingPassed = true;
-                    SetCharActive(image.gameObject, true);
                     image.sprite = __number_2;
-                    return;
+                    return SetCharActive(image.gameObject, true);
                 case 3:
                     paddingPassed = true;
-                    SetCharActive(image.gameObject, true);
                     image.sprite = __number_3;
-                    return;
+                    return SetCharActive(image.gameObject, true);
                 case 4:
                     paddingPassed = true;
-                    SetCharActive(image.gameObject, true);
                     image.sprite = __number_4;
-                    return;
+                    return SetCharActive(image.gameObject, true);
                 case 5:
                     paddingPassed = true;
-                    SetCharActive(image.gameObject, true);
                     image.sprite = __number_5;
-                    return;
+                    return SetCharActive(image.gameObject, true);
                 case 6:
                     paddingPassed = true;
-                    SetCharActive(image.gameObject, true);
                     image.sprite = __number_6;
-                    return;
+                    return SetCharActive(image.gameObject, true);
                 case 7:
                     paddingPassed = true;
-                    SetCharActive(image.gameObject, true);
                     image.sprite = __number_7;
-                    return;
+                    return SetCharActive(image.gameObject, true);
                 case 8:
                     paddingPassed = true;
-                    SetCharActive(image.gameObject, true);
                     image.sprite = __number_8;
-                    return;
+                    return SetCharActive(image.gameObject, true);
                 case 9:
                     paddingPassed = true;
-                    SetCharActive(image.gameObject, true);
                     image.sprite = __number_9;
-                    return;
+                    return SetCharActive(image.gameObject, true);
                 default:
                     paddingPassed = true;
-                    SetCharActive(image.gameObject, true);
                     image.sprite = __number_null;
-                    return;
+                    return SetCharActive(image.gameObject, true);
             }
         }
 
-        
-
-
         try
         {
-            var container_transform = gameObject.GetComponent<RectTransform>();
-            container_transform.sizeDelta = new Vector2(charWidth * 5, charHeight);
-
-
             if (IsScoreNullified())
             {
                 digit1.sprite = __number_null;
@@ -172,11 +156,11 @@ public class ScorecardCommonsMesh : MonoBehaviour
                 digit4.sprite = __number_null;
                 digit5.sprite = __number_null;
 
-                SetCharActive(digit1.gameObject, true);
-                SetCharActive(digit2.gameObject, true);
-                SetCharActive(digit3.gameObject, true);
-                SetCharActive(digit4.gameObject, true);
-                SetCharActive(digit5.gameObject, true);                
+                numberCount += SetCharActive(digit1.gameObject, true);
+                numberCount += SetCharActive(digit2.gameObject, true);
+                numberCount += SetCharActive(digit3.gameObject, true);
+                numberCount += SetCharActive(digit4.gameObject, true);
+                numberCount += SetCharActive(digit5.gameObject, true);           
             }
             else if (score == 0)
             {
@@ -186,11 +170,11 @@ public class ScorecardCommonsMesh : MonoBehaviour
                 digit4.sprite = scorePadding ? __number_0 : __number_space;
                 digit5.sprite = scorePadding ? __number_0 : __number_space;
 
-                SetCharActive(digit1.gameObject, true);
-                SetCharActive(digit2.gameObject, scorePadding);
-                SetCharActive(digit3.gameObject, scorePadding);
-                SetCharActive(digit4.gameObject, scorePadding);
-                SetCharActive(digit5.gameObject, scorePadding);
+                numberCount += SetCharActive(digit1.gameObject, true);
+                numberCount += SetCharActive(digit2.gameObject, scorePadding);
+                numberCount += SetCharActive(digit3.gameObject, scorePadding);
+                numberCount += SetCharActive(digit4.gameObject, scorePadding);
+                numberCount += SetCharActive(digit5.gameObject, scorePadding);
             }
             else
             {
@@ -198,11 +182,11 @@ public class ScorecardCommonsMesh : MonoBehaviour
                 try { digits = score.ToString("D5").Select(x=>int.Parse(x.ToString())).Reverse().ToList(); }
                 catch { digits = new List<int> { 0, 0, 0, 0, 0 }; }
                 
-                GetSprite(digits, 4, ref digit5);
-                GetSprite(digits, 3, ref digit4);
-                GetSprite(digits, 2, ref digit3);
-                GetSprite(digits, 1, ref digit2);
-                GetSprite(digits, 0, ref digit1);      
+                numberCount += GetSprite(digits, 4, ref digit5);
+                numberCount += GetSprite(digits, 3, ref digit4);
+                numberCount += GetSprite(digits, 2, ref digit3);
+                numberCount += GetSprite(digits, 1, ref digit2);
+                numberCount += GetSprite(digits, 0, ref digit1);      
             }
 
         }
@@ -215,12 +199,25 @@ public class ScorecardCommonsMesh : MonoBehaviour
             digit4.sprite = __number_null;
             digit5.sprite = __number_null;
 
-            SetCharActive(digit1.gameObject, true);
-            SetCharActive(digit2.gameObject, true);
-            SetCharActive(digit3.gameObject, true);
-            SetCharActive(digit4.gameObject, true);
-            SetCharActive(digit5.gameObject, true);
+            numberCount += SetCharActive(digit1.gameObject, true);
+            numberCount += SetCharActive(digit2.gameObject, true);
+            numberCount += SetCharActive(digit3.gameObject, true);
+            numberCount += SetCharActive(digit4.gameObject, true);
+            numberCount += SetCharActive(digit5.gameObject, true);
         }
+
+        UpdateSizePriv(numberCount);
+    }
+
+    private void UpdateSizePriv(int numberCount)
+    {
+        float actualWidth;
+        if (scoreInvisiblePadding) actualWidth = charWidth * 5;
+        else actualWidth = charWidth * numberCount;
+
+        var container_transform = gameObject.GetComponent<RectTransform>();
+        container_transform.sizeDelta = new Vector2(actualWidth, charHeight);
+        container_transform.pivot = new Vector2(charWidth, charHeight / 2);
     }
     public void UpdateScore(bool force = false)
     {

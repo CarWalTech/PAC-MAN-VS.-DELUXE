@@ -5,9 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GhostViewRadar : ScorecardCommons, ISkinableBehavior
+public class GhostViewRadar : ScorecardCommons
 {
-    public SkinManager skinManager = null;
     public Image pelletIcon;
     public Image container;
 
@@ -16,7 +15,7 @@ public class GhostViewRadar : ScorecardCommons, ISkinableBehavior
         UpdateSkin();
     }
 
-    public void RefreshSkin()
+    public override void RefreshSkin()
     {
         UpdateSkin();
     }
@@ -28,15 +27,14 @@ public class GhostViewRadar : ScorecardCommons, ISkinableBehavior
 
     void UpdateSkin()
     {
-        if (!skinManager) return;
-        if (!skinManager.guiTheme) return;
-        skinManager.AddHook(this);
+        var skin = GetSkin();
+        if (skin == null) return;
 
         try
         {
-            container.sprite = skinManager.guiTheme.gr_Container;
-            pelletIcon.sprite = skinManager.guiTheme.gr_PelletIcon;
-            UpdateSkinBase(skinManager.guiTheme.gr_ScoreNumbers);
+            container.sprite = skin.gr_Container;
+            pelletIcon.sprite = skin.gr_PelletIcon;
+            UpdateSkinBase(skin.gr_ScoreNumbers);
             UpdateScore();
         }
         catch (Exception ex)

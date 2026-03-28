@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScorecardCommons : MonoBehaviour
+public class ScorecardCommons : SkinableBehavior
 {
     public int score;
     private int _lastScore = -1;

@@ -14,7 +14,15 @@ public class PlayerThemePacman : PlayerThemeBase
 {
     public string themeName;
     public string themeUUID;
-    public int spriteResolution = 24;
-    [SerializedDictionary("Group", "Sprites")] public SerializedDictionary<string, List<Sprite>> sprites;
-    public override SerializedDictionary<string, List<Sprite>> GetSprites() { return sprites; }
+    public GameObject model;
+    public int pixelsPerUnit = 24;
+    [SerializedDictionary("Group", "Sprites")] public SerializedDictionary<string, AnimatedSpriteSet> sprites;
+
+    public AnimatedSpriteSet GetSpriteSet(string group)
+    {
+        if (sprites == null) return null;    
+        if (!sprites.ContainsKey(group)) return null;
+        return sprites[group];
+        
+    }
 }
