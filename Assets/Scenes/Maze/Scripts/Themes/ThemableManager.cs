@@ -106,6 +106,12 @@ public class ThemableManager : ScriptableObject, IMazeTheme, IPelletTheme
 
             foreach (var hook in currentPrefab.FindComponentsOfType<ViewportThemeHolder>())
                 hook.SetSkin(themableData.guiTheme);
+
+            foreach (var hook in currentPrefab.FindComponentsOfType<PlayerThemeHolder<PlayerThemeGhost>>())
+                hook.SetSkin(themableData.ghostTheme);
+
+            foreach (var hook in currentPrefab.FindComponentsOfType<PlayerThemeHolder<PlayerThemePacman>>())
+                hook.SetSkin(themableData.pacmanTheme);
         }
         else
         {
@@ -117,6 +123,12 @@ public class ThemableManager : ScriptableObject, IMazeTheme, IPelletTheme
 
             foreach (var hook in Object.FindObjectsByType<ViewportThemeHolder>(FindObjectsInactive.Include, FindObjectsSortMode.None))
                 hook.SetSkin(themableData.guiTheme);
+
+            foreach (var hook in Object.FindObjectsByType<PlayerThemeHolder<PlayerThemeGhost>>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                hook.SetSkin(themableData.ghostTheme);
+
+            foreach (var hook in Object.FindObjectsByType<PlayerThemeHolder<PlayerThemePacman>>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                hook.SetSkin(themableData.pacmanTheme);
         }
     }
     private void RefreshThemePriv()

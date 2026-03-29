@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         }
         else if (GameConfiguration.GameEnterMode == GameConfiguration.EnterMode.Disabled)
         {
+            skin.RefreshSkin();
             maze.Setup(skin.mazeTheme, skin.pelletTheme);
             GameConfiguration.Event_LoadDevState();
         }
@@ -162,14 +163,12 @@ public class GameManager : MonoBehaviour
                 if (player.GetComponent<PacMan>())
                 {
                     var pacman = player.GetComponent<PacMan>();
-                    pacman.skin = skin.pacmanTheme;
                     pacman.SetSpeed(matchSettings.pacManSpeed);
                     pacman.Setup(data, maze.GetMaze2D());
                 }
                 else if (player.GetComponent<Ghost>())
                 {
                     var ghost = player.GetComponent<Ghost>();
-                    ghost.skin = skin.ghostTheme;
                     ghost.SetSpeed(matchSettings.ghostSpeed);
                     ghost.SetSightRange(matchSettings.ghostSight);
                     ghost.Setup(data, maze.GetMaze2D());

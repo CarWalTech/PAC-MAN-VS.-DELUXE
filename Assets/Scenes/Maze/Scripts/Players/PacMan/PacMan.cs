@@ -6,9 +6,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PacMan : MonoBehaviour, IPlayable
+public class PacMan : PlayerThemeHolder<PlayerThemePacman>, IPlayable
 {
-    [SerializeField] public PlayerThemePacman skin;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private AnimatedSprite movingSequence;
     [SerializeField] private AnimatedSprite deathSequence;
@@ -42,12 +41,12 @@ public class PacMan : MonoBehaviour, IPlayable
     }
     void OnValidate()
     {
-        RefreshTheme();        
+        RefreshSkin();        
     }
     IEnumerator Start()
     {
         yield return new WaitUntil(() => GameManager.IsReady && GameManager.Instance != null);
-        RefreshTheme();
+        RefreshSkin();
         worldObject = Instantiate(_worldPrefab, _worldOrigin, Quaternion.Euler(Vector3.zero), GameManager.Instance.GetWorldViewCache().transform);
         _worldAnimator = worldObject.GetComponentInChildren<PacManAnimator>(true);
         GameManager.Instance.CollectCamera(this);
@@ -185,8 +184,9 @@ public class PacMan : MonoBehaviour, IPlayable
 
     #region Theme
 
-    public void RefreshTheme()
+    public override void RefreshSkin()
     {
+        var skin = GetSkin();
 
         void ApplyAnimation(string group, ref AnimatedSprite animatedSprite)
         {
@@ -197,7 +197,7 @@ public class PacMan : MonoBehaviour, IPlayable
             animatedSprite.animationTime = result.animationTime;
             animatedSprite.loop = result.loop;
         }
-
+        
         if (!skin) return;
 
         var result = skin.GetSpriteSet("Moving");

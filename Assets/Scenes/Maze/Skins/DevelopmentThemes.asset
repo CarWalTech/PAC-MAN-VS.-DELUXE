@@ -16,6 +16,10 @@ MonoBehaviour:
     mazeTheme: {fileID: 11400000, guid: 0ca383c674e77b9b8a962a737937fbb5, type: 2}
     pelletTheme: {fileID: 11400000, guid: 9de6c40810b7da6e9a62ca6a8d6d73d5, type: 2}
     guiTheme: {fileID: 11400000, guid: da51742685a0853b1853bc665049ba75, type: 2}
+    pacmanTheme: {fileID: 11400000, guid: 3fc2a3c72917b679c886d95101f47a0b, type: 2}
+    ghostTheme: {fileID: 11400000, guid: 63c0f53c035dc2d52ba19af8e500b650, type: 2}
+    fruitTheme: {fileID: 11400000, guid: 1cd65698081997401b52ef3f06ed5a2f, type: 2}
+    popupTheme: {fileID: 11400000, guid: 53146ddd8af880e8ba6f6f9dd99b64dc, type: 2}
     tiles:
     - {fileID: 11400000, guid: c64cb583d9f12897da67eb6b7bccb369, type: 2}
     - {fileID: 11400000, guid: 15e946f96e884aea3a6bb6168d4f3bd2, type: 2}

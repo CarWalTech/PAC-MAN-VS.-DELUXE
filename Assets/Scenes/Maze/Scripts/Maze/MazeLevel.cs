@@ -1,9 +1,9 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Pac-Man VS/Maze/Levels/LevelConfiguration")]
+[CreateAssetMenu(menuName = "Pac-Man VS/Maze/Levels/MazeLevel")]
 [System.Serializable]
-public class LevelConfiguration : ScriptableObject
+public class MazeLevel : ScriptableObject
 {
     public string levelName;
     public string levelUUID;

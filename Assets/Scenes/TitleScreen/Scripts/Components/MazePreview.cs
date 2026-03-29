@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class MazePreview : MonoBehaviour
 {
-    public List<LevelConfiguration> mazes = new List<LevelConfiguration>();
+    public List<MazeLevel> mazes = new List<MazeLevel>();
     public List<MazeTheme> themes = new List<MazeTheme>();
     public CanvasGroup canvasGroup = null;
     private GameObject container = null;
@@ -14,7 +14,7 @@ public class MazePreview : MonoBehaviour
     private string _currentThemeId = null;
 
 
-    public LevelConfiguration getMaze(string mazeId)
+    public MazeLevel getMaze(string mazeId)
     {
         var matches = mazes.Where(x => x.levelUUID == mazeId).ToList();
         if (matches.Count == 0) return null;

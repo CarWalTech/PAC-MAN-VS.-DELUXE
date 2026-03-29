@@ -5,9 +5,8 @@ using UnityEngine.Tilemaps;
 
 
 [DefaultExecutionOrder(-10)]
-public class Ghost : MonoBehaviour, IPlayable
+public class Ghost : PlayerThemeHolder<PlayerThemeGhost>, IPlayable
 {
-    [SerializeField] public PlayerThemeGhost skin;
     [SerializeField] public PlayerCharacter characterSlot;
     [SerializeField] public bool isTagGhost = false;
     [Space]
@@ -91,14 +90,14 @@ public class Ghost : MonoBehaviour, IPlayable
     }
     void OnValidate()
     {
-        RefreshTheme();        
+        RefreshSkin();        
     }
 
     IEnumerator Start()
     {
         yield return new WaitUntil(() => GameManager.IsReady && GameManager.Instance != null);
         spotlight.gameObject.SetActive(true);
-        RefreshTheme();
+        RefreshSkin();
         worldMaterial = _material;
         worldObject = Instantiate(_worldPrefab, _worldOrigin, Quaternion.Euler(Vector3.zero), GameManager.Instance.GetWorldViewCache().transform);
         _worldAnimator = worldObject.GetComponentInChildren<GhostAnimator>(true);
@@ -317,8 +316,9 @@ public class Ghost : MonoBehaviour, IPlayable
 
     #region Theme
 
-    public void RefreshTheme()
+    public override void RefreshSkin()
     {
+        var skin = GetSkin();
 
         void ApplyAnimation(string group, ref AnimatedSprite animatedSprite)
         {

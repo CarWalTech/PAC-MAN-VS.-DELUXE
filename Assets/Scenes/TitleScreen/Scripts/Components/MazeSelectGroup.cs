@@ -7,7 +7,7 @@ public class MazeSelectGroup : GenericSelectGroup
 {
     public MazePreview preview;
 
-    public LevelConfiguration GetMaze()
+    public MazeLevel GetMaze()
     {
         if (!preview) return null;
         else return preview.getMaze(activeItem);
