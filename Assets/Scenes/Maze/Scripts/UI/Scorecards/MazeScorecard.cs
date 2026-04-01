@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using UnityEditor;
+using UnityEditor.Rendering.PostProcessing;
 using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteAlways]
 public class MazeScorecard : ScorecardCommons
 {
 
@@ -33,7 +35,8 @@ public class MazeScorecard : ScorecardCommons
     private Sprite[] __header_sprites = new Sprite[]{};
     private Sprite[] __header_index_sprites = new Sprite[]{};
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private RectTransform rectTransform;
+
     void Start()
     {
         UpdateSkin();
@@ -111,7 +114,6 @@ public class MazeScorecard : ScorecardCommons
             }
         }
     }
-
     void UpdateIcon()
     {
         if (character == PlayerType.PacMan)
@@ -132,6 +134,7 @@ public class MazeScorecard : ScorecardCommons
     {
         UpdateSkin();
         UpdateScore(true);
+        UpdateSize();
         Update();
     }
 
@@ -149,6 +152,7 @@ public class MazeScorecard : ScorecardCommons
 
     void RefreshData()
     {
+        if (!EditorApplication.isPlaying) return;
         gameObject.SetActive(IsPlayerActive());
         
         var sel_char = GameConfiguration.GetCharacter(inputSlot);
@@ -192,8 +196,15 @@ public class MazeScorecard : ScorecardCommons
             character = PlayerType.Ghost;
     }
 
+    void UpdateSize()
+    {
+        var frameSize = backgroundFrame.GetComponent<RectTransform>().sizeDelta;
+        rectTransform.sizeDelta = new Vector2(frameSize.x, frameSize.y);
+    }
+
     void Update()
     {
+        UpdateSize();
         RefreshData();
         UpdateScore();
         UpdateBackground();

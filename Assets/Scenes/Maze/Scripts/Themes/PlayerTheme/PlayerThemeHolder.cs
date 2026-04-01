@@ -2,7 +2,7 @@ using EditorAttributes;
 using UnityEngine;
 
 
-public class PlayerThemeHolder<T> : MonoBehaviour, IThemable where T : PlayerThemeBase
+public class PlayerThemeHolder<T> : MonoBehaviour, IThemable where T : IPlayerTheme
 {
     [SerializeField, HideProperty] private T _activeSkin = null;
     public T GetSkin()

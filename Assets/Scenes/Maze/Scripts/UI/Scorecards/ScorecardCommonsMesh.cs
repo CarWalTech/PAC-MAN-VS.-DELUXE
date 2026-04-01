@@ -10,8 +10,11 @@ public class ScorecardCommonsMesh : MonoBehaviour
     public int score;
     private int _lastScore = -1;
 
-    public float charWidth = 0;
-    public float charHeight = 0;
+    public int charWidth = 0;
+    public int charHeight = 0;
+    public int charPixelsPerUnit = 0;
+    public int charSpacing = 0;
+    public Dictionary<int, Vector2Int> charSizeOverrides = new Dictionary<int, Vector2Int>();
 
     private Sprite __number_0 = null;
     private Sprite __number_1 = null;
@@ -34,7 +37,6 @@ public class ScorecardCommonsMesh : MonoBehaviour
 
     public bool scorePadding = false;
     public bool scoreCentered = false;
-    public bool scoreInvisiblePadding = true;
 
 
     public virtual bool IsScoreNullified()
@@ -60,164 +62,170 @@ public class ScorecardCommonsMesh : MonoBehaviour
         __number_null = chars[10];
         __number_space = chars[11];
     }
+    private Tuple<Vector2Int, bool> UpdateChar(GameObject obj, int index, bool spacingAllowed, bool state)
+    {
+        int spacing = spacingAllowed && state ? charSpacing : 0;
+
+        int pixelHeight = charHeight;
+        int pixelWidth = charWidth;
+
+        if (charSizeOverrides != null && charSizeOverrides.ContainsKey(index))
+        {
+            pixelWidth = charSizeOverrides[index].x;
+            pixelHeight = charSizeOverrides[index].y;
+        }
+
+        pixelWidth += spacing;
+
+        float spriteWidth = pixelWidth / (float)charPixelsPerUnit;
+        float spriteHeight = pixelHeight / (float)charPixelsPerUnit;
+
+        
+
+    
+        obj.GetComponent<RectTransform>().pivot = new Vector2(0.0f, 0.5f);
+        obj.GetComponent<LayoutElement>().preferredWidth = spriteWidth;
+        obj.GetComponent<LayoutElement>().preferredHeight = spriteHeight;
+
+        if (scoreCentered) obj.SetActive(state);
+        else obj.SetActive(true);
+
+        return new Tuple<Vector2Int, bool>(new Vector2Int(pixelWidth, pixelHeight), state);
+    }
+    private Vector2Int GetSprite(int index, int length, bool onlyZeroes, ref bool afterZeroes, SpriteRenderer image, int intValue)
+    {
+        bool isActive;
+        Vector2Int spriteSize;
+        bool spacingAllowed = index < length - 1;
+        
+        switch (intValue)
+        {
+            case 0:
+                if (afterZeroes)
+                {
+                    image.sprite = __number_0;
+                    (spriteSize, isActive) = UpdateChar(image.gameObject, 0, spacingAllowed, true);
+                }
+                else if (index == length - 1 && onlyZeroes)
+                {
+                    image.sprite = __number_0;
+                    (spriteSize, isActive) = UpdateChar(image.gameObject, 0, spacingAllowed, true);                        
+                }
+                else if (scorePadding)
+                {
+                    image.sprite = __number_0;
+                    (spriteSize, isActive) = UpdateChar(image.gameObject, 0, spacingAllowed, true);
+                }
+                else if (!scoreCentered)
+                {
+                    image.sprite = __number_space;
+                    (spriteSize, isActive) = UpdateChar(image.gameObject, 11, spacingAllowed, true);
+                }
+                else
+                {
+                    image.sprite = __number_space;
+                    (spriteSize, isActive) = UpdateChar(image.gameObject, 11, spacingAllowed, false);
+                }
+                break;
+            case 1:
+                afterZeroes = true;
+                image.sprite = __number_1;
+                (spriteSize, isActive) = UpdateChar(image.gameObject, 1, spacingAllowed, true);
+                break;
+            case 2:
+                afterZeroes = true;
+                image.sprite = __number_2;
+                (spriteSize, isActive) = UpdateChar(image.gameObject, 2, spacingAllowed, true);
+                break;
+            case 3:
+                afterZeroes = true;
+                image.sprite = __number_3;
+                (spriteSize, isActive) = UpdateChar(image.gameObject, 3, spacingAllowed, true);
+                break;
+            case 4:
+                afterZeroes = true;
+                image.sprite = __number_4;
+                (spriteSize, isActive) = UpdateChar(image.gameObject, 4, spacingAllowed, true);
+                break;
+            case 5:
+                afterZeroes = true;
+                image.sprite = __number_5;
+                (spriteSize, isActive) = UpdateChar(image.gameObject, 5, spacingAllowed, true);
+                break;
+            case 6:
+                afterZeroes = true;
+                image.sprite = __number_6;
+                (spriteSize, isActive) = UpdateChar(image.gameObject, 6, spacingAllowed, true);
+                break;
+            case 7:
+                afterZeroes = true;
+                image.sprite = __number_7;
+                (spriteSize, isActive) = UpdateChar(image.gameObject, 7, spacingAllowed, true);
+                break;
+            case 8:
+                afterZeroes = true;
+                image.sprite = __number_8;
+                (spriteSize, isActive) = UpdateChar(image.gameObject, 8, spacingAllowed, true);
+                break;
+            case 9:
+                afterZeroes = true;
+                image.sprite = __number_9;
+                (spriteSize, isActive) = UpdateChar(image.gameObject, 9, spacingAllowed, true);
+                break;
+            default:
+                afterZeroes = true;
+                image.sprite = __number_null;
+                (spriteSize, isActive) = UpdateChar(image.gameObject, 10, spacingAllowed, true);
+                break;
+        }
+    
+        if (isActive) return spriteSize;
+        else return Vector2Int.zero;
+    }
     private void UpdateScorePriv(int score)
     {
-        var paddingPassed = false;
-        int numberCount = 0;
-        
-        int SetCharActive(GameObject obj, bool state)
-        {
-            if (obj.GetComponent<RectTransform>())
-            {
-                var rect = obj.GetComponent<RectTransform>();
-                rect.sizeDelta = new Vector2(charWidth, charHeight);
-            }
-            if (scoreCentered) obj.SetActive(state);
-            else obj.SetActive(true);
-
-            return state == true ? 1 : 0;
-        }
-
-        int GetSprite(List<int> values, int index, ref SpriteRenderer image)
-        {
-            if (values.Count <= index)
-            {
-                image.sprite = __number_0;
-                return 1;
-            }
-            switch (values[index])
-            {
-                case 0:
-                    if (paddingPassed)
-                    {
-                        image.sprite = __number_0;
-                        return SetCharActive(image.gameObject, true);
-                    }
-                    else if (scorePadding)
-                    {
-                        image.sprite = __number_0;
-                        return SetCharActive(image.gameObject, true);
-                    }
-                    else
-                    {
-                        image.sprite = __number_space;
-                        return SetCharActive(image.gameObject, false);
-                    }
-                case 1:
-                    paddingPassed = true;
-                    image.sprite = __number_1;
-                    return SetCharActive(image.gameObject, true);
-                case 2:
-                    paddingPassed = true;
-                    image.sprite = __number_2;
-                    return SetCharActive(image.gameObject, true);
-                case 3:
-                    paddingPassed = true;
-                    image.sprite = __number_3;
-                    return SetCharActive(image.gameObject, true);
-                case 4:
-                    paddingPassed = true;
-                    image.sprite = __number_4;
-                    return SetCharActive(image.gameObject, true);
-                case 5:
-                    paddingPassed = true;
-                    image.sprite = __number_5;
-                    return SetCharActive(image.gameObject, true);
-                case 6:
-                    paddingPassed = true;
-                    image.sprite = __number_6;
-                    return SetCharActive(image.gameObject, true);
-                case 7:
-                    paddingPassed = true;
-                    image.sprite = __number_7;
-                    return SetCharActive(image.gameObject, true);
-                case 8:
-                    paddingPassed = true;
-                    image.sprite = __number_8;
-                    return SetCharActive(image.gameObject, true);
-                case 9:
-                    paddingPassed = true;
-                    image.sprite = __number_9;
-                    return SetCharActive(image.gameObject, true);
-                default:
-                    paddingPassed = true;
-                    image.sprite = __number_null;
-                    return SetCharActive(image.gameObject, true);
-            }
-        }
-
         try
         {
-            if (IsScoreNullified())
-            {
-                digit1.sprite = __number_null;
-                digit2.sprite = __number_null;
-                digit3.sprite = __number_null;
-                digit4.sprite = __number_null;
-                digit5.sprite = __number_null;
+            List<int> digits;
+            List<Vector2Int> charSizes = new List<Vector2Int>();
 
-                numberCount += SetCharActive(digit1.gameObject, true);
-                numberCount += SetCharActive(digit2.gameObject, true);
-                numberCount += SetCharActive(digit3.gameObject, true);
-                numberCount += SetCharActive(digit4.gameObject, true);
-                numberCount += SetCharActive(digit5.gameObject, true);           
-            }
-            else if (score == 0)
-            {
-                digit1.sprite = __number_0;
-                digit2.sprite = scorePadding ? __number_0 : __number_space;
-                digit3.sprite = scorePadding ? __number_0 : __number_space;
-                digit4.sprite = scorePadding ? __number_0 : __number_space;
-                digit5.sprite = scorePadding ? __number_0 : __number_space;
+            if (IsScoreNullified()) digits = new List<int> { 10, 10, 10, 10, 10 };
+            else if (score == 0) digits = new List<int> { 0, 0, 0, 0, 0 };
+            else try { digits = score.ToString("D5").Select(x=>int.Parse(x.ToString())).Reverse().ToList(); }
+            catch { digits = new List<int> { 0, 0, 0, 0, 0 }; }
 
-                numberCount += SetCharActive(digit1.gameObject, true);
-                numberCount += SetCharActive(digit2.gameObject, scorePadding);
-                numberCount += SetCharActive(digit3.gameObject, scorePadding);
-                numberCount += SetCharActive(digit4.gameObject, scorePadding);
-                numberCount += SetCharActive(digit5.gameObject, scorePadding);
-            }
-            else
-            {
-                List<int> digits;
-                try { digits = score.ToString("D5").Select(x=>int.Parse(x.ToString())).Reverse().ToList(); }
-                catch { digits = new List<int> { 0, 0, 0, 0, 0 }; }
-                
-                numberCount += GetSprite(digits, 4, ref digit5);
-                numberCount += GetSprite(digits, 3, ref digit4);
-                numberCount += GetSprite(digits, 2, ref digit3);
-                numberCount += GetSprite(digits, 1, ref digit2);
-                numberCount += GetSprite(digits, 0, ref digit1);      
-            }
+            bool onlyZeroes = digits.All(x => x == 0);
+            bool afterZeroes = false;
 
+            charSizes.Add(GetSprite(0, digits.Count, onlyZeroes, ref afterZeroes, digit5, digits[4]));
+            charSizes.Add(GetSprite(1, digits.Count, onlyZeroes, ref afterZeroes, digit4, digits[3]));
+            charSizes.Add(GetSprite(2, digits.Count, onlyZeroes, ref afterZeroes, digit3, digits[2]));
+            charSizes.Add(GetSprite(3, digits.Count, onlyZeroes, ref afterZeroes, digit2, digits[1]));
+            charSizes.Add(GetSprite(4, digits.Count, onlyZeroes, ref afterZeroes, digit1, digits[0]));
+
+            UpdateSizePriv(charSizes);
+            _lastScore = score;
         }
         catch (Exception ex)
         {
             Debug.LogError("Unable to update score: " + ex);
-            digit1.sprite = __number_null;
-            digit2.sprite = __number_null;
-            digit3.sprite = __number_null;
-            digit4.sprite = __number_null;
-            digit5.sprite = __number_null;
-
-            numberCount += SetCharActive(digit1.gameObject, true);
-            numberCount += SetCharActive(digit2.gameObject, true);
-            numberCount += SetCharActive(digit3.gameObject, true);
-            numberCount += SetCharActive(digit4.gameObject, true);
-            numberCount += SetCharActive(digit5.gameObject, true);
+            throw ex;
         }
 
-        UpdateSizePriv(numberCount);
-    }
 
-    private void UpdateSizePriv(int numberCount)
+    }
+    private void UpdateSizePriv(List<Vector2Int> charSizes)
     {
-        float actualWidth;
-        if (scoreInvisiblePadding) actualWidth = charWidth * 5;
-        else actualWidth = charWidth * numberCount;
+        float actualWidth = 0;
+        float actualCharWidth = charWidth / (float)charPixelsPerUnit;
+        float actualCharHeight = charHeight / (float)charPixelsPerUnit;
+
+        foreach (var charSize in charSizes)
+            actualWidth += charSize.x / (float)charPixelsPerUnit;
 
         var container_transform = gameObject.GetComponent<RectTransform>();
-        container_transform.sizeDelta = new Vector2(actualWidth, charHeight);
-        container_transform.pivot = new Vector2(charWidth, charHeight / 2);
+        container_transform.sizeDelta = new Vector2(actualWidth, actualCharHeight);
+        container_transform.pivot = new Vector2(0.5f, actualCharHeight / 2);
     }
     public void UpdateScore(bool force = false)
     {

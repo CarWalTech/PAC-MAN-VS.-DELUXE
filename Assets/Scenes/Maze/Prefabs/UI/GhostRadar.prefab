@@ -1,5 +1,69 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1711734700042559077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 729033664947832384}
+  - component: {fileID: 2107843434810346567}
+  m_Layer: 5
+  m_Name: IconContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &729033664947832384
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711734700042559077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4743812554113443644}
+  m_Father: {fileID: 4668710482477687795}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 10}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &2107843434810346567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711734700042559077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6fc2e8e674498a79de582b21dcdb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasTransform
+  mode: 1
+  positionDelta: {x: 0, y: 0}
+  sizeDelta: {x: 10, y: 10}
+  anchorMin: {x: 0, y: 0.5}
+  anchorMax: {x: 0, y: 0.5}
+  pivot: {x: 0, y: 0.5}
+  mirrorTarget: {fileID: 0}
+  mirrorUseOffset: 0
+  mirrorOffset: {x: 0, y: 0, z: 0}
+  mirrorUsePadding: 0
+  mirrorPaddingLeft: 0
+  mirrorPaddingTop: 0
+  mirrorPaddingRight: 0
+  mirrorPaddingBottom: 0
+  mirrorPadding: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1899588678909237916
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +75,7 @@ GameObject:
   - component: {fileID: 5480902382888832912}
   - component: {fileID: 7134704370050597076}
   - component: {fileID: 1047911870829617861}
+  - component: {fileID: 2224538957787222060}
   m_Layer: 5
   m_Name: Digit1
   m_TagString: Untagged
@@ -35,7 +100,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 28, y: 40}
+  m_SizeDelta: {x: 7, y: 8.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7134704370050597076
 CanvasRenderer:
@@ -65,7 +130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1896567279, guid: 660179c6c10f6e6b28df9bd05b548c76, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -75,6 +140,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2224538957787222060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899588678909237916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &4978535632477250395
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +165,7 @@ GameObject:
   - component: {fileID: 1138110480419473422}
   - component: {fileID: 5448018746912249532}
   - component: {fileID: 3444022665404764306}
+  - component: {fileID: 6973344345183462865}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -108,10 +188,10 @@ RectTransform:
   - {fileID: 4668710482477687795}
   m_Father: {fileID: 8860768916644094837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 60, y: 72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5448018746912249532
 CanvasRenderer:
@@ -151,6 +231,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6973344345183462865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978535632477250395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &5209991804124589698
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +256,7 @@ GameObject:
   - component: {fileID: 5171934192423083181}
   - component: {fileID: 5847224745839528373}
   - component: {fileID: 6747775056723538116}
+  - component: {fileID: 4174263791976299526}
   m_Layer: 5
   m_Name: Digit4
   m_TagString: Untagged
@@ -183,10 +278,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1550893638763577198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 28, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 12, y: -5}
+  m_SizeDelta: {x: 7, y: 8.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5847224745839528373
 CanvasRenderer:
@@ -216,7 +311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1386220026, guid: 660179c6c10f6e6b28df9bd05b548c76, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -226,6 +321,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4174263791976299526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5209991804124589698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &5582413799033627134
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,13 +346,14 @@ GameObject:
   - component: {fileID: 193715129496559392}
   - component: {fileID: 4723307694285634060}
   - component: {fileID: 2398043177360813895}
+  - component: {fileID: 5191904449161740165}
   m_Layer: 5
   m_Name: Digit3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &193715129496559392
 RectTransform:
   m_ObjectHideFlags: 0
@@ -258,10 +368,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1550893638763577198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70, y: -20}
-  m_SizeDelta: {x: 28, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 7, y: 8.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4723307694285634060
 CanvasRenderer:
@@ -291,7 +401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1228979257, guid: 660179c6c10f6e6b28df9bd05b548c76, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -301,6 +411,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5191904449161740165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582413799033627134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &6173415162008233732
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +436,7 @@ GameObject:
   - component: {fileID: 6386133206802059327}
   - component: {fileID: 5321716331941329974}
   - component: {fileID: 3524922009635845486}
+  - component: {fileID: 3373825851788080150}
   m_Layer: 5
   m_Name: Digit5
   m_TagString: Untagged
@@ -333,10 +458,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1550893638763577198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 28, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 5, y: -5}
+  m_SizeDelta: {x: 7, y: 8.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5321716331941329974
 CanvasRenderer:
@@ -366,7 +491,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1386220026, guid: 660179c6c10f6e6b28df9bd05b548c76, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -376,6 +501,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3373825851788080150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173415162008233732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &6588777107770100582
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,13 +526,14 @@ GameObject:
   - component: {fileID: 8789587635367768781}
   - component: {fileID: 4874907874849083915}
   - component: {fileID: 8065182492341439252}
+  - component: {fileID: 7387008222998825357}
   m_Layer: 5
   m_Name: Digit2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8789587635367768781
 RectTransform:
   m_ObjectHideFlags: 0
@@ -408,10 +548,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1550893638763577198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 98, y: -20}
-  m_SizeDelta: {x: 28, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 7, y: 8.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4874907874849083915
 CanvasRenderer:
@@ -441,7 +581,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1537999404, guid: 660179c6c10f6e6b28df9bd05b548c76, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -451,6 +591,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7387008222998825357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588777107770100582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &6676299701776558994
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8860768916644094837}
   - component: {fileID: 5364001792912219473}
+  - component: {fileID: 5063346068619817671}
   m_Layer: 5
   m_Name: GhostRadar
   m_TagString: Untagged
@@ -500,7 +655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15769873e3053e920849ba082fcdcddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  score: 2
+  _activeSkin: {fileID: 11400000, guid: da51742685a0853b1853bc665049ba75, type: 2}
+  score: 123
   digit1: {fileID: 1047911870829617861}
   digit2: {fileID: 8065182492341439252}
   digit3: {fileID: 2398043177360813895}
@@ -508,9 +664,35 @@ MonoBehaviour:
   digit5: {fileID: 3524922009635845486}
   scorePadding: 0
   scoreCentered: 1
-  skinManager: {fileID: 0}
   pelletIcon: {fileID: 7435794433312519678}
   container: {fileID: 3444022665404764306}
+--- !u!114 &5063346068619817671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6676299701776558994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6fc2e8e674498a79de582b21dcdb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasTransform
+  mode: 2
+  positionDelta: {x: 0, y: 0}
+  sizeDelta: {x: 0, y: 0}
+  anchorMin: {x: 0, y: 0}
+  anchorMax: {x: 0, y: 0}
+  pivot: {x: 0, y: 0}
+  mirrorTarget: {fileID: 3444022665404764306}
+  mirrorUseOffset: 0
+  mirrorOffset: {x: 0, y: 0, z: 0}
+  mirrorUsePadding: 0
+  mirrorPaddingLeft: 0
+  mirrorPaddingTop: 0
+  mirrorPaddingRight: 0
+  mirrorPaddingBottom: 0
+  mirrorPadding: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6941151753228151934
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1550893638763577198}
   - component: {fileID: 6459095427482033095}
+  - component: {fileID: 336657392824473054}
   m_Layer: 5
   m_Name: Values
   m_TagString: Untagged
@@ -547,11 +730,11 @@ RectTransform:
   - {fileID: 5480902382888832912}
   m_Father: {fileID: 4668710482477687795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 0}
-  m_SizeDelta: {x: 140, y: 40}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 38, y: 10}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &6459095427482033095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,6 +761,33 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &336657392824473054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6941151753228151934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6fc2e8e674498a79de582b21dcdb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasTransform
+  mode: 1
+  positionDelta: {x: 0, y: 0}
+  sizeDelta: {x: 38, y: 10}
+  anchorMin: {x: 1, y: 0.5}
+  anchorMax: {x: 1, y: 0.5}
+  pivot: {x: 1, y: 0.5}
+  mirrorTarget: {fileID: 0}
+  mirrorUseOffset: 0
+  mirrorOffset: {x: 0, y: 0, z: 0}
+  mirrorUsePadding: 0
+  mirrorPaddingLeft: 0
+  mirrorPaddingTop: 0
+  mirrorPaddingRight: 0
+  mirrorPaddingBottom: 0
+  mirrorPadding: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8634701190633719992
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4668710482477687795}
+  - component: {fileID: 5549710003538532752}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -606,15 +817,42 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4743812554113443644}
+  - {fileID: 729033664947832384}
   - {fileID: 1550893638763577198}
   m_Father: {fileID: 1138110480419473422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -36}
-  m_SizeDelta: {x: 200, y: 45}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -12, y: 14}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &5549710003538532752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8634701190633719992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6fc2e8e674498a79de582b21dcdb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasTransform
+  mode: 1
+  positionDelta: {x: 6, y: 0}
+  sizeDelta: {x: 6, y: 14}
+  anchorMin: {x: 0, y: 1}
+  anchorMax: {x: 1, y: 1}
+  pivot: {x: 0.5, y: 1}
+  mirrorTarget: {fileID: 0}
+  mirrorUseOffset: 0
+  mirrorOffset: {x: 0, y: 0, z: 0}
+  mirrorUsePadding: 0
+  mirrorPaddingLeft: 0
+  mirrorPaddingTop: 0
+  mirrorPaddingRight: 0
+  mirrorPaddingBottom: 0
+  mirrorPadding: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8636085937639361277
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +864,7 @@ GameObject:
   - component: {fileID: 4743812554113443644}
   - component: {fileID: 7154342898825023488}
   - component: {fileID: 7435794433312519678}
+  - component: {fileID: 5524481000481879835}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -645,12 +884,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4668710482477687795}
+  m_Father: {fileID: 729033664947832384}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: 0}
-  m_SizeDelta: {x: 30, y: 30}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 6.5, y: 6.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7154342898825023488
 CanvasRenderer:
@@ -690,3 +929,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5524481000481879835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8636085937639361277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}

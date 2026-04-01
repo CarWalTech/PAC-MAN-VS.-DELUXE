@@ -37,19 +37,19 @@ public class MazeViewPanel : ViewportThemeHolder
             {
                 case SkinMode.ViewportFrame:
                     panel.sprite = skin.sb_ViewportFrame;
-                    panel.pixelsPerUnitMultiplier = panel.sprite.pixelsPerUnit;
+                    panel.pixelsPerUnitMultiplier = 1; //panel.sprite.pixelsPerUnit;
                     break;
                 case SkinMode.ViewportMask:
                     panel.sprite = skin.sb_ViewportMask;
-                    panel.pixelsPerUnitMultiplier = panel.sprite.pixelsPerUnit;
+                    panel.pixelsPerUnitMultiplier = 1; //panel.sprite.pixelsPerUnit;
                     break;
                 case SkinMode.ViewportPanel:
                     panel.sprite = skin.sb_ViewportPanel;
-                    panel.pixelsPerUnitMultiplier = panel.sprite.pixelsPerUnit;
+                    panel.pixelsPerUnitMultiplier = 1; //panel.sprite.pixelsPerUnit;
                     break;
                 default:
                     panel.sprite = skin.sb_Frame;
-                    panel.pixelsPerUnitMultiplier = panel.sprite.pixelsPerUnit;
+                    panel.pixelsPerUnitMultiplier = 1; //panel.sprite.pixelsPerUnit;
                     break;
             }
         }

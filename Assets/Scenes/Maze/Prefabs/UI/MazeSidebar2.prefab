@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae6699b60f50450e9d6227cfe5cc24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  skinManager: {fileID: 0}
+  _activeSkin: {fileID: 0}
   panel: {fileID: 1984147400872789246}
   mode: 0
 --- !u!1001 &2867467006216188325
@@ -1875,6 +1875,10 @@ PrefabInstance:
     - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Color.r
       value: 0.8784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615521957914846379, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3792380867259152783, guid: ea618cf6854fe50078d556ce845565d1, type: 3}
       propertyPath: m_Pivot.x

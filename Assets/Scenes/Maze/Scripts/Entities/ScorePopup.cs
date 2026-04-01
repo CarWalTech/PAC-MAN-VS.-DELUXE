@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +34,11 @@ public class ScorePopup : ScorecardCommonsMesh
 
     void OnValidate()
     {
+        Invoke(nameof(OnHardValidate), 0);
+    }
+
+    void OnHardValidate()
+    {
         RefreshSkin();
         UpdateScore(true);
     }
@@ -53,26 +59,16 @@ public class ScorePopup : ScorecardCommonsMesh
 
     public void RefreshSkin()
     {
-        
-        void SetCharSize(LayoutElement el)
-        {
-            el.preferredHeight = (float)skin.numberHeight / skin.pixelsPerUnit;
-            el.preferredWidth = (float)skin.numberWidth / skin.pixelsPerUnit;
-        }
-
         if (!skin) return;
         if (skin.numbers == null) return;
 
-        charWidth = (float)skin.numberWidth / skin.pixelsPerUnit;
-        charHeight = (float)skin.numberHeight / skin.pixelsPerUnit;
-
-        SetCharSize(digit1.GetComponent<LayoutElement>());
-        SetCharSize(digit2.GetComponent<LayoutElement>());
-        SetCharSize(digit3.GetComponent<LayoutElement>());
-        SetCharSize(digit4.GetComponent<LayoutElement>());
-        SetCharSize(digit5.GetComponent<LayoutElement>());
-
+        charWidth = skin.numberWidth;
+        charHeight = skin.numberHeight;
+        charSpacing = skin.spacing;
+        charSizeOverrides = skin.sizeOverrides;
+        charPixelsPerUnit = skin.pixelsPerUnit;
         UpdateSkinBase(skin.numbers.ToArray());
+        UpdateScore(true);
     }
 
     void OnActive()

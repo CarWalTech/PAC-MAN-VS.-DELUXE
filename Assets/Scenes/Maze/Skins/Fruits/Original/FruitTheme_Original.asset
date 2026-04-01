@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f7a7be083fa215d9bb3c328814bef2, type: 3}
+  m_Name: FruitTheme_Original
+  m_EditorClassIdentifier: Assembly-CSharp::FruitTheme
+  themeName: Original
+  themeUUID: FruitTheme_1
+  pixelsPerUnit: 8
+  models:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 4119834803772013718, guid: 10df3003f1db095849de9a8c461e1eaa, type: 3}
+    - Key: 1
+      Value: {fileID: 4119834803772013718, guid: 10df3003f1db095849de9a8c461e1eaa, type: 3}
+    - Key: 2
+      Value: {fileID: 4119834803772013718, guid: 10df3003f1db095849de9a8c461e1eaa, type: 3}
+    - Key: 3
+      Value: {fileID: 4119834803772013718, guid: 10df3003f1db095849de9a8c461e1eaa, type: 3}
+    - Key: 4
+      Value: {fileID: 4119834803772013718, guid: 10df3003f1db095849de9a8c461e1eaa, type: 3}
+    - Key: 5
+      Value: {fileID: 4119834803772013718, guid: 10df3003f1db095849de9a8c461e1eaa, type: 3}
+    - Key: 6
+      Value: {fileID: 4119834803772013718, guid: 10df3003f1db095849de9a8c461e1eaa, type: 3}
+    - Key: 7
+      Value: {fileID: 4119834803772013718, guid: 10df3003f1db095849de9a8c461e1eaa, type: 3}
+  sprites:
+    _serializedList:
+    - Key: 0
+      Value:
+        animationTime: 0
+        loop: 0
+        sprites:
+        - {fileID: 21300000, guid: 978beea12a20dc4db805f9f4c6124402, type: 3}
+    - Key: 1
+      Value:
+        animationTime: 0
+        loop: 0
+        sprites:
+        - {fileID: 21300000, guid: a23d15d15802723bfaf197a0bb616089, type: 3}
+    - Key: 2
+      Value:
+        animationTime: 0
+        loop: 0
+        sprites:
+        - {fileID: 21300000, guid: e891edc73e1c445a2a653d4a2e16f9a4, type: 3}
+    - Key: 3
+      Value:
+        animationTime: 0
+        loop: 0
+        sprites:
+        - {fileID: 21300000, guid: f71fdbbf59c373503bcb952b2e7af8d4, type: 3}
+    - Key: 4
+      Value:
+        animationTime: 0
+        loop: 0
+        sprites:
+        - {fileID: 21300000, guid: 6531106cca999c541b1b19b701f50bac, type: 3}
+    - Key: 5
+      Value:
+        animationTime: 0
+        loop: 0
+        sprites:
+        - {fileID: 21300000, guid: 66a4bf56d2049d4608ec5971e751642a, type: 3}
+    - Key: 6
+      Value:
+        animationTime: 0
+        loop: 0
+        sprites:
+        - {fileID: 21300000, guid: b6b6d3b3264806ddcb5f93ecb59586ca, type: 3}
+    - Key: 7
+      Value:
+        animationTime: 0
+        loop: 0
+        sprites:
+        - {fileID: 21300000, guid: 761c49f91ddad4c6b85e51cd3772d5c5, type: 3}

@@ -12,10 +12,13 @@ using EditorAttributes;
 [System.Serializable]
 public class PopupTheme : ScriptableObject
 {
+
     public string themeName;
     public string themeUUID;
     public int pixelsPerUnit = 8;
     public int numberWidth = 4;
     public int numberHeight = 7;
+    public int spacing = 0;
     public List<Sprite> numbers = new List<Sprite>();
+    [SerializeField, SerializedDictionary("Index", "Size")] public SerializedDictionary<int, Vector2Int> sizeOverrides;
 }

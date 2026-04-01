@@ -3,7 +3,7 @@ using UnityEngine.Tilemaps;
 
 public interface IPlayable
 {
-    public void Setup(SpawnData spawnData, Maze2D mazeData);
+    public void Setup(SpawnpointData spawnData, Maze2D mazeData);
     public void Freeze();
     public void Unfreeze();
     public void Lock();

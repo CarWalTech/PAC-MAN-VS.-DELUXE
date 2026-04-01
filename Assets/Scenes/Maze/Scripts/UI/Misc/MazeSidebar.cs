@@ -16,6 +16,8 @@ public class MazeSidebar : MonoBehaviour
     public MazeScorecard player5 = null;
     public int numberOfPlayers = 5;
     public bool changeSpacing = false;
+    public int normalSpacing = 0;
+    public int excessSpacing = -27;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
@@ -40,13 +42,13 @@ public class MazeSidebar : MonoBehaviour
         if (GetNumberOfPlayers() == 5)
         {
             if (player5) player5.gameObject.SetActive(true);
-            if (verticalLayoutGroup && changeSpacing) verticalLayoutGroup.spacing = -27;
-            else verticalLayoutGroup.spacing = 0;
+            if (verticalLayoutGroup && changeSpacing) verticalLayoutGroup.spacing = excessSpacing;
+            else verticalLayoutGroup.spacing = normalSpacing;
         }
         else
         {
             if (player5) player5.gameObject.SetActive(false);
-            if (verticalLayoutGroup) verticalLayoutGroup.spacing = 0;
+            if (verticalLayoutGroup) verticalLayoutGroup.spacing = normalSpacing;
         }
     }
     void Update()

@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PacMan : PlayerThemeHolder<PlayerThemePacman>, IPlayable
+public class PacMan : PlayerThemeHolder<PacmanTheme>, IPlayable
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private AnimatedSprite movingSequence;
@@ -117,7 +117,7 @@ public class PacMan : PlayerThemeHolder<PlayerThemePacman>, IPlayable
         _movement.TeleportTo(newWorldPos, outDirection);
         _teleported = true;
     }
-    public void Setup(SpawnData spawnData, Maze2D mazeData)
+    public void Setup(SpawnpointData spawnData, Maze2D mazeData)
     {
         _mazeOrigin = spawnData.mazeOrigin;
         _worldOrigin = spawnData.worldOrigin;

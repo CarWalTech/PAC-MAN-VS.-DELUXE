@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class Fruit : MonoBehaviour
+public class Fruit : FruitThemeHolder
 {
     public enum FruitBehaviour
     {
@@ -12,7 +12,6 @@ public class Fruit : MonoBehaviour
 
 
     [Header("General")]
-    public FruitTheme skin = null;
     public FruitType fruitType = FruitType.Cherry;
     public FruitBehaviour fruitBehavior;
     public int initalSpawnsRequirement = 70;
@@ -30,7 +29,7 @@ public class Fruit : MonoBehaviour
     private int _lastSpawnPelletsEaten = 0;
     private bool _fruitActive = false;
 
-    public static void SetupFruit(FruitSpawn spawn, Vector3 mazeOrigin)
+    public static void SetupFruit(Spawner_Fruit spawn, Vector3 mazeOrigin)
     {
         if (!mazeFruitCache)
         {
@@ -43,14 +42,13 @@ public class Fruit : MonoBehaviour
 
     void OnValidate()
     {
-        RefreshTheme();        
+        RefreshSkin();        
     }
 
     IEnumerator Start()
     {
         yield return new WaitUntil(() => GameManager.IsReady);
-        skin = GameManager.Instance.GetSkinManager().fruitTheme;
-        RefreshTheme();
+        RefreshSkin();
         if (!worldFruitCache)
         {
             GameObject worldCache = GameManager.Instance.GetWorldViewCache();
@@ -106,8 +104,9 @@ public class Fruit : MonoBehaviour
         }
     }
 
-    public void RefreshTheme()
+    public override void RefreshSkin()
     {
+        var skin = GetSkin();
         if (!skin) return;
 
         var result = skin.GetSpriteSet(fruitType);

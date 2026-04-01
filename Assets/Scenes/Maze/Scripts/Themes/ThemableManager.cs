@@ -21,8 +21,8 @@ public class ThemableManager : ScriptableObject, IMazeTheme, IPelletTheme
         public MazeTheme mazeTheme = null;
         public PelletTheme pelletTheme = null;
         public ViewportTheme guiTheme = null;
-        public PlayerThemePacman pacmanTheme = null;
-        public PlayerThemeGhost ghostTheme = null;
+        public PacmanTheme pacmanTheme = null;
+        public GhostTheme ghostTheme = null;
         public FruitTheme fruitTheme = null;
         public PopupTheme popupTheme = null;
 
@@ -107,11 +107,14 @@ public class ThemableManager : ScriptableObject, IMazeTheme, IPelletTheme
             foreach (var hook in currentPrefab.FindComponentsOfType<ViewportThemeHolder>())
                 hook.SetSkin(themableData.guiTheme);
 
-            foreach (var hook in currentPrefab.FindComponentsOfType<PlayerThemeHolder<PlayerThemeGhost>>())
+            foreach (var hook in currentPrefab.FindComponentsOfType<PlayerThemeHolder<GhostTheme>>())
                 hook.SetSkin(themableData.ghostTheme);
 
-            foreach (var hook in currentPrefab.FindComponentsOfType<PlayerThemeHolder<PlayerThemePacman>>())
+            foreach (var hook in currentPrefab.FindComponentsOfType<PlayerThemeHolder<PacmanTheme>>())
                 hook.SetSkin(themableData.pacmanTheme);
+
+            foreach (var hook in currentPrefab.FindComponentsOfType<FruitThemeHolder>())
+                hook.SetSkin(themableData.fruitTheme);
         }
         else
         {
@@ -124,11 +127,14 @@ public class ThemableManager : ScriptableObject, IMazeTheme, IPelletTheme
             foreach (var hook in Object.FindObjectsByType<ViewportThemeHolder>(FindObjectsInactive.Include, FindObjectsSortMode.None))
                 hook.SetSkin(themableData.guiTheme);
 
-            foreach (var hook in Object.FindObjectsByType<PlayerThemeHolder<PlayerThemeGhost>>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            foreach (var hook in Object.FindObjectsByType<PlayerThemeHolder<GhostTheme>>(FindObjectsInactive.Include, FindObjectsSortMode.None))
                 hook.SetSkin(themableData.ghostTheme);
 
-            foreach (var hook in Object.FindObjectsByType<PlayerThemeHolder<PlayerThemePacman>>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            foreach (var hook in Object.FindObjectsByType<PlayerThemeHolder<PacmanTheme>>(FindObjectsInactive.Include, FindObjectsSortMode.None))
                 hook.SetSkin(themableData.pacmanTheme);
+
+            foreach (var hook in Object.FindObjectsByType<FruitThemeHolder>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                hook.SetSkin(themableData.fruitTheme);
         }
     }
     private void RefreshThemePriv()

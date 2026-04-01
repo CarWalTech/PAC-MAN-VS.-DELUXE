@@ -337,43 +337,71 @@ public static class GameConfiguration
     {
         PlayerSlot_Next_PacMan = transferTo;
     }
-    public static void Event_LoadState(ref GameManager_Match manager)
+    public static void Event_ReturnToMenu()
     {
-        manager.targetScore = TargetScore;
-        manager.clientPlayerID = PlayerSlot_Client;
-        manager.powerPelletDuration = FrightTimer;
-        manager.pacManSpeed = PacManSpeed;
-        manager.ghostSight = GhostSight;
-        manager.ghostSpeed = GhostSpeed;
-        manager.pacManBonus = PacManBonus;
-        manager.playerCount = PlayerCount;
+        GameSceneManager.LoadScene("TitleScreen");
+        CanRestore = true;
     }
-    public static void Event_LoadDevState()
+
+    public static void MatchEvent_SetupMatch()
     {
-        var manager = GameManager.Instance.GetEntityManager();
-        var pac_type = manager.GetPacManType();
+        var skin = GameManager.Instance.GetSkinManager();
+        skin.guiTheme = GuiTheme;
+        skin.mazeTheme = MazeTheme;
+        skin.RefreshSkin();
+
+        var maze = GameManager.Instance.GetMazeManager();
+        maze.level = MazeData;
+        maze.Setup(skin.mazeTheme, skin.pelletTheme);
+
+
+        var match = GameManager.Instance.GetMatchManager();
+        match.targetScore = TargetScore;
+        match.clientPlayerID = PlayerSlot_Client;
+        match.powerPelletDuration = FrightTimer;
+        match.pacManSpeed = PacManSpeed;
+        match.ghostSight = GhostSight;
+        match.ghostSpeed = GhostSpeed;
+        match.pacManBonus = PacManBonus;
+        match.playerCount = PlayerCount;
+
+        var entities = GameManager.Instance.GetEntityManager();
+        entities.pacman = (int)GetPacmanSelector();
+        entities.ghost1 = (int)GetGhostSelector(GameManager.Instance, match.playerCount >= 2 ? (int)GameManager_Entities.GhostSelector.G1 : -1);
+        entities.ghost2 = (int)GetGhostSelector(GameManager.Instance, match.playerCount >= 3 ? (int)GameManager_Entities.GhostSelector.G2 : -1);
+        entities.ghost3 = (int)GetGhostSelector(GameManager.Instance, match.playerCount >= 4 ? (int)GameManager_Entities.GhostSelector.G3 : -1);
+        entities.ghost4 = (int)GetGhostSelector(GameManager.Instance, match.playerCount >= 5 ? (int)GameManager_Entities.GhostSelector.G4 : -1);
+
+        var cameras = GameManager.Instance.GetCameraManager();
+        cameras.viewMode = GetCameraFocus();
+    }
+    public static void MatchEvent_SetupDev()
+    {
+        var skin = GameManager.Instance.GetSkinManager();
+        skin.RefreshSkin();
+
+        var maze = GameManager.Instance.GetMazeManager();
+        maze.Setup(skin.mazeTheme, skin.pelletTheme);
+
+        var entities = GameManager.Instance.GetEntityManager();
+        var pac_type = entities.GetPacManType();
 
         if (pac_type == GameManager_Entities.PlayerObjectSelector.PacManPlayer)
             CharacterP1 = PlayerCharacter.P1;
         else if (pac_type == GameManager_Entities.PlayerObjectSelector.PacManCOM)
             CharacterP1 = PlayerCharacter.COM;
         
-        if (manager.GetGhost(GameManager_Entities.GhostSelector.G1)) 
-            CharacterP2 = manager.GetGhost(GameManager_Entities.GhostSelector.G1).GetComponent<Ghost>().characterSlot;
+        if (entities.GetGhost(GameManager_Entities.GhostSelector.G1)) 
+            CharacterP2 = entities.GetGhost(GameManager_Entities.GhostSelector.G1).GetComponent<Ghost>().characterSlot;
             
-        if (manager.GetGhost(GameManager_Entities.GhostSelector.G2)) 
-            CharacterP3 = manager.GetGhost(GameManager_Entities.GhostSelector.G2).GetComponent<Ghost>().characterSlot;
+        if (entities.GetGhost(GameManager_Entities.GhostSelector.G2)) 
+            CharacterP3 = entities.GetGhost(GameManager_Entities.GhostSelector.G2).GetComponent<Ghost>().characterSlot;
 
-        if (manager.GetGhost(GameManager_Entities.GhostSelector.G3)) 
-            CharacterP4 = manager.GetGhost(GameManager_Entities.GhostSelector.G3).GetComponent<Ghost>().characterSlot;
+        if (entities.GetGhost(GameManager_Entities.GhostSelector.G3)) 
+            CharacterP4 = entities.GetGhost(GameManager_Entities.GhostSelector.G3).GetComponent<Ghost>().characterSlot;
 
-        if (manager.GetGhost(GameManager_Entities.GhostSelector.G4)) 
-            CharacterP5 = manager.GetGhost(GameManager_Entities.GhostSelector.G4).GetComponent<Ghost>().characterSlot;
-    }
-    public static void Event_ReturnToMenu()
-    {
-        GameSceneManager.LoadScene("TitleScreen");
-        CanRestore = true;
+        if (entities.GetGhost(GameManager_Entities.GhostSelector.G4)) 
+            CharacterP5 = entities.GetGhost(GameManager_Entities.GhostSelector.G4).GetComponent<Ghost>().characterSlot;
     }
 
     public static int Score_Get(PlayerSlot slot)

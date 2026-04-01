@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 
 [DefaultExecutionOrder(-10)]
-public class Ghost : PlayerThemeHolder<PlayerThemeGhost>, IPlayable
+public class Ghost : PlayerThemeHolder<GhostTheme>, IPlayable
 {
     [SerializeField] public PlayerCharacter characterSlot;
     [SerializeField] public bool isTagGhost = false;
@@ -116,7 +116,7 @@ public class Ghost : PlayerThemeHolder<PlayerThemeGhost>, IPlayable
 
     #region IPlayable Functions
 
-    public void Setup(SpawnData spawnData, Maze2D mazeData)
+    public void Setup(SpawnpointData spawnData, Maze2D mazeData)
     {
         _teleported = true;
         _mazeOrigin = spawnData.mazeOrigin;
@@ -126,7 +126,7 @@ public class Ghost : PlayerThemeHolder<PlayerThemeGhost>, IPlayable
         GameManager.Instance.CollectChaser(this);
         _movement.tilemap = mazeData.walls.GetComponent<Tilemap>();
         _movement.SetSpeed(_speed);
-        _movement.initDirection = spawnData.initalDirection;
+        _movement.initDirection = spawnData.direction;
         _initalSightRange = _sightRange;
         Anim_OnNormal();
     }

@@ -23,8 +23,8 @@ public class GameManager_Skin
 
     public ViewportTheme guiTheme = null;
     public MazeTheme mazeTheme = null;
-    public PlayerThemePacman pacmanTheme = null;
-    public PlayerThemeGhost ghostTheme = null;
+    public PacmanTheme pacmanTheme = null;
+    public GhostTheme ghostTheme = null;
     public PelletTheme pelletTheme = null;
     public FruitTheme fruitTheme = null;
     public PopupTheme popupTheme = null;

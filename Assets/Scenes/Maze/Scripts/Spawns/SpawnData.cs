@@ -10,16 +10,14 @@ using UnityEngine.Tilemaps;
 
 public class SpawnData
 {
-    public GameObject player;
+    public IEntitySpawner spawner;
     public Vector3 mazeOrigin;
     public Vector3 worldOrigin;
-    public Vector2 initalDirection;
 
-    public SpawnData(GameObject p, Vector3 a1, Vector3 a2, Vector2 a3)
+    public SpawnData(IEntitySpawner s, Vector3 a1, Vector3 a2)
     {
-        player = p;
+        spawner = s;
         mazeOrigin = a1;
         worldOrigin = a2;
-        initalDirection = a3;
     }
 }

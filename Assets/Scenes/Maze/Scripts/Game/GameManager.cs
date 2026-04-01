@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 using EditorAttributes;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,6 +10,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
+using Quaternion = UnityEngine.Quaternion;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,48 +37,66 @@ public class GameManager : MonoBehaviour
 
     #region Common
 
-    public void RefreshSkin()
-    {
-        skin.RefreshSkin();
-    }
-
-    private void LoadState()
-    {
-        if (GameConfiguration.GameEnterMode == GameConfiguration.EnterMode.Normal)
-        {
-            skin.guiTheme = GameConfiguration.GuiTheme;
-            skin.mazeTheme = GameConfiguration.MazeTheme;
-            skin.RefreshSkin();
-
-            maze.level = GameConfiguration.MazeData;
-            maze.Setup(skin.mazeTheme, skin.pelletTheme);
-
-            GameConfiguration.Event_LoadState(ref matchSettings);
-
-            entities.pacman = (int)GameConfiguration.GetPacmanSelector();
-            entities.ghost1 = (int)GameConfiguration.GetGhostSelector(this, matchSettings.playerCount >= 2 ? (int)GameManager_Entities.GhostSelector.G1 : -1);
-            entities.ghost2 = (int)GameConfiguration.GetGhostSelector(this, matchSettings.playerCount >= 3 ? (int)GameManager_Entities.GhostSelector.G2 : -1);
-            entities.ghost3 = (int)GameConfiguration.GetGhostSelector(this, matchSettings.playerCount >= 4 ? (int)GameManager_Entities.GhostSelector.G3 : -1);
-            entities.ghost4 = (int)GameConfiguration.GetGhostSelector(this, matchSettings.playerCount >= 5 ? (int)GameManager_Entities.GhostSelector.G4 : -1);
-
-            cameras.viewMode = GameConfiguration.GetCameraFocus();
-
-            
-        }
-        else if (GameConfiguration.GameEnterMode == GameConfiguration.EnterMode.Disabled)
-        {
-            skin.RefreshSkin();
-            maze.Setup(skin.mazeTheme, skin.pelletTheme);
-            GameConfiguration.Event_LoadDevState();
-        }
-    }
-
     void Start()
     {
-        LoadState();
+        if (GameConfiguration.GameEnterMode == GameConfiguration.EnterMode.Normal)
+            GameConfiguration.MatchEvent_SetupMatch();
+        else if (GameConfiguration.GameEnterMode == GameConfiguration.EnterMode.Disabled)
+            GameConfiguration.MatchEvent_SetupDev();
+
         entities.Setup();
-        SetupSpawns();
-        SetupPlayers();
+
+        foreach (Transform spawnTransform in maze.GetSpawnPoints())
+        {
+            GameObject spawnPoint = spawnTransform.gameObject;
+
+            if (!spawnPoint.GetComponent<IEntitySpawner>())
+                continue;
+            else if (CollectSpawnPoint<Spawnpoint_Pacman>("PacMan", spawnPoint, entities.GetPacMan(), maze.GetMaze2D().pacManInitalDirection))
+                continue;
+            else if (CollectSpawnPoint<Spawnpoint_Ghost1>("ChaserP1", spawnPoint, entities.GetGhost(GameManager_Entities.GhostSelector.G1), maze.GetMaze2D().ghostP1InitalDirection))
+                continue;
+            else if (CollectSpawnPoint<Spawnpoint_Ghost2>("ChaserP2", spawnPoint, entities.GetGhost(GameManager_Entities.GhostSelector.G2), maze.GetMaze2D().ghostP2InitalDirection))
+                continue;
+            else if (CollectSpawnPoint<Spawnpoint_Ghost3>("ChaserP3", spawnPoint, entities.GetGhost(GameManager_Entities.GhostSelector.G3), maze.GetMaze2D().ghostP3InitalDirection))
+                continue;
+            else if (CollectSpawnPoint<Spawnpoint_Ghost4>("ChaserP4", spawnPoint, entities.GetGhost(GameManager_Entities.GhostSelector.G4), maze.GetMaze2D().ghostP4InitalDirection))
+                continue;
+            else if (CollectSpawner<Spawner_Fruit>("FruitSpawner", spawnPoint))
+                continue;
+        }
+
+        AssignPlayerSlot<PacMan>(entities.GetPacMan(), GameConfiguration.PlayerSlot_PacMan);
+        AssignPlayerSlot<Ghost>(entities.GetGhost(GameManager_Entities.GhostSelector.G1), GameConfiguration.PlayerSlot_GhostP1);
+        AssignPlayerSlot<Ghost>(entities.GetGhost(GameManager_Entities.GhostSelector.G2), GameConfiguration.PlayerSlot_GhostP2);
+        AssignPlayerSlot<Ghost>(entities.GetGhost(GameManager_Entities.GhostSelector.G3), GameConfiguration.PlayerSlot_GhostP3);
+        AssignPlayerSlot<Ghost>(entities.GetGhost(GameManager_Entities.GhostSelector.G4), GameConfiguration.PlayerSlot_GhostP4);
+
+        foreach (KeyValuePair<string, SpawnData> pair in _spawns)
+        {
+            if (pair.Value is not SpawnpointData)
+                continue;
+
+            var data = (SpawnpointData)pair.Value;
+            var player = data.player;
+            if (player)
+            {
+                if (player.GetComponent<PacMan>())
+                {
+                    print("pacman");
+                    var pacman = player.GetComponent<PacMan>();
+                    pacman.SetSpeed(matchSettings.pacManSpeed);
+                    pacman.Setup(data, maze.GetMaze2D());
+                }
+                else if (player.GetComponent<Ghost>())
+                {
+                    var ghost = player.GetComponent<Ghost>();
+                    ghost.SetSpeed(matchSettings.ghostSpeed);
+                    ghost.SetSightRange(matchSettings.ghostSight);
+                    ghost.Setup(data, maze.GetMaze2D());
+                }
+            }
+        }
 
         cameras.UpdateViewports();
 
@@ -100,82 +123,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-    #endregion
-
-    #region Setup
-
-
-    private void SetupSpawns()
-    {
-        void CreateSpawnPoint(string key, SpawnData spawnData)
-        {
-            _spawns.Add(key, spawnData);
-            _current_players.Add(key);
-        }
-
-        foreach (Transform pelletTransform in maze.GetPellets())
-        {
-            GameObject pelletObject = pelletTransform.gameObject;
-
-            if (pelletObject.GetComponent<Pellet>())
-                pelletObject.GetComponent<Pellet>().SetSkin(skin.pelletTheme);
-
-            else if (pelletObject.GetComponent<PowerPellet>())
-                pelletObject.GetComponent<PowerPellet>().SetSkin(skin.pelletTheme);
-        }
-
-        foreach (Transform nodeTransform in maze.GetSpawnPoints())
-        {
-            GameObject nodeObject = nodeTransform.gameObject;
-
-            var worldCoords = maze.GetWorldTileCoords(nodeTransform);
-            var mazeCoords = nodeTransform.position;
-
-            if (nodeObject.GetComponent<PacSpawn>())
-                CreateSpawnPoint("PacMan", new SpawnData(entities.GetPacMan(), mazeCoords, worldCoords, maze.GetMaze2D().pacManInitalDirection));
-            else if (nodeObject.GetComponent<ChaseSpawnP1>() && entities.GetGhost(GameManager_Entities.GhostSelector.G1) != null)
-                CreateSpawnPoint("ChaserP1", new SpawnData(entities.GetGhost(GameManager_Entities.GhostSelector.G1), mazeCoords, worldCoords, maze.GetMaze2D().ghostP1InitalDirection));
-            else if (nodeObject.GetComponent<ChaseSpawnP2>() && entities.GetGhost(GameManager_Entities.GhostSelector.G2) != null)
-                CreateSpawnPoint("ChaserP2", new SpawnData(entities.GetGhost(GameManager_Entities.GhostSelector.G2), mazeCoords, worldCoords, maze.GetMaze2D().ghostP2InitalDirection));
-            else if (nodeObject.GetComponent<ChaseSpawnP3>() && entities.GetGhost(GameManager_Entities.GhostSelector.G3) != null)
-                CreateSpawnPoint("ChaserP3", new SpawnData(entities.GetGhost(GameManager_Entities.GhostSelector.G3), mazeCoords, worldCoords, maze.GetMaze2D().ghostP3InitalDirection));
-            else if (nodeObject.GetComponent<ChaseSpawnP4>() && entities.GetGhost(GameManager_Entities.GhostSelector.G4) != null)
-                CreateSpawnPoint("ChaserP4", new SpawnData(entities.GetGhost(GameManager_Entities.GhostSelector.G4), mazeCoords, worldCoords, maze.GetMaze2D().ghostP4InitalDirection));
-            else if (nodeObject.GetComponent<FruitSpawn>())
-                Fruit.SetupFruit(nodeObject.GetComponent<FruitSpawn>(), mazeCoords);
-        }
-    }
-    private void SetupPlayers()
-    {
-        if (entities.GetPacMan()) entities.GetPacMan().GetComponent<PacMan>().SetPlayerID(GameConfiguration.PlayerSlot_PacMan);
-        if (entities.GetGhost(GameManager_Entities.GhostSelector.G1)) entities.GetGhost(GameManager_Entities.GhostSelector.G1).GetComponent<Ghost>().SetPlayerID(GameConfiguration.PlayerSlot_GhostP1);
-        if (entities.GetGhost(GameManager_Entities.GhostSelector.G2)) entities.GetGhost(GameManager_Entities.GhostSelector.G2).GetComponent<Ghost>().SetPlayerID(GameConfiguration.PlayerSlot_GhostP2);
-        if (entities.GetGhost(GameManager_Entities.GhostSelector.G3)) entities.GetGhost(GameManager_Entities.GhostSelector.G3).GetComponent<Ghost>().SetPlayerID(GameConfiguration.PlayerSlot_GhostP3);
-        if (entities.GetGhost(GameManager_Entities.GhostSelector.G4)) entities.GetGhost(GameManager_Entities.GhostSelector.G4).GetComponent<Ghost>().SetPlayerID(GameConfiguration.PlayerSlot_GhostP4);
-
-        foreach (string id in _current_players)
-        {
-            var data = _spawns[id];
-            var player = data.player;
-            if (player)
-            {
-                if (player.GetComponent<PacMan>())
-                {
-                    var pacman = player.GetComponent<PacMan>();
-                    pacman.SetSpeed(matchSettings.pacManSpeed);
-                    pacman.Setup(data, maze.GetMaze2D());
-                }
-                else if (player.GetComponent<Ghost>())
-                {
-                    var ghost = player.GetComponent<Ghost>();
-                    ghost.SetSpeed(matchSettings.ghostSpeed);
-                    ghost.SetSightRange(matchSettings.ghostSight);
-                    ghost.Setup(data, maze.GetMaze2D());
-                }
-            }
-        }
-    }
 
     #endregion
 
@@ -416,27 +363,66 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Assignment
+
+    public void AssignPlayerSlot<T>(GameObject player, PlayerSlot slot) where T : IPlayable
+    {
+        if (player) player.GetComponent<T>().SetPlayerID(slot);
+    }
+
+    #endregion
+
     #region Collectors
 
+    public bool CollectSpawnPoint<T>(string key, GameObject spawnTarget, GameObject spawnEntity, Vector2 direction) where T : IEntitySpawnpoint
+    {
+        var spawnTransform = spawnTarget.transform;
+        var spawnPoint = spawnTarget.GetComponent<T>();
+        if (spawnPoint != null)
+        {
+            _spawns.Add(key, new SpawnpointData(spawnPoint, spawnEntity, spawnTransform.position, maze.GetWorldTileCoords(spawnTransform), direction));
+            _current_players.Add(key);
+            return true;
+        }
+        else return false;
+            
+    }
+    public bool CollectSpawner<T>(string key, GameObject spawnTarget) where T : IEntitySpawner
+    {
+        var spawnTransform = spawnTarget.transform;
+        var spawnPoint = spawnTarget.GetComponent<T>();
+        if (spawnPoint != null)
+        {
+            _spawns.Add(key, new SpawnData(spawnPoint, spawnTransform.position, maze.GetWorldTileCoords(spawnTransform)));
+            return true;
+        }
+        else return false;
+    }
     public void CollectCamera(IPlayable playable)
     {
         cameras.AddCamera(playable);
     }
-
     public void CollectPellet(Pellet pellet)
     {
         _pellets.Add(pellet);
         __pellets_left = _pellets.Count;
     }
-
     public void CollectChaser(Ghost ghost)
     {
         _chasers.Add(ghost);
     }
-
     public void CollectFruit(Fruit fruit)
     {
         _fruits.Add(fruit);
+    }
+
+    #endregion
+
+    #region Refresh
+
+    public void RefreshSkin()
+    {
+        skin.RefreshSkin();
     }
 
     #endregion

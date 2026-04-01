@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9006013149457059129}
   - component: {fileID: 5262015945068215160}
   - component: {fileID: 9069779635348407957}
+  - component: {fileID: 8853714141158749250}
   m_Layer: 5
   m_Name: Digit5
   m_TagString: Untagged
@@ -36,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 34, y: 40}
+  m_SizeDelta: {x: 28, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9006013149457059129
 CanvasRenderer:
@@ -59,14 +60,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 894479452, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -91,6 +92,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &8853714141158749250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060672074248188385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1063008269514100055
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5627635267687715022}
   - component: {fileID: 5357570095982945629}
+  - component: {fileID: 8267557144003247727}
   m_Layer: 5
   m_Name: Indicator
   m_TagString: Untagged
@@ -130,7 +146,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 224, y: 30}
+  m_SizeDelta: {x: 56, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5357570095982945629
 MonoBehaviour:
@@ -147,7 +163,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 40
+    m_Top: 8
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0
@@ -158,6 +174,33 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8267557144003247727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063008269514100055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6fc2e8e674498a79de582b21dcdb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImageMirror
+  mode: 2
+  positionDelta: {x: 0, y: 0}
+  sizeDelta: {x: 0, y: 0}
+  anchorMin: {x: 0, y: 0}
+  anchorMax: {x: 0, y: 0}
+  pivot: {x: 0, y: 0}
+  mirrorTarget: {fileID: 3889917851833152178}
+  mirrorUseOffset: 0
+  mirrorOffset: {x: 0, y: 0, z: 0}
+  mirrorUsePadding: 1
+  mirrorPaddingLeft: 0
+  mirrorPaddingTop: 0
+  mirrorPaddingRight: 0
+  mirrorPaddingBottom: 0
+  mirrorPadding: {x: 0, y: 1, z: 0, w: 0}
 --- !u!1 &1350028028983390360
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +213,7 @@ GameObject:
   - component: {fileID: 1373465132702273867}
   - component: {fileID: 8644391690749542701}
   - component: {fileID: 7819013226387317553}
+  - component: {fileID: 386908002581551754}
   m_Layer: 5
   m_Name: Digit3
   m_TagString: Untagged
@@ -194,7 +238,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 34, y: 40}
+  m_SizeDelta: {x: 28, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1373465132702273867
 CanvasRenderer:
@@ -217,14 +261,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -619657531, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -249,6 +293,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &386908002581551754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350028028983390360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &2508843318283341418
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7738970083891700884}
   - component: {fileID: 7447256220376995391}
+  - component: {fileID: 7675282141094413719}
   m_Layer: 5
   m_Name: TargetScorecard
   m_TagString: Untagged
@@ -275,7 +334,7 @@ RectTransform:
   m_GameObject: {fileID: 2508843318283341418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1445455492324525517}
@@ -285,7 +344,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 224, y: 120}
+  m_SizeDelta: {x: 56, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7447256220376995391
 MonoBehaviour:
@@ -299,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d87247408ce9f6e9e27aa4355e99b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  _activeSkin: {fileID: 11400000, guid: e465461f80538cfffb34ba6fa6f15360, type: 2}
   score: 15000
   digit1: {fileID: 6213940938619284618}
   digit2: {fileID: 7004496642137118537}
@@ -307,9 +367,35 @@ MonoBehaviour:
   digit5: {fileID: 5262015945068215160}
   scorePadding: 0
   scoreCentered: 0
-  skinManager: {fileID: 0}
   skinMode: 0
   background: {fileID: 3889917851833152178}
+--- !u!114 &7675282141094413719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508843318283341418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6fc2e8e674498a79de582b21dcdb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImageMirror
+  mode: 2
+  positionDelta: {x: 0, y: 0}
+  sizeDelta: {x: 0, y: 0}
+  anchorMin: {x: 0, y: 0}
+  anchorMax: {x: 0, y: 0}
+  pivot: {x: 0, y: 0}
+  mirrorTarget: {fileID: 3889917851833152178}
+  mirrorUseOffset: 0
+  mirrorOffset: {x: 0, y: 0, z: 0}
+  mirrorUsePadding: 0
+  mirrorPaddingLeft: 0
+  mirrorPaddingTop: 0
+  mirrorPaddingRight: 0
+  mirrorPaddingBottom: 0
+  mirrorPadding: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3831904357659178897
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +408,7 @@ GameObject:
   - component: {fileID: 8573900056016964253}
   - component: {fileID: 7004496642137118537}
   - component: {fileID: 5504076555227742056}
+  - component: {fileID: 7510277819011648498}
   m_Layer: 5
   m_Name: Digit2
   m_TagString: Untagged
@@ -346,7 +433,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 34, y: 40}
+  m_SizeDelta: {x: 28, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8573900056016964253
 CanvasRenderer:
@@ -369,14 +456,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -619657531, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -401,6 +488,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &7510277819011648498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3831904357659178897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &4248063258162090471
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +514,7 @@ GameObject:
   - component: {fileID: 2725082272797371991}
   - component: {fileID: 6213940938619284618}
   - component: {fileID: 7756571064427690535}
+  - component: {fileID: 8004649479903713384}
   m_Layer: 5
   m_Name: Digit1
   m_TagString: Untagged
@@ -437,7 +539,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 34, y: 40}
+  m_SizeDelta: {x: 28, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2725082272797371991
 CanvasRenderer:
@@ -460,14 +562,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -619657531, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -492,6 +594,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &8004649479903713384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4248063258162090471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &5344644076956494401
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +620,7 @@ GameObject:
   - component: {fileID: 6189466071377178438}
   - component: {fileID: 2916584289624863219}
   - component: {fileID: 3560152550713308566}
+  - component: {fileID: 7798072661522750444}
   m_Layer: 5
   m_Name: Digit4
   m_TagString: Untagged
@@ -528,7 +645,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 34, y: 40}
+  m_SizeDelta: {x: 28, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6189466071377178438
 CanvasRenderer:
@@ -551,14 +668,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -923702527, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -583,6 +700,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &7798072661522750444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344644076956494401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &8276103755342215147
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +725,7 @@ GameObject:
   - component: {fileID: 1445455492324525517}
   - component: {fileID: 98321754376256882}
   - component: {fileID: 3889917851833152178}
+  - component: {fileID: 2628133623626778912}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -648,7 +780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2aece63c3a642d5458056c62979bb752, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5d6162d291c50825b7aef64853bad19, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -658,3 +790,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2628133623626778912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8276103755342215147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd101a5c4dc0ccfb2595788dd4d4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelPerfectCanvasImage
+  useOffset: 0
+  offset: {x: 0, y: 0, z: 0}
