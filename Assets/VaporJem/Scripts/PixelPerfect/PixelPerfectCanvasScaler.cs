@@ -11,6 +11,7 @@ public class PixelPerfectCanvasScaler : MonoBehaviour
     public Canvas canvas;
     public PixelPerfectCamera pixelPerfectCamera;
     public Camera canvasCamera;
+    public GameObject container;
 
     void Awake()
     {

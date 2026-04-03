@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [ExecuteAlways]
-public class PixelPerfectCanvasTransform : MonoBehaviour
+public class PixelPerfectCanvasTransform : IPixelPerfectCanvasComponent
 {
     public enum Mode
     {
@@ -14,69 +14,66 @@ public class PixelPerfectCanvasTransform : MonoBehaviour
         Mirror,
     }
 
-    public Mode mode = Mode.Mirror;
+    public Mode mode = Mode.None;
+
+    [SerializeField] public bool modifySize = true;
+    [SerializeField] public bool modifyPosition = true;
+    [SerializeField] public bool modifyAnchors = true;
+    [SerializeField] public bool modifyPivot = true;
+
+    [SerializeField, ShowField(nameof(mode), Mode.Mirror), FormerlySerializedAs("sourceImage")] public Image mirrorTarget;
 
 
-    //Manual Mode
+    [SerializeField, VerticalGroup("", false, nameof(positionDelta), nameof(sizeDelta))] private Void geometryGroup;
     [SerializeField, Rename("Position")] public Vector2 positionDelta;
     [SerializeField, Rename("Size"), FormerlySerializedAs("pixelSize")] public Vector2 sizeDelta;
-
-    [Space(10f)]
-    [SerializeField, FoldoutGroup("Anchors", false, nameof(anchorMin), nameof(anchorMax))] private Void groupHolder1;
+    [SerializeField, VerticalGroup("Anchors", false, nameof(anchorMin), nameof(anchorMax))] private Void anchorsGroup;
     [SerializeField, HideProperty, Rename("Min")] public Vector2 anchorMin;
     [SerializeField, HideProperty, Rename("Max")] public Vector2 anchorMax;
     [SerializeField] public Vector2 pivot;
 
-    //Mirror Mode
-    [SerializeField, ShowField(nameof(mode), Mode.Mirror), FormerlySerializedAs("sourceImage")] public Image mirrorTarget;
-
-
-
-    private RectTransform __rectTransform = null;
-    private PixelPerfectCanvasManager __manager = null;
-    private LayoutGroup __layoutGroup = null;
-
-    void Awake()
-    {
-
-    }
-    void Start()
-    {
-
-    }
-
-    bool IsValid()
-    {
-        bool Check()
-        {
-            if (!__manager) return false;
-            else if (!__rectTransform) return false;
-            else return true;
-        }
-        bool valid = Check();
-
-        if (!valid)
-        {
-            if (!__rectTransform) __rectTransform = GetComponent<RectTransform>();
-            if (!__manager) __manager = FindObjectsByType<PixelPerfectCanvasManager>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault();
-            return Check();
-        }
-        else return valid;
-
-    }
     
+    private RectTransform __rt = null;
+
+    void OnValidate()
+    {
+        ValidatePixelPerfect();
+    }
 
     void Update()
     {
-        if (!IsValid()) return;
+        UpdatePixelPerfect();
+    }
+
+    RectTransform GetRectTransform()
+    {
+        if (__rt != null) return __rt;
+        __rt = GetComponent<RectTransform>();
+        return __rt;
+    }
     
-        float rPPU = __manager.GetActualPPUScale();
+    public override void UpdatePixelPerfect()
+    {
+        base.UpdatePixelPerfect();
+        if (!PixelPerfectCanvasSettings.CanUpdate(this)) return;
+
+        var manager = PixelPerfectCanvasSettings.GetCanvasManager();
+        if (!manager) return;
+
+        var transform = GetRectTransform();
+        if (!transform) return;
+
+    
+        float rPPU = manager.GetActualPPUScale();
 
         float worldPosX = positionDelta.x / rPPU;
         float worldPosY = positionDelta.y / rPPU;
 
         float worldWidth;
         float worldHeight;
+
+        Vector2 worldPosition;
+        Vector2 worldSize;
 
         if (mode == Mode.Mirror)
         {
@@ -93,11 +90,16 @@ public class PixelPerfectCanvasTransform : MonoBehaviour
             worldHeight = sizeDelta.y / rPPU;
         }
 
-        __rectTransform.pivot = pivot;
-        __rectTransform.anchorMin = anchorMin;
-        __rectTransform.anchorMax = anchorMax;
+        if (modifyPivot) transform.pivot = pivot;
+        if (modifyAnchors) transform.anchorMin = anchorMin;
+        if (modifyAnchors) transform.anchorMax = anchorMax;
 
-        __rectTransform.SetFreeformSizeAndPosition(new Vector2(worldPosX * rPPU, worldPosY * rPPU), new Vector2(worldWidth * rPPU, worldHeight * rPPU));
+        worldPosition = new Vector2(worldPosX * rPPU, worldPosY * rPPU);
+        worldSize = new Vector2(worldWidth * rPPU, worldHeight * rPPU);
+
+        if (modifyPosition && modifySize) transform.SetFreeformSizeAndPosition(worldPosition, worldSize);
+        else if (modifySize) transform.SetSize(worldSize);
+        else if (modifyPosition) transform.SetFreeformSizeAndPosition(worldPosition, transform.sizeDelta);
 
     }
 }
