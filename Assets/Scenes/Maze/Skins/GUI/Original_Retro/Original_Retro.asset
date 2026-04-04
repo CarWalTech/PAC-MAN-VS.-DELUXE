@@ -15,9 +15,9 @@ MonoBehaviour:
   themeName: Original (Classic)
   themeUUID: GuiSkin_1B
   sb_Frame: {fileID: 21300000, guid: 805fe35f078c8a5698adde592f78df11, type: 3}
+  sb_ViewportPanel: {fileID: 21300000, guid: 732d6f76ecb53b9c69650c8eae9b58de, type: 3}
   sb_ViewportFrame: {fileID: 21300000, guid: 045be79fd454ed7e3b3705b495c1792e, type: 3}
   sb_ViewportMask: {fileID: 21300000, guid: d53e55cfd956f5274ab487d36eb18655, type: 3}
-  sb_ViewportPanel: {fileID: 21300000, guid: 732d6f76ecb53b9c69650c8eae9b58de, type: 3}
   ms_Container: {fileID: 21300000, guid: cd34482a7c5dc2dadade394eca3baf49, type: 3}
   ms_ContainerHue: {fileID: 21300000, guid: c457e51c00e01846592b3cbe275cfc01, type: 3}
   ms_ContainerShadow: {fileID: 21300000, guid: 84c31bbff54bdee669663bb0d1bcc5b5, type: 3}
@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: -361904710, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
   - {fileID: 741325782, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
   - {fileID: 1147551344, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
+  mts_symbolColor: {r: 0, g: 0, b: 0, a: 1}
   gvm_ViewportContainer: {fileID: 21300000, guid: c0841f964a6da06bab352d9aad99a740, type: 3}
   gvm_ViewportFrame: {fileID: 21300000, guid: 77709f11113858a65a486d703dabc925, type: 3}
   gvm_ViewportMask: {fileID: 21300000, guid: 2405ae4c6bca3acbcba29008cba37ecb, type: 3}
@@ -69,6 +70,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fc20c5e835949421eb12fae31df5df29, type: 3}
   - {fileID: 21300000, guid: 65906e95c2284df50b8152d7a6a4c2e4, type: 3}
   gvm_COMHeader: {fileID: 21300000, guid: 7b7eb262dc9ac3b4882c814001a2b25f, type: 3}
+  gv_ViewportContainer: {fileID: 21300000, guid: 1dbc87f8bef1d1cb8bebb792aee36431, type: 3}
   gv_ViewportFrame: {fileID: 21300000, guid: 650df13e4e124bc6691b7127d48e490d, type: 3}
   gv_ViewportMask: {fileID: 21300000, guid: 8f51ee4d7505f2705822c9e8b2994630, type: 3}
   gv_PlayerNumbers:
@@ -92,6 +94,7 @@ MonoBehaviour:
   - {fileID: -361904710, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
   - {fileID: 741325782, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
   - {fileID: 1147551344, guid: 570eeccb94e5e34eeae5d88fd5b7f8bd, type: 3}
+  gts_symbolColor: {r: 0, g: 0, b: 0, a: 1}
   gs_Container: {fileID: 21300000, guid: 0a63a00253cb7f0fe86b4278da4f4ae1, type: 3}
   gs_PlayerHeader: {fileID: 21300000, guid: c18eb382c64a33c0d91aa35e72114b37, type: 3}
   gs_COMHeader: {fileID: 21300000, guid: 7b7eb262dc9ac3b4882c814001a2b25f, type: 3}

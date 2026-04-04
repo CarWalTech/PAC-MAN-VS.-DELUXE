@@ -24,13 +24,13 @@ public class PixelPerfectCanvasTransform : IPixelPerfectCanvasComponent
     [SerializeField, ShowField(nameof(mode), Mode.Mirror), FormerlySerializedAs("sourceImage")] public Image mirrorTarget;
 
 
-    [SerializeField, VerticalGroup("", false, nameof(positionDelta), nameof(sizeDelta))] private Void geometryGroup;
-    [SerializeField, Rename("Position")] public Vector2 positionDelta;
-    [SerializeField, Rename("Size"), FormerlySerializedAs("pixelSize")] public Vector2 sizeDelta;
+    [SerializeField, VerticalGroup("Geometry", false, nameof(positionDelta), nameof(sizeDelta), nameof(pivot))] private Void geometryGroup;
+    [SerializeField, HideProperty, Rename("Position")] public Vector2 positionDelta;
+    [SerializeField, HideProperty, Rename("Size"), FormerlySerializedAs("pixelSize")] public Vector2 sizeDelta;
+    [SerializeField, HideProperty] public Vector2 pivot;
     [SerializeField, VerticalGroup("Anchors", false, nameof(anchorMin), nameof(anchorMax))] private Void anchorsGroup;
     [SerializeField, HideProperty, Rename("Min")] public Vector2 anchorMin;
     [SerializeField, HideProperty, Rename("Max")] public Vector2 anchorMax;
-    [SerializeField] public Vector2 pivot;
 
     
     private RectTransform __rt = null;

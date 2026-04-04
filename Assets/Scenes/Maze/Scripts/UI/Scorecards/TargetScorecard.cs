@@ -38,11 +38,11 @@ public class TargetScorecard : ScorecardCommons
             switch (skinMode)
             {
                 case SkinMode.Maze:
-                    UpdateSkinBase(skin.mts_Numbers);
+                    UpdateSkinBase(skin.mts_Numbers, skin.mts_symbolColor, skin.mts_symbolShadow);
                     background.sprite = skin.mts_Background;
                     break;
                 case SkinMode.Ghost:
-                    UpdateSkinBase(skin.gts_Numbers);
+                    UpdateSkinBase(skin.gts_Numbers, skin.gts_symbolColor, skin.gts_symbolShadow);
                     background.sprite = skin.gts_Background;
                     break;
             }

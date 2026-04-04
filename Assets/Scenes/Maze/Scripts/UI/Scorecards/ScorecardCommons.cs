@@ -43,6 +43,10 @@ public class ScorecardCommons : ViewportThemeHolder
     }
     public void UpdateSkinBase(Sprite[] chars)
     {
+        UpdateSkinBase(chars, Color.white, true);
+    }
+    public void UpdateSkinBase(Sprite[] chars, Color color, bool shadow)
+    {
         __number_0 = chars[0];
         __number_1 = chars[1];
         __number_2 = chars[2];
@@ -55,6 +59,18 @@ public class ScorecardCommons : ViewportThemeHolder
         __number_9 = chars[9];
         __number_null = chars[10];
         __number_space = chars[11];
+
+        digit1.color = color;
+        digit2.color = color;
+        digit3.color = color;
+        digit4.color = color;
+        digit5.color = color;
+
+        if (digit1.GetComponent<Shadow>()) digit1.GetComponent<Shadow>().enabled = shadow;
+        if (digit1.GetComponent<Shadow>()) digit2.GetComponent<Shadow>().enabled = shadow;
+        if (digit1.GetComponent<Shadow>()) digit3.GetComponent<Shadow>().enabled = shadow;
+        if (digit1.GetComponent<Shadow>()) digit4.GetComponent<Shadow>().enabled = shadow;
+        if (digit1.GetComponent<Shadow>()) digit5.GetComponent<Shadow>().enabled = shadow;
     }
     private void UpdateScorePriv(int score)
     {

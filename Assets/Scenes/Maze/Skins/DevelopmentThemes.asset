@@ -15,7 +15,7 @@ MonoBehaviour:
   themableData:
     mazeTheme: {fileID: 11400000, guid: 0ca383c674e77b9b8a962a737937fbb5, type: 2}
     pelletTheme: {fileID: 11400000, guid: 9de6c40810b7da6e9a62ca6a8d6d73d5, type: 2}
-    guiTheme: {fileID: 11400000, guid: 6130e40bf71da0381b651c8a815495b3, type: 2}
+    guiTheme: {fileID: 11400000, guid: 7aa95aa0ddf367a44945a8cfd7f9c292, type: 2}
     pacmanTheme: {fileID: 11400000, guid: 3fc2a3c72917b679c886d95101f47a0b, type: 2}
     ghostTheme: {fileID: 11400000, guid: 63c0f53c035dc2d52ba19af8e500b650, type: 2}
     fruitTheme: {fileID: 11400000, guid: 3be75e40a7388ed0f85a00bf0ad2003b, type: 2}

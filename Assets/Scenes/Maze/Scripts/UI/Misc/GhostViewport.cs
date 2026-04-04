@@ -61,7 +61,7 @@ public class GhostViewport : ViewportThemeHolder
         if (cardColor != currentColor || force)
         {
             if (background != null) background.color = cardColor;
-            if (cover != null) cover.color = skinMode == SkinMode.Ghost ? cardColor : Color.black;
+            if (cover != null) cover.color = skinMode == SkinMode.Ghost || skinMode == SkinMode.Maze ? cardColor : Color.black;
             if (label != null) label.color = cardColor;
         }
     }
@@ -107,7 +107,7 @@ public class GhostViewport : ViewportThemeHolder
                 case SkinMode.Ghost:
                     __player_header_sprites = skin.gv_PlayerNumbers;
                     __com_header_sprite = skin.gv_COMHeader;
-                    if (background != null) background.sprite = skin.gv_ViewportFrame;
+                    if (background != null) background.sprite = skin.gv_ViewportContainer;
                     if (cover != null) cover.sprite = skin.gv_ViewportFrame;
                     if (mask != null) mask.sprite = skin.gv_ViewportMask;
                     break;
